@@ -1,0 +1,17 @@
+.app-bar-logo {
+  margin-right: 4px;
+}
+
+.app-bar-title {
+  flex-grow: 1;
+}
+
+.app-bar-buttons {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  .app-bar-buttons {
+    display: none;
+  }
+}
