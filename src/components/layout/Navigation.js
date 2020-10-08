@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Box, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { Menu as MenuIcon, MonetizationOnTwoTone as AppIcon } from '@material-ui/icons';
-import '../../styles/navigation.css';
+import './styles/navigation.css';
 
 const Navigation = () => {
   return (

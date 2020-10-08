@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { MonetizationOnTwoTone as AppIcon } from '@material-ui/icons';
-import '../../../styles/hero.css';
+import './styles/hero.css';
 
 const Hero = () => {
   return (
