@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
 
 const Register = () => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <DialogTitle>Register</DialogTitle>
+      <DialogTitle>{t('home.dialog.register')}</DialogTitle>
       <DialogContent></DialogContent>
       <DialogActions></DialogActions>
     </>

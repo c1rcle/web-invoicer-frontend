@@ -1,0 +1,41 @@
+{
+  "languages": [
+    { "code": "en", "label": "Angielski" },
+    { "code": "pl", "label": "Polski" }
+  ],
+  "sign-in": "Zaloguj się",
+  "sign-up": "Załóż konto",
+  "drawer": {
+    "language": "Język",
+    "theme": "Motyw"
+  },
+  "home": {
+    "dialog": {
+      "login": "Logowanie",
+      "register": "Rejestracja"
+    },
+    "hero": {
+      "title": "Witamy w Web Invoicer",
+      "description": "Fakturowanie stało się proste. Wystawiaj swoje faktury gdziekolwiek i kiedykolwiek chcesz!"
+    },
+    "features": [
+      {
+        "header": "Rozbudowane funkcjonalności",
+        "description": "Wystawiaj faktury VAT, proforma, korygujące oraz inne rodzaje dokumentów. Zarządzaj listą pracowników, kontrahentów i dostępnych produktów."
+      },
+      {
+        "header": "W pełni darmowa",
+        "description": "Aplikacja zawsze będzie w pełni darmowa oraz udostępniona na licencji wolnego oprogramowania. Żadna z funkcjonalności nie jest ograniczona."
+      },
+      {
+        "header": "Integracja z CEIDG",
+        "description": "Nasze rozwiązanie pozwala na integrację z bazą danych CEIDG, w celu szybkiego i łatwego importowania danych kontrahenta."
+      },
+      {
+        "header": "Wizualizacja danych",
+        "description": "Oferujemy kompleksowy moduł wizualizacji danych, który pozwala zobrazować nasz biznes za pomocą wykresów i różnego rodzaju zestawień."
+      }
+    ],
+    "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  }
+}

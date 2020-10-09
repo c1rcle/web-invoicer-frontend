@@ -15,3 +15,11 @@
     display: none;
   }
 }
+
+.drawer-sign-up-button-light {
+  color: #fff;
+}
+
+.drawer-sign-up-button-dark {
+  color: rgba(0, 0, 0, 0.87);
+}

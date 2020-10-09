@@ -1,8 +1,8 @@
-const { createSlice } = require('@reduxjs/toolkit');
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  theme: 'dark',
-  language: 'en',
+  theme: localStorage.getItem('theme') || 'dark',
+  drawerType: 'home',
   dialog: {
     type: 'login',
     open: false
@@ -15,9 +15,10 @@ const appSlice = createSlice({
   reducers: {
     setTheme(state, action) {
       state.theme = action.payload;
+      localStorage.setItem('theme', action.payload);
     },
-    setLanguage(state, action) {
-      state.language = action.payload;
+    setDrawerType(state, action) {
+      state.drawerType = action.payload;
     },
     openDialog(state, action) {
       state.dialog.type = action.payload;
@@ -29,6 +30,6 @@ const appSlice = createSlice({
   }
 });
 
-export const { setTheme, setLanguage, openDialog, closeDialog } = appSlice.actions;
+export const { setTheme, setDrawerType, openDialog, closeDialog } = appSlice.actions;
 
 export default appSlice.reducer;

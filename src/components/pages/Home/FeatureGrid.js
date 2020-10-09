@@ -1,17 +1,23 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Grid, Icon, Typography } from '@material-ui/core';
-import features from './features';
 import './styles/feature.css';
 
 const FeatureGrid = () => {
+  const { t } = useTranslation();
+
+  const features = t('home.features', { returnObjects: true });
+
   return (
     <Grid container justify='center' spacing={3}>
       {features.map((feature, index) => (
-        <Grid item xs={12} sm={6} key={index}>
+        <Grid key={index} item xs={12} sm={6}>
           <Card className='feature-card'>
             <CardContent>
               <div className='text-center'>
-                <Icon className='feature-icon'>{feature.icon}</Icon>
+                <Icon className='feature-icon' color='primary'>
+                  {t(`home.features.${index}.icon`)}
+                </Icon>
               </div>
               <Typography gutterBottom variant='h5' className='text-center'>
                 {feature.header}

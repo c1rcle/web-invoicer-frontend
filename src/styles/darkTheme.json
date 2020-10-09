@@ -1,0 +1,48 @@
+{
+  "palette": {
+    "type": "dark",
+    "primary": {
+      "light": "rgba(195, 253, 255, 1)",
+      "main": "rgba(144, 202, 249, 1)",
+      "dark": "rgba(93, 153, 198, 1)",
+      "contrastText": "rgba(0, 0, 0, 0.87)"
+    },
+    "secondary": {
+      "light": "rgba(255, 193, 227, 1)",
+      "main": "rgba(244, 143, 177, 1)",
+      "dark": "rgba(191, 95, 130, 1)",
+      "contrastText": "rgba(0, 0, 0, 0.87)"
+    },
+    "error": {
+      "light": "rgba(229, 115, 115, 1)",
+      "main": "rgba(244, 67, 54, 1)",
+      "dark": "rgba(211, 47, 47, 1)",
+      "contrastText": "#fff"
+    },
+    "warning": {
+      "light": "#ffb74d",
+      "main": "#ff9800",
+      "dark": "#f57c00",
+      "contrastText": "rgba(0, 0, 0, 0.87)"
+    },
+    "info": {
+      "light": "#64b5f6",
+      "main": "#2196f3",
+      "dark": "#1976d2",
+      "contrastText": "#fff"
+    },
+    "success": {
+      "light": "#81c784",
+      "main": "#4caf50",
+      "dark": "#388e3c",
+      "contrastText": "rgba(0, 0, 0, 0.87)"
+    },
+    "text": {
+      "primary": "#fff",
+      "secondary": "rgba(255, 255, 255, 0.7)",
+      "disabled": "rgba(255, 255, 255, 0.5)",
+      "hint": "rgba(255, 255, 255, 0.5)",
+      "icon": "rgba(255, 255, 255, 0.5)"
+    }
+  }
+}
