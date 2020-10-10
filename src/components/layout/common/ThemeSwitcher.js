@@ -13,7 +13,9 @@ const ThemeSwitcher = () => {
   const theme = useSelector(state => state.app.theme);
 
   const changeTheme = () => {
-    dispatch(setTheme(theme === 'dark' ? 'light' : 'dark'));
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    dispatch(setTheme(newTheme));
   };
 
   return (

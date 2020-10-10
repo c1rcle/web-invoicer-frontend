@@ -15,7 +15,6 @@ const appSlice = createSlice({
   reducers: {
     setTheme(state, action) {
       state.theme = action.payload;
-      localStorage.setItem('theme', action.payload);
     },
     setDrawerType(state, action) {
       state.drawerType = action.payload;
