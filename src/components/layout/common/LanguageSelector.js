@@ -28,11 +28,11 @@ const LanguageSelector = () => {
         </ListItemIcon>
         <ListItemText primary={t('drawer.language')} />
       </ListItem>
-      <Menu keepMounted anchorEl={anchor} open={anchor} onClose={() => setAnchor(null)}>
+      <Menu keepMounted anchorEl={anchor} open={Boolean(anchor)} onClose={() => setAnchor(null)}>
         {languages.map((language, index) => (
           <MenuItem
             key={index}
-            selected={i18n.language === language.code}
+            selected={i18n.language.startsWith(language.code)}
             onClick={() => handleLanguageChange(index)}>
             {language.label}
           </MenuItem>

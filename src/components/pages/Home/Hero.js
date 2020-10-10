@@ -2,17 +2,19 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
 import { MonetizationOnTwoTone as AppIcon } from '@material-ui/icons';
-import './styles/hero.css';
+import useStyles from './styles';
 
 const Hero = () => {
   const { t } = useTranslation();
 
+  const classes = useStyles();
+
   return (
-    <div className='hero-container'>
-      <div className='hero-item'>
-        <AppIcon className='hero-icon' color='primary' />
+    <div className={classes.heroContainer}>
+      <div className={classes.heroItem}>
+        <AppIcon className={classes.heroIcon} color='primary' />
       </div>
-      <div className='hero-item'>
+      <div className={classes.heroItem}>
         <Typography variant='h4' gutterBottom>
           {t('home.hero.title')}
         </Typography>

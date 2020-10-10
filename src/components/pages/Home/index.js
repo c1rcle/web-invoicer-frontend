@@ -1,5 +1,5 @@
-import { Box, Divider } from '@material-ui/core';
 import React from 'react';
+import { Box, Divider } from '@material-ui/core';
 import FeatureGrid from './FeatureGrid';
 import Footer from './Footer';
 import Hero from './Hero';

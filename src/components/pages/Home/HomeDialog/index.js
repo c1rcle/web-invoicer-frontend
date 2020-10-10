@@ -16,7 +16,7 @@ const HomeDialog = () => {
 
   return (
     <Dialog open={dialog.open} onClose={handleClose}>
-      {dialog.type === 'login' ? <Login /> : <Register />}
+      {dialog.type === 'login' ? <Login onClose={handleClose} /> : <Register />}
     </Dialog>
   );
 };

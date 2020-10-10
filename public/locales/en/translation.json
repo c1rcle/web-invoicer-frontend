@@ -12,8 +12,10 @@
   },
   "home": {
     "dialog": {
-      "login": "Login",
-      "register": "Register"
+      "login": "Sign in to your account",
+      "register": "Create a new account",
+      "email": "Email address",
+      "password": "Password"
     },
     "hero": {
       "title": "Welcome to Web Invoicer",
