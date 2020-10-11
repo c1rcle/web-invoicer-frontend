@@ -11,10 +11,12 @@
   },
   "home": {
     "dialog": {
-      "login": "Zaloguj się do swojego konta",
-      "register": "Stwórz nowe konto",
+      "login": "Logowanie",
+      "register": "Rejestracja",
+      "name": "Imię i nazwisko",
       "email": "Adres email",
-      "password": "Hasło"
+      "password": "Hasło",
+      "terms": "Rejestracja oznacza akceptację zasad i warunków użytkowania"
     },
     "hero": {
       "title": "Witamy w Web Invoicer",

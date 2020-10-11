@@ -4,12 +4,12 @@ import { IconButton, Typography } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 import useStyles from './styles';
 
-const DialogTitle = ({ text, onClose }) => {
+const DialogHeader = ({ title, onClose }) => {
   const classes = useStyles();
 
   return (
     <MuiDialogTitle disableTypography className={classes.dialogTitle}>
-      <Typography variant='h6'>{text}</Typography>
+      <Typography variant='h6'>{title}</Typography>
       {onClose && (
         <IconButton className={classes.dialogCloseButton} onClick={onClose}>
           <Close />
@@ -19,4 +19,4 @@ const DialogTitle = ({ text, onClose }) => {
   );
 };
 
-export default DialogTitle;
+export default DialogHeader;
