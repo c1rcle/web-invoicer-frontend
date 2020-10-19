@@ -6,6 +6,6 @@ export default async (restCall, errorPayload) => {
     response = null;
   }
 
-  const isResponseOk = response && response.status >= 200 && response.status < 300;
-  return isResponseOk ? response : { type: 'ERROR', payload: errorPayload };
+  const success = response && response.status >= 200 && response.status < 300;
+  return success ? response : { type: 'ERROR', data: errorPayload };
 };
