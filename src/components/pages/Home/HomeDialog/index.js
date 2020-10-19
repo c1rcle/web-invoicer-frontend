@@ -1,31 +1,24 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Dialog } from '@material-ui/core';
-import { closeDialog } from '../../../../slices/appSlice';
 import DialogHeader from './DialogHeader';
 import Login from './Login';
 import Register from './Register';
+import useHomeDialog from '../../../../hooks/useHomeDialog';
 
 const HomeDialog = () => {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
-
-  const dialog = useSelector(state => state.app.dialog);
-
-  const handleClose = () => {
-    dispatch(closeDialog());
-  };
+  const dialog = useHomeDialog();
 
   const dialogTitle = () => {
-    return t(`home.dialog.${dialog.type}`);
+    return t(`home.dialog.${dialog.state.type}`);
   };
 
   return (
-    <Dialog open={dialog.open} onClose={handleClose} maxWidth='xs'>
-      <DialogHeader onClose={handleClose} title={dialogTitle()} />
-      {dialog.type === 'login' ? <Login /> : <Register />}
+    <Dialog open={dialog.state.open} onClose={dialog.close} maxWidth='xs'>
+      <DialogHeader onClose={dialog.close} title={dialogTitle()} />
+      {dialog.state.type === 'login' ? <Login /> : <Register />}
     </Dialog>
   );
 };

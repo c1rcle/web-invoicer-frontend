@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { AppBar, Button, Hidden, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { Menu as MenuIcon, MonetizationOnTwoTone as AppIcon } from '@material-ui/icons';
-import { openDialog } from '../../slices/appSlice';
 import Drawer from './AppDrawer';
+import useHomeDialog from '../../hooks/useHomeDialog';
 import useStyles from './styles';
 
 const Navigation = () => {
@@ -12,13 +11,9 @@ const Navigation = () => {
 
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
-
   const classes = useStyles();
 
-  const onClick = type => {
-    dispatch(openDialog(type));
-  };
+  const dialog = useHomeDialog();
 
   return (
     <>
@@ -39,11 +34,11 @@ const Navigation = () => {
           <Hidden xsDown>
             <Button
               color='inherit'
-              onClick={() => onClick('login')}
+              onClick={() => dialog.open('login')}
               className={classes.appBarSpacer}>
               {t('sign-in')}
             </Button>
-            <Button variant='outlined' color='inherit' onClick={() => onClick('register')}>
+            <Button variant='outlined' color='inherit' onClick={() => dialog.open('register')}>
               {t('sign-up')}
             </Button>
           </Hidden>
