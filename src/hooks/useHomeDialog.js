@@ -7,6 +7,8 @@ const useHomeDialog = () => {
 
   const state = useSelector(state => state.app.dialog);
 
+  const actionPending = useSelector(state => state.user.actionPending);
+
   const history = useHistory();
 
   const open = type => {
@@ -15,8 +17,10 @@ const useHomeDialog = () => {
   };
 
   const close = () => {
-    history.replace('/');
-    dispatch(closeDialog());
+    if (!actionPending) {
+      history.replace('/');
+      dispatch(closeDialog());
+    }
   };
 
   return { open, close, state };

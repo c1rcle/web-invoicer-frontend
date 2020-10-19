@@ -75,7 +75,9 @@ const handleAction = async ({ endpoint, payload, errorData }, dispatch) => {
   const response = await apiHandler(webInvoicerApi().post(endpoint, payload), errorData);
   dispatch(setActionPending(false));
 
+  console.log(response);
   if (response.type === 'ERROR') {
+    console.log(response.data);
     dispatch(setError(response.data));
     throw new Error(response.data);
   }

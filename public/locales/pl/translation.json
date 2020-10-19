@@ -16,7 +16,20 @@
       "name": "Imię i nazwisko",
       "email": "Adres email",
       "password": "Hasło",
-      "terms": "Rejestracja oznacza akceptację zasad i warunków użytkowania"
+      "terms": "Rejestracja oznacza akceptację zasad i warunków użytkowania",
+      "validation": {
+        "required": "To pole jest wymagane",
+        "email": "Wymagany jest prawidłowy adres email",
+        "password": "Hasło musi zawierać 1 wielką i małą literę, 1 cyfrę i znak specjalny oraz mieć przynajmniej 6 znaków"
+      },
+      "error": {
+        "LOGIN": "Nieprawidłowy adres email lub hasło",
+        "REGISTRATION": "Konto nie mogło zostać stworzone, proszę spróbować później",
+        "CONFIRMATION": "Adres email nie mógł zostać potwierdzony (link potwierdzający mógł wygasnąć)",
+        "PASSWORD_RESET": "Hasło dla podanego konta nie mogło zostać zresetowane",
+        "CHANGE_RESET_PASSWORD": "Hasło nie mogło zostać zmienione (link resetujący mógł wygasnąć)",
+        "CHANGE_PASSWORD": "Hasło nie mogło zostać zmienione, sprawdź dane logowania i spróbuj ponownie"
+      }
     },
     "hero": {
       "title": "Witamy w Web Invoicer",

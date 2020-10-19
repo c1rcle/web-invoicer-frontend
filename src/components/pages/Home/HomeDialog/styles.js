@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
     right: theme.spacing(1),
     color: theme.palette.text.secondary
   },
+  dialogAlert: {
+    margin: theme.spacing(3, 3, 0)
+  },
   dialogConditions: {
     marginTop: theme.spacing(3),
     textAlign: 'center'

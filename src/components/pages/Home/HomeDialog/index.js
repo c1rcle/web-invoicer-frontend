@@ -2,8 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog } from '@material-ui/core';
 import DialogHeader from './DialogHeader';
-import Login from './Login';
-import Register from './Register';
+import DialogAlert from './DialogAlert';
+import Login from './DialogContent/Login';
+import Register from './DialogContent/Register';
 import useHomeDialog from '../../../../hooks/useHomeDialog';
 
 const HomeDialog = () => {
@@ -18,6 +19,7 @@ const HomeDialog = () => {
   return (
     <Dialog open={dialog.state.open} onClose={dialog.close} maxWidth='xs'>
       <DialogHeader onClose={dialog.close} title={dialogTitle()} />
+      <DialogAlert />
       {dialog.state.type === 'login' ? <Login /> : <Register />}
     </Dialog>
   );

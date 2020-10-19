@@ -17,7 +17,20 @@
       "name": "Full name",
       "email": "Email address",
       "password": "Password",
-      "terms": "By signing up you agree to the terms and conditions"
+      "terms": "By signing up you agree to the terms and conditions",
+      "validation": {
+        "required": "This field is required",
+        "email": "Must be a valid email address",
+        "password": "Password must contain at least 1 upper and lower case letter, 1 numeric and special character and be no less than 6 characters long"
+      },
+      "error": {
+        "LOGIN": "Incorrect email or password",
+        "REGISTRATION": "Could not create an account, please try again later",
+        "CONFIRMATION": "Could not confirm the email address (link may have expired)",
+        "PASSWORD_RESET": "Could not reset the password for the specified account",
+        "CHANGE_RESET_PASSWORD": "Could not change the password (link may have expired)",
+        "CHANGE_PASSWORD": "Could not change the password, check the credentials and try again"
+      }
     },
     "hero": {
       "title": "Welcome to Web Invoicer",
