@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { DialogActions, DialogContent } from '@material-ui/core';
-import { ValidatorForm } from 'react-material-ui-form-validator';
+import FormContent from './FormContent';
 import Email from './common/Email';
 import Password from './common/Password';
-import SubmitButton from './common/SubmitButton';
 import { login } from '../../../../../slices/userSlice';
-import useStyles from '../styles';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -19,8 +16,6 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  const classes = useStyles();
-
   const onTextChanged = name => ({ target }) => {
     setFormData(formData => ({ ...formData, [name]: target.value }));
   };
@@ -31,15 +26,10 @@ const Login = () => {
   };
 
   return (
-    <ValidatorForm onSubmit={onSubmit} noValidate>
-      <DialogContent>
-        <Email autoFocus onChange={onTextChanged('email')} value={formData.email} />
-        <Password onChange={onTextChanged('password')} value={formData.password} />
-      </DialogContent>
-      <DialogActions className={classes.dialogActions}>
-        <SubmitButton text={t('sign-in')} />
-      </DialogActions>
-    </ValidatorForm>
+    <FormContent onSubmit={onSubmit} submitText={t('sign-in')}>
+      <Email autoFocus onChange={onTextChanged('email')} value={formData.email} />
+      <Password onChange={onTextChanged('password')} value={formData.password} />
+    </FormContent>
   );
 };
 

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { DialogActions, DialogContent, Typography } from '@material-ui/core';
-import { ValidatorForm } from 'react-material-ui-form-validator';
+import { Typography } from '@material-ui/core';
 import DialogTextField from './common/DialogTextField';
+import FormContent from './FormContent';
 import Email from './common/Email';
 import Password from './common/Password';
-import SubmitButton from './common/SubmitButton';
 import { register } from '../../../../../slices/userSlice';
 import useStyles from '../styles';
 
@@ -33,27 +32,22 @@ const Register = () => {
   };
 
   return (
-    <ValidatorForm onSubmit={onSubmit} noValidate>
-      <DialogContent>
-        <DialogTextField
-          autoFocus
-          label={t('home.dialog.name')}
-          type='text'
-          value={formData.fullName}
-          validators={['required']}
-          errorMessages={[t('home.dialog.validation.required')]}
-          onChange={onTextChanged('fullName')}
-        />
-        <Email onChange={onTextChanged('email')} value={formData.email} />
-        <Password onChange={onTextChanged('password')} value={formData.password} />
-        <Typography variant='body2' color='textSecondary' className={classes.dialogConditions}>
-          {t('home.dialog.terms')}
-        </Typography>
-      </DialogContent>
-      <DialogActions className={classes.dialogActions}>
-        <SubmitButton text={t('sign-up')} />
-      </DialogActions>
-    </ValidatorForm>
+    <FormContent onSubmit={onSubmit} submitText={t('sign-up')}>
+      <DialogTextField
+        autoFocus
+        label={t('home.dialog.name')}
+        type='text'
+        value={formData.fullName}
+        validators={['required']}
+        errorMessages={[t('home.dialog.validation.required')]}
+        onChange={onTextChanged('fullName')}
+      />
+      <Email onChange={onTextChanged('email')} value={formData.email} />
+      <Password onChange={onTextChanged('password')} value={formData.password} />
+      <Typography variant='body2' color='textSecondary' className={classes.dialogConditions}>
+        {t('home.dialog.terms')}
+      </Typography>
+    </FormContent>
   );
 };
 
