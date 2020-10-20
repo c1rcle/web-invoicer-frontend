@@ -33,7 +33,7 @@ const Register = () => {
   };
 
   return (
-    <ValidatorForm onSubmit={onSubmit}>
+    <ValidatorForm onSubmit={onSubmit} noValidate>
       <DialogContent>
         <DialogTextField
           autoFocus

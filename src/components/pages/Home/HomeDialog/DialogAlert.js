@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Collapse } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import { setError } from '../../../../slices/userSlice';
 import useStyles from './styles';
 
 const DialogAlert = () => {
+  const [displayedError, setDisplayedError] = useState('');
+
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -15,19 +18,20 @@ const DialogAlert = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    error &&
-      error !== 'TOKEN_REFRESH' &&
+    if (error && error !== 'TOKEN_REFRESH') {
+      setDisplayedError(error);
       setTimeout(() => {
         dispatch(setError(null));
       }, 5000);
+    }
   }, [error, dispatch]);
 
   return (
-    error && (
+    <Collapse in={Boolean(error)}>
       <Alert variant='outlined' severity='error' className={classes.dialogAlert}>
-        {t(`home.dialog.error.${error}`)}
+        {t(`home.dialog.error.${displayedError}`)}
       </Alert>
-    )
+    </Collapse>
   );
 };
 

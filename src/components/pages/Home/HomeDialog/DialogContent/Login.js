@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <ValidatorForm onSubmit={onSubmit}>
+    <ValidatorForm onSubmit={onSubmit} noValidate>
       <DialogContent>
         <Email autoFocus onChange={onTextChanged('email')} value={formData.email} />
         <Password onChange={onTextChanged('password')} value={formData.password} />
