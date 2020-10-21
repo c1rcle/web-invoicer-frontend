@@ -6,7 +6,7 @@ import Alert from '@material-ui/lab/Alert';
 import { setError } from '../../../../slices/userSlice';
 import useStyles from './styles';
 
-const DialogAlert = () => {
+const DialogAlert = ({ locationKey }) => {
   const [displayedError, setDisplayedError] = useState('');
 
   const { t } = useTranslation();
@@ -18,18 +18,26 @@ const DialogAlert = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    if (error && error !== 'TOKEN_REFRESH') {
-      setDisplayedError(error);
-      setTimeout(() => {
-        dispatch(setError(null));
-      }, 5000);
+    if (error) {
+      if (error !== locationKey) dispatch(setError(null));
+      else {
+        setDisplayedError(error);
+        setTimeout(() => {
+          dispatch(setError(null));
+        }, 5000);
+      }
     }
-  }, [error, dispatch]);
+  }, [error, dispatch, locationKey]);
+
+  useEffect(() => {
+    return () => dispatch(setError(null));
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Collapse in={Boolean(error)}>
       <Alert variant='outlined' severity='error' className={classes.dialogAlert}>
-        {t(`home.dialog.error.${displayedError}`)}
+        {displayedError && t(`home.dialog.error.${displayedError}`)}
       </Alert>
     </Collapse>
   );
