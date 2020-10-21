@@ -34,12 +34,15 @@ const Navigation = () => {
           <Hidden xsDown>
             <Button
               color='inherit'
-              onClick={() => dialog.open('login')}
+              onClick={() => dialog.openForType('login')}
               className={classes.appBarSpacer}>
-              {t('sign-in')}
+              {t('signIn')}
             </Button>
-            <Button variant='outlined' color='inherit' onClick={() => dialog.open('register')}>
-              {t('sign-up')}
+            <Button
+              variant='outlined'
+              color='inherit'
+              onClick={() => dialog.openForType('register')}>
+              {t('signUp')}
             </Button>
           </Hidden>
         </Toolbar>

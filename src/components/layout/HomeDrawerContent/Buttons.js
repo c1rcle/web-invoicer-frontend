@@ -21,10 +21,10 @@ const Buttons = () => {
       <Divider />
       <List>
         <ListItem button onClick={() => onClick('login')}>
-          <ListItemText primary={t('sign-in')} />
+          <ListItemText primary={t('signIn')} />
         </ListItem>
         <ListItem button onClick={() => onClick('register')} className={classes.drawerHighlight}>
-          <ListItemText primary={t('sign-up')} className={classes.drawerHighlightText} />
+          <ListItemText primary={t('signUp')} className={classes.drawerHighlightText} />
         </ListItem>
       </List>
     </Hidden>

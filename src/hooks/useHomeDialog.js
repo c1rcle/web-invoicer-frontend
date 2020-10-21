@@ -5,25 +5,28 @@ import { closeDialog, openDialog } from '../slices/appSlice';
 const useHomeDialog = () => {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.app.dialog);
-
-  const actionPending = useSelector(state => state.user.actionPending);
+  const isDialogOpen = useSelector(state => state.app.isDialogOpen);
 
   const history = useHistory();
 
-  const open = type => {
-    history.replace(`/${type}`);
-    dispatch(openDialog(type));
+  const open = () => {
+    dispatch(openDialog());
   };
 
   const close = () => {
-    if (!actionPending) {
-      history.replace('/');
-      dispatch(closeDialog());
-    }
+    dispatch(closeDialog());
   };
 
-  return { open, close, state };
+  const openForType = type => {
+    history.replace(`/${type}`);
+    dispatch(openDialog());
+  };
+
+  const onExited = () => {
+    history.replace('/');
+  };
+
+  return { openForType, open, close, onExited, isDialogOpen };
 };
 
 export default useHomeDialog;

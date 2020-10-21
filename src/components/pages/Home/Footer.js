@@ -16,8 +16,8 @@ const Footer = () => {
           variant='outlined'
           color='inherit'
           size='large'
-          onClick={() => dialog.open('register')}>
-          {t('sign-up')}
+          onClick={() => dialog.openForType('register')}>
+          {t('signUp')}
         </Button>
       </Box>
     </Box>
