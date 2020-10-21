@@ -3,10 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   theme: localStorage.getItem('theme') || 'dark',
   drawerType: 'home',
-  dialog: {
-    type: 'login',
-    open: false
-  }
+  isDialogOpen: false
 };
 
 const appSlice = createSlice({
@@ -19,12 +16,11 @@ const appSlice = createSlice({
     setDrawerType(state, action) {
       state.drawerType = action.payload;
     },
-    openDialog(state, action) {
-      state.dialog.type = action.payload;
-      state.dialog.open = true;
+    openDialog(state) {
+      state.isDialogOpen = true;
     },
     closeDialog(state) {
-      state.dialog.open = false;
+      state.isDialogOpen = false;
     }
   }
 });

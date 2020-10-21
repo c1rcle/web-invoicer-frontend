@@ -13,10 +13,8 @@ const Home = () => {
   const dialog = useHomeDialog();
 
   const checkLocation = () => {
-    if (!dialog.state.open) {
-      if (location.pathname === '/login') dialog.open('login');
-      else if (location.pathname === '/register') dialog.open('register');
-    }
+    location.pathname !== '/' && !dialog.isDialogOpen && dialog.open();
+    location.pathname === '/' && dialog.isDialogOpen && dialog.close();
   };
   useEffect(checkLocation, [location]);
 

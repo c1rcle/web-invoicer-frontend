@@ -11,7 +11,7 @@ const initialState = {
 
 export const login = createAsyncThunk('user/login', async (user, { dispatch }) => {
   const response = await handleAction(
-    { endpoint: 'users/authenticate', payload: user, errorData: 'LOGIN' },
+    { endpoint: 'users/authenticate', payload: user, errorData: 'login' },
     dispatch
   );
 
@@ -21,14 +21,14 @@ export const login = createAsyncThunk('user/login', async (user, { dispatch }) =
 
 export const refreshToken = createAsyncThunk('user/refreshToken', async (_, { dispatch }) => {
   return await handleAction(
-    { endpoint: 'users/refreshToken', errorData: 'TOKEN_REFRESH' },
+    { endpoint: 'users/refreshToken', errorData: 'refreshToken' },
     dispatch
   );
 });
 
 export const register = createAsyncThunk('user/register', async (user, { dispatch }) => {
   return await handleAction(
-    { endpoint: 'users/register', payload: user, errorData: 'REGISTRATION' },
+    { endpoint: 'users/register', payload: user, errorData: 'register' },
     dispatch
   );
 });
@@ -37,7 +37,7 @@ export const confirmEmail = createAsyncThunk(
   'user/confirmEmail',
   async (confirmationData, { dispatch }) => {
     return await handleAction(
-      { endpoint: 'users/confirm', payload: confirmationData, errorData: 'CONFIRMATION' },
+      { endpoint: 'users/confirm', payload: confirmationData, errorData: 'confirmEmail' },
       dispatch
     );
   }
@@ -45,7 +45,7 @@ export const confirmEmail = createAsyncThunk(
 
 export const resetPassword = createAsyncThunk('user/resetPassword', async (email, { dispatch }) => {
   return await handleAction(
-    { endpoint: 'users/resetPassword', payload: { email: email }, errorData: 'PASSWORD_RESET' },
+    { endpoint: 'users/resetPassword', payload: { email: email }, errorData: 'resetPassword' },
     dispatch
   );
 });
@@ -54,7 +54,7 @@ export const changeResetPassword = createAsyncThunk(
   'user/changeResetPassword',
   async (data, { dispatch }) => {
     return await handleAction(
-      { endpoint: 'users/changeResetPassword', payload: data, errorData: 'CHANGE_RESET_PASSWORD' },
+      { endpoint: 'users/changeResetPassword', payload: data, errorData: 'changePassword' },
       dispatch
     );
   }
@@ -64,7 +64,7 @@ export const changePassword = createAsyncThunk(
   'user/changePassword',
   async (data, { dispatch }) => {
     return await handleAction(
-      { endpoint: 'users/changePassword', payload: data, errorData: 'CHANGE_PASSWORD' },
+      { endpoint: 'users/changePassword', payload: data, errorData: 'changePassword' },
       dispatch
     );
   }
@@ -75,9 +75,7 @@ const handleAction = async ({ endpoint, payload, errorData }, dispatch) => {
   const response = await apiHandler(webInvoicerApi().post(endpoint, payload), errorData);
   dispatch(setActionPending(false));
 
-  console.log(response);
   if (response.type === 'ERROR') {
-    console.log(response.data);
     dispatch(setError(response.data));
     throw new Error(response.data);
   }
