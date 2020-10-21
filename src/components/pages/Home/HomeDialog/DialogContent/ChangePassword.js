@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import SuccessAlert from './common/SuccessAlert';
 import FormContent from './FormContent';
 import Password from './common/Password';
-import { resetPassword } from '../../../../../slices/userSlice';
+import { changeResetPassword } from '../../../../../slices/userSlice';
+import useResultSuccess from '../../../../../hooks/useResultSuccess';
 
 const ChangePassword = () => {
   const [password, setPassword] = useState('');
 
+  const { success, performAction } = useResultSuccess(changeResetPassword);
+
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
+  const params = new URLSearchParams(useLocation().search);
+  const email = params.get('email');
+  const token = params.get('token');
 
   const onTextChanged = ({ target }) => {
     setPassword(target.value);
@@ -18,13 +24,18 @@ const ChangePassword = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(resetPassword(email));
+    performAction({ email: email, resetToken: token, newPassword: password }, () =>
+      setPassword('')
+    );
   };
 
   return (
-    <FormContent onSubmit={onSubmit} submitText={t('change-password')}>
-      <Password onChange={onTextChanged} value={password} />
-    </FormContent>
+    <>
+      <SuccessAlert success={success} text={t('home.dialog.success.resetPasswordChange')} />
+      <FormContent onSubmit={onSubmit} submitText={t('changePassword')}>
+        <Password autoFocus passwordChange onChange={onTextChanged} value={password} />
+      </FormContent>
+    </>
   );
 };
 

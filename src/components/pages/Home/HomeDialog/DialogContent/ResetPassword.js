@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import SuccessAlert from './common/SuccessAlert';
 import FormContent from './FormContent';
 import Email from './common/Email';
 import { resetPassword } from '../../../../../slices/userSlice';
+import useResultSuccess from '../../../../../hooks/useResultSuccess';
 
 const ResetPassword = () => {
   const [email, setEmail] = useState('');
 
-  const { t } = useTranslation();
+  const { success, performAction } = useResultSuccess(resetPassword);
 
-  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onTextChanged = ({ target }) => {
     setEmail(target.value);
@@ -18,13 +19,16 @@ const ResetPassword = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(resetPassword(email));
+    performAction(email, () => setEmail(''));
   };
 
   return (
-    <FormContent onSubmit={onSubmit} submitText={t('reset-password')}>
-      <Email autoFocus onChange={onTextChanged} value={email} />
-    </FormContent>
+    <>
+      <SuccessAlert success={success} text={t('home.dialog.success.passwordReset')} />
+      <FormContent onSubmit={onSubmit} submitText={t('reset')}>
+        <Email autoFocus onChange={onTextChanged} value={email} />
+      </FormContent>
+    </>
   );
 };
 

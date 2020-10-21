@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -10,6 +10,9 @@ const useStyles = makeStyles(theme => ({
     left: '50%',
     marginTop: -12,
     marginLeft: -12
+  },
+  successAlert: {
+    margin: theme.spacing(3, 3, 0)
   }
 }));
 

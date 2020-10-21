@@ -15,10 +15,6 @@ const useStyles = makeStyles(theme => ({
   dialogAlert: {
     margin: theme.spacing(3, 3, 0)
   },
-  dialogConditions: {
-    marginTop: theme.spacing(3),
-    textAlign: 'center'
-  },
   dialogActions: {
     padding: theme.spacing(2, 3),
     justifyContent: 'center'

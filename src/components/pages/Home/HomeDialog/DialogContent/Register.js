@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
-import DialogTextField from './common/DialogTextField';
+import SuccessAlert from './common/SuccessAlert';
 import FormContent from './FormContent';
+import DialogTextField from './common/DialogTextField';
 import Email from './common/Email';
 import Password from './common/Password';
 import { register } from '../../../../../slices/userSlice';
-import useStyles from '../styles';
+import useResultSuccess from '../../../../../hooks/useResultSuccess';
+import useStyles from './styles';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -16,9 +17,9 @@ const Register = () => {
     password: ''
   });
 
-  const { t } = useTranslation();
+  const { success, performAction } = useResultSuccess(register);
 
-  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const classes = useStyles();
 
@@ -28,26 +29,29 @@ const Register = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(register(formData));
+    performAction(formData, () => setFormData({ fullName: '', email: '', password: '' }));
   };
 
   return (
-    <FormContent onSubmit={onSubmit} submitText={t('sign-up')}>
-      <DialogTextField
-        autoFocus
-        label={t('home.dialog.name')}
-        type='text'
-        value={formData.fullName}
-        validators={['required']}
-        errorMessages={[t('home.dialog.validation.required')]}
-        onChange={onTextChanged('fullName')}
-      />
-      <Email onChange={onTextChanged('email')} value={formData.email} />
-      <Password onChange={onTextChanged('password')} value={formData.password} />
-      <Typography variant='body2' color='textSecondary' className={classes.dialogConditions}>
-        {t('home.dialog.terms')}
-      </Typography>
-    </FormContent>
+    <>
+      <SuccessAlert success={success} text={t('home.dialog.success.registration')} />
+      <FormContent onSubmit={onSubmit} submitText={t('signUp')}>
+        <DialogTextField
+          autoFocus
+          label={t('home.dialog.name')}
+          type='text'
+          value={formData.fullName}
+          validators={['required']}
+          errorMessages={[t('home.dialog.validation.required')]}
+          onChange={onTextChanged('fullName')}
+        />
+        <Email onChange={onTextChanged('email')} value={formData.email} />
+        <Password onChange={onTextChanged('password')} value={formData.password} />
+        <Typography variant='body2' color='textSecondary' className={classes.dialogText}>
+          {t('home.dialog.terms')}
+        </Typography>
+      </FormContent>
+    </>
   );
 };
 
