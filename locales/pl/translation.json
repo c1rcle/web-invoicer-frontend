@@ -1,0 +1,90 @@
+{
+  "languages": [
+    { "code": "en", "label": "Angielski" },
+    { "code": "pl", "label": "Polski" }
+  ],
+  "signIn": "Zaloguj się",
+  "signUp": "Załóż konto",
+  "signOut": "Wyloguj się",
+  "reset": "Resetuj",
+  "changePassword": "Zmień",
+  "accountSettings": "Ustawienia konta",
+  "drawer": {
+    "language": "Język",
+    "theme": "Motyw",
+    "user": [
+      { "icon": "receipt", "text": "Faktury", "pathname": "/invoices" },
+      { "icon": "category", "text": "Produkty", "pathname": "/products" },
+      { "icon": "business", "text": "Kontrahenci", "pathname": "/counterparties" },
+      { "icon": "work", "text": "Pracownicy", "pathname": "/employees" },
+      { "icon": "trending_up", "text": "Wizualizacja danych", "pathname": "/dataVisualization" }
+    ]
+  },
+  "notFound": {
+    "header": "o nie! strona nie istnieje!",
+    "description": "Strona, której szukasz jest niedostępna.",
+    "button": "Strona główna"
+  },
+  "home": {
+    "dialog": {
+      "login": "Logowanie",
+      "register": "Rejestracja",
+      "resetPassword": "Zresetuj hasło",
+      "changePassword": "Zmień hasło",
+      "confirmEmail": "Potwierdź email",
+      "name": "Imię i nazwisko",
+      "email": "Adres email",
+      "password": "Hasło",
+      "newPassword": "Nowe hasło",
+      "forgotPassword": "Zapomniałeś/aś hasła?",
+      "terms": "Rejestracja oznacza akceptację zasad i warunków użytkowania",
+      "pleaseWait": "Proszę czekać",
+      "closeWindow": "Możesz teraz zamknąć to okno",
+      "validation": {
+        "required": "To pole jest wymagane",
+        "email": "Wymagany jest prawidłowy adres email",
+        "password": "Hasło musi zawierać 1 wielką i małą literę, 1 cyfrę i znak specjalny oraz mieć przynajmniej 6 znaków"
+      },
+      "success": {
+        "register": "Konto zostało pomyślnie stworzone. Sprawdź skrzynkę pocztową i potwierdź swój email.",
+        "confirmEmail": "Email został pomyślnie potwierdzony. Możesz teraz zalogować się do swojego konta.",
+        "resetPassword": "Hasło zostało pomyślnie zresetowane. Sprawdź skrzynkę pocztową, aby otrzymać dalsze instrukcje.",
+        "changePassword": "Hasło zostało pomyślnie zmienione. Możesz teraz zalogować się do konta z użyciem nowego hasła."
+      },
+      "error": {
+        "login": "Nieprawidłowy adres email lub hasło",
+        "register": "Konto nie mogło zostać stworzone, proszę spróbować później",
+        "confirmEmail": "Adres email nie mógł zostać potwierdzony (link potwierdzający mógł wygasnąć)",
+        "resetPassword": "Hasło dla podanego konta nie mogło zostać zresetowane",
+        "changePassword": "Hasło nie mogło zostać zmienione (link resetujący mógł wygasnąć)"
+      }
+    },
+    "hero": {
+      "title": "Witamy w Web Invoicer",
+      "description": "Fakturowanie stało się proste. Wystawiaj swoje faktury gdziekolwiek i kiedykolwiek chcesz!"
+    },
+    "features": [
+      {
+        "icon": "dynamic_feed",
+        "header": "Rozbudowane funkcjonalności",
+        "description": "Wystawiaj faktury VAT, proforma, korygujące oraz inne rodzaje dokumentów. Zarządzaj listą pracowników, kontrahentów i dostępnych produktów."
+      },
+      {
+        "icon": "money_off",
+        "header": "W pełni darmowa",
+        "description": "Aplikacja zawsze będzie w pełni darmowa oraz udostępniona na licencji wolnego oprogramowania. Żadna z funkcjonalności nie jest ograniczona."
+      },
+      {
+        "icon": "cloud_download",
+        "header": "Integracja z CEIDG",
+        "description": "Nasze rozwiązanie pozwala na integrację z bazą danych CEIDG, w celu szybkiego i łatwego importowania danych kontrahenta."
+      },
+      {
+        "icon": "trending_up",
+        "header": "Wizualizacja danych",
+        "description": "Oferujemy kompleksowy moduł wizualizacji danych, który pozwala zobrazować nasz biznes za pomocą wykresów i różnego rodzaju zestawień."
+      }
+    ],
+    "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  }
+}
