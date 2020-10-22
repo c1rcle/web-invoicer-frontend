@@ -6,11 +6,25 @@
   ],
   "signIn": "Sign in",
   "signUp": "Sign up",
+  "signOut": "Sign out",
   "reset": "Reset",
   "changePassword": "Change",
+  "accountSettings": "Account settings",
   "drawer": {
     "language": "Language",
-    "theme": "Theme"
+    "theme": "Theme",
+    "user": [
+      { "icon": "receipt", "text": "Invoices", "pathname": "/invoices" },
+      { "icon": "category", "text": "Products", "pathname": "/products" },
+      { "icon": "business", "text": "Counterparties", "pathname": "/counterparties" },
+      { "icon": "work", "text": "Employees", "pathname": "/employees" },
+      { "icon": "trending_up", "text": "Data visualization", "pathname": "/dataVisualization" }
+    ]
+  },
+  "notFound": {
+    "header": "oh no! page not found!",
+    "description": "The page you are looking for is not available.",
+    "button": "Go home"
   },
   "home": {
     "dialog": {

@@ -5,11 +5,25 @@
   ],
   "signIn": "Zaloguj się",
   "signUp": "Załóż konto",
+  "signOut": "Wyloguj się",
   "reset": "Resetuj",
   "changePassword": "Zmień",
+  "accountSettings": "Ustawienia konta",
   "drawer": {
     "language": "Język",
-    "theme": "Motyw"
+    "theme": "Motyw",
+    "user": [
+      { "icon": "receipt", "text": "Faktury", "pathname": "/invoices" },
+      { "icon": "category", "text": "Produkty", "pathname": "/products" },
+      { "icon": "business", "text": "Kontrahenci", "pathname": "/counterparties" },
+      { "icon": "work", "text": "Pracownicy", "pathname": "/employees" },
+      { "icon": "trending_up", "text": "Wizualizacja danych", "pathname": "/dataVisualization" }
+    ]
+  },
+  "notFound": {
+    "header": "o nie! strona nie istnieje!",
+    "description": "Strona, której szukasz jest niedostępna.",
+    "button": "Strona główna"
   },
   "home": {
     "dialog": {
@@ -32,10 +46,10 @@
         "password": "Hasło musi zawierać 1 wielką i małą literę, 1 cyfrę i znak specjalny oraz mieć przynajmniej 6 znaków"
       },
       "success": {
-        "registration": "Konto zostało pomyślnie stworzone. Sprawdź skrzynkę pocztową i potwierdź swój email.",
-        "confirmation": "Email został pomyślnie potwierdzony. Możesz teraz zalogować się do swojego konta.",
-        "passwordReset": "Hasło zostało pomyślnie zresetowane. Sprawdź skrzynkę pocztową, aby otrzymać dalsze instrukcje.",
-        "resetPasswordChange": "Hasło zostało pomyślnie zmienione. Możesz teraz zalogować się do konta z użyciem nowego hasła."
+        "register": "Konto zostało pomyślnie stworzone. Sprawdź skrzynkę pocztową i potwierdź swój email.",
+        "confirmEmail": "Email został pomyślnie potwierdzony. Możesz teraz zalogować się do swojego konta.",
+        "resetPassword": "Hasło zostało pomyślnie zresetowane. Sprawdź skrzynkę pocztową, aby otrzymać dalsze instrukcje.",
+        "changePassword": "Hasło zostało pomyślnie zmienione. Możesz teraz zalogować się do konta z użyciem nowego hasła."
       },
       "error": {
         "login": "Nieprawidłowy adres email lub hasło",
@@ -51,18 +65,22 @@
     },
     "features": [
       {
+        "icon": "dynamic_feed",
         "header": "Rozbudowane funkcjonalności",
         "description": "Wystawiaj faktury VAT, proforma, korygujące oraz inne rodzaje dokumentów. Zarządzaj listą pracowników, kontrahentów i dostępnych produktów."
       },
       {
+        "icon": "money_off",
         "header": "W pełni darmowa",
         "description": "Aplikacja zawsze będzie w pełni darmowa oraz udostępniona na licencji wolnego oprogramowania. Żadna z funkcjonalności nie jest ograniczona."
       },
       {
+        "icon": "cloud_download",
         "header": "Integracja z CEIDG",
         "description": "Nasze rozwiązanie pozwala na integrację z bazą danych CEIDG, w celu szybkiego i łatwego importowania danych kontrahenta."
       },
       {
+        "icon": "trending_up",
         "header": "Wizualizacja danych",
         "description": "Oferujemy kompleksowy moduł wizualizacji danych, który pozwala zobrazować nasz biznes za pomocą wykresów i różnego rodzaju zestawień."
       }
