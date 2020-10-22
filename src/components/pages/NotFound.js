@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Typography } from '@material-ui/core';
-import { useSelector } from 'react-redux';
 
 const NotFound = () => {
   const { t } = useTranslation();
