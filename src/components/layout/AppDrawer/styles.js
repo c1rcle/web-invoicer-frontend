@@ -1,17 +1,14 @@
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  appBarSpacer: {
-    marginRight: theme.spacing(1)
+  drawer: {
+    width: 250
   },
-  appBarLogo: {
-    marginRight: 4
-  },
-  appBarTitle: {
-    flexGrow: 1
+  drawerPaper: {
+    width: 250
   },
   drawerHeader: {
-    width: 240,
+    width: 250,
     padding: theme.spacing(0, 1),
     display: 'flex',
     alignItems: 'center',

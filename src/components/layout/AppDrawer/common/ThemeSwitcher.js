@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { Brightness2, Brightness7 } from '@material-ui/icons';
-import { setTheme } from '../../../slices/appSlice';
+import { setTheme } from '../../../../slices/appSlice';
 
 const ThemeSwitcher = () => {
   const { t } = useTranslation();

@@ -1,39 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListItem, ListItemIcon, ListItemText, Menu, MenuItem } from '@material-ui/core';
 import { Language } from '@material-ui/icons';
+import useDropdownMenu from '../../../../hooks/useDropdownMenu';
 
 const LanguageSelector = () => {
-  const [anchor, setAnchor] = useState(null);
-
   const { t, i18n } = useTranslation();
 
   const languages = t('languages', { returnObjects: true });
 
-  const handleClick = event => {
-    setAnchor(event.currentTarget);
-  };
+  const { anchor, openMenu, closeMenu } = useDropdownMenu();
 
-  const handleLanguageChange = index => {
+  const handleLanguageChange = index => () => {
     const languageCode = languages[index].code;
     if (languageCode !== i18n.language) i18n.changeLanguage(languages[index].code);
-    setAnchor(null);
+    closeMenu();
   };
 
   return (
     <>
-      <ListItem button onClick={handleClick}>
+      <ListItem button onClick={openMenu}>
         <ListItemIcon>
           <Language />
         </ListItemIcon>
         <ListItemText primary={t('drawer.language')} />
       </ListItem>
-      <Menu keepMounted anchorEl={anchor} open={Boolean(anchor)} onClose={() => setAnchor(null)}>
+      <Menu anchorEl={anchor} open={Boolean(anchor)} onClose={closeMenu}>
         {languages.map((language, index) => (
           <MenuItem
             key={index}
             selected={i18n.language.startsWith(language.code)}
-            onClick={() => handleLanguageChange(index)}>
+            onClick={handleLanguageChange(index)}>
             {language.label}
           </MenuItem>
         ))}
