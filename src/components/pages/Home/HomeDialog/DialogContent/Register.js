@@ -34,7 +34,7 @@ const Register = () => {
 
   return (
     <>
-      <SuccessAlert success={success} text={t('home.dialog.success.registration')} />
+      <SuccessAlert success={success} text={t('home.dialog.success.register')} />
       <FormContent onSubmit={onSubmit} submitText={t('signUp')}>
         <DialogTextField
           autoFocus

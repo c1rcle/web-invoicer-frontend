@@ -18,7 +18,7 @@ const FeatureGrid = () => {
             <CardContent>
               <div className='text-center'>
                 <Icon className={classes.featureIcon} color='primary'>
-                  {t(`home.features.${index}.icon`)}
+                  {feature.icon}
                 </Icon>
               </div>
               <Typography gutterBottom variant='h5' className='text-center'>

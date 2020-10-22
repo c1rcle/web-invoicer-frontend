@@ -24,7 +24,7 @@ const ResetPassword = () => {
 
   return (
     <>
-      <SuccessAlert success={success} text={t('home.dialog.success.passwordReset')} />
+      <SuccessAlert success={success} text={t('home.dialog.success.resetPassword')} />
       <FormContent onSubmit={onSubmit} submitText={t('reset')}>
         <Email autoFocus onChange={onTextChanged} value={email} />
       </FormContent>

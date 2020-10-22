@@ -28,7 +28,7 @@ const ConfirmEmail = () => {
 
   return (
     <>
-      <SuccessAlert success={success} text={t('home.dialog.success.confirmation')} />
+      <SuccessAlert success={success} text={t('home.dialog.success.confirmEmail')} />
       <DialogContent>
         <div className={classes.dialogConfirmContainer}>
           {actionPending ? (

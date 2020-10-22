@@ -31,7 +31,7 @@ const ChangePassword = () => {
 
   return (
     <>
-      <SuccessAlert success={success} text={t('home.dialog.success.resetPasswordChange')} />
+      <SuccessAlert success={success} text={t('home.dialog.success.resetPassword')} />
       <FormContent onSubmit={onSubmit} submitText={t('changePassword')}>
         <Password autoFocus passwordChange onChange={onTextChanged} value={password} />
       </FormContent>

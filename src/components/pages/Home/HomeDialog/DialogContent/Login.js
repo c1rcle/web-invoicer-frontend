@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <>
-      {isLoggedIn && <Redirect to='/dashboard' />}
+      {isLoggedIn && <Redirect to='invoices' />}
       <FormContent onSubmit={onSubmit} submitText={t('signIn')}>
         <Email autoFocus onChange={onTextChanged('email')} value={formData.email} />
         <Password onChange={onTextChanged('password')} value={formData.password} />

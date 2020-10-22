@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Redirect, useLocation } from 'react-router-dom';
 import { Box, Divider } from '@material-ui/core';
 import FeatureGrid from './FeatureGrid';
 import Footer from './Footer';
@@ -12,6 +13,8 @@ const Home = () => {
 
   const dialog = useHomeDialog();
 
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
   const checkLocation = () => {
     location.pathname !== '/' && !dialog.isDialogOpen && dialog.open();
     location.pathname === '/' && dialog.isDialogOpen && dialog.close();
@@ -20,6 +23,7 @@ const Home = () => {
 
   return (
     <>
+      {isLoggedIn && <Redirect to='invoices' />}
       <HomeDialog />
       <Hero />
       <FeatureGrid />
