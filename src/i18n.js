@@ -12,6 +12,9 @@ i18n
     debug: true,
     interpolation: {
       escapeValue: false
+    },
+    backend: {
+      loadPath: '/web-invoicer-frontend/locales/{{lng}}/{{ns}}.json'
     }
   });
 
