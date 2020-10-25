@@ -25,6 +25,26 @@
     "description": "Strona, której szukasz jest niedostępna.",
     "button": "Strona główna"
   },
+  "table": {
+    "empty": "Brak danych do wyświetlenia",
+    "add": "Dodaj",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "filter": "Filtr",
+    "deleteText": "Czy jesteś pewien, że chcesz usunąć ten wiersz?",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "actions": "Akcje",
+    "rows": "{from}-{to} z {count}",
+    "rowsSelect": "wierszy",
+    "rowsPerPage": "Wierszy na stronę:",
+    "first": "Pierwsza strona",
+    "previous": "Poprzednia strona",
+    "next": "Następna strona",
+    "last": "Ostatnia strona",
+    "rowsSelected": "{0} wiersz(y) wybrany(ch)",
+    "search": "Szukaj"
+  },
   "home": {
     "dialog": {
       "login": "Logowanie",
@@ -86,5 +106,14 @@
       }
     ],
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  },
+  "products": {
+    "title": "Produkty"
+  },
+  "counterparties": {
+    "title": "Kontrahenci"
+  },
+  "employees": {
+    "title": "Pracownicy"
   }
 }

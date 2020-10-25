@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './common/PrivateRoute';
 import Home from './pages/Home';
 import Invoices from './pages/Invoices';
 import Products from './pages/Products';
