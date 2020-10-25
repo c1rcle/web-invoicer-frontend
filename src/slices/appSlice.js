@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   theme: localStorage.getItem('theme') || 'dark',
-  isDialogOpen: false
+  isDialogOpen: false,
+  isDrawerOpen: false
 };
 
 const appSlice = createSlice({
@@ -12,15 +13,15 @@ const appSlice = createSlice({
     setTheme(state, action) {
       state.theme = action.payload;
     },
-    openDialog(state) {
-      state.isDialogOpen = true;
+    setDialogOpen(state, action) {
+      state.isDialogOpen = action.payload;
     },
-    closeDialog(state) {
-      state.isDialogOpen = false;
+    setDrawerOpen(state, action) {
+      state.isDrawerOpen = action.payload;
     }
   }
 });
 
-export const { setTheme, setDrawerType, openDialog, closeDialog } = appSlice.actions;
+export const { setTheme, setDialogOpen, setDrawerOpen } = appSlice.actions;
 
 export default appSlice.reducer;

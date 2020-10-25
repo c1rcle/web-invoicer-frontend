@@ -7,13 +7,13 @@ const useResultSuccess = action => {
 
   const dispatch = useDispatch();
 
-  const performAction = (args, cleanup, handleError) => {
+  const performAction = (args, successCallback, handleError) => {
     setSuccess(false);
     dispatch(action(args))
       .then(unwrapResult)
       .then(() => {
         setSuccess(true);
-        cleanup && cleanup();
+        successCallback && successCallback();
       })
       .catch(e => handleError && handleError(e));
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
@@ -13,17 +13,18 @@ import { Menu as MenuIcon, MonetizationOnTwoTone as AppIcon } from '@material-ui
 import Drawer from '../AppDrawer';
 import HomeNavigation from './HomeNavigation';
 import UserNavigation from './UserNavigation';
+import useDrawer from '../../../hooks/useDrawer';
 import useTokenCheck from '../../../hooks/useTokenCheck';
 import useStyles from './styles';
 
 const Navigation = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
   const { t } = useTranslation();
 
   const isLgUp = useMediaQuery(useTheme().breakpoints.up('lg'));
 
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
+  const { open } = useDrawer();
 
   const classes = useStyles();
 
@@ -31,14 +32,14 @@ const Navigation = () => {
 
   return (
     <>
-      <Drawer open={drawerOpen} setOpen={setDrawerOpen} isLoggedIn={isLoggedIn} isLgUp={isLgUp} />
+      <Drawer isLoggedIn={isLoggedIn} isLgUp={isLgUp} />
       <AppBar position='fixed' color='inherit' className={classes.appBar}>
         <Toolbar>
           {(isLoggedIn && isLgUp) || (
             <IconButton
               edge='start'
               color='inherit'
-              onClick={() => setDrawerOpen(true)}
+              onClick={open}
               className={classes.appBarSpacer}>
               <MenuIcon />
             </IconButton>

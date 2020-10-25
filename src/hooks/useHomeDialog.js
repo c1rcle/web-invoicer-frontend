@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { closeDialog, openDialog } from '../slices/appSlice';
+import { setDialogOpen } from '../slices/appSlice';
 
 const useHomeDialog = () => {
   const dispatch = useDispatch();
@@ -9,22 +9,16 @@ const useHomeDialog = () => {
 
   const history = useHistory();
 
-  const open = () => {
-    dispatch(openDialog());
-  };
+  const open = () => dispatch(setDialogOpen(true));
 
-  const close = () => {
-    dispatch(closeDialog());
-  };
+  const close = () => dispatch(setDialogOpen(false));
 
   const openForType = type => {
     history.replace(`/${type}`);
-    dispatch(openDialog());
+    dispatch(setDialogOpen(true));
   };
 
-  const onExited = () => {
-    history.replace('/');
-  };
+  const onExited = () => history.replace('/');
 
   return { openForType, open, close, onExited, isDialogOpen };
 };

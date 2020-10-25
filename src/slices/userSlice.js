@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import webInvoicerApi from '../apis/webInvoicerApi';
 import apiHandler from '../apis/apiHandler';
+import { setDrawerOpen } from './appSlice';
 
 const initialState = {
   actionPending: false,
@@ -15,6 +16,7 @@ export const login = createAsyncThunk('user/login', async (user, { dispatch }) =
     dispatch
   );
 
+  dispatch(setDrawerOpen(false));
   localStorage.setItem('token', response.token);
   localStorage.setItem('userData', JSON.stringify(response.userData));
   return response;

@@ -5,7 +5,7 @@ import { Divider, Icon, List, ListItem, ListItemIcon, ListItemText } from '@mate
 import LanguageSelector from './common/LanguageSelector';
 import ThemeSwitcher from './common/ThemeSwitcher';
 
-const UserDrawerContent = () => {
+const UserDrawerContent = ({ closeDrawer }) => {
   const { t } = useTranslation();
 
   const location = useLocation();
@@ -21,7 +21,8 @@ const UserDrawerContent = () => {
             to={item.pathname}
             key={index}
             button
-            selected={location.pathname === item.pathname}>
+            selected={location.pathname === item.pathname}
+            onClick={closeDrawer}>
             <ListItemIcon>
               <Icon>{item.icon}</Icon>
             </ListItemIcon>
