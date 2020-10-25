@@ -7,7 +7,7 @@ import useStyles from './styles';
 const HomeNavigation = () => {
   const { t } = useTranslation();
 
-  const dialog = useHomeDialog();
+  const { openDialogForType } = useHomeDialog();
 
   const classes = useStyles();
 
@@ -15,11 +15,11 @@ const HomeNavigation = () => {
     <Hidden xsDown>
       <Button
         color='inherit'
-        onClick={() => dialog.openForType('login')}
+        onClick={() => openDialogForType('login')}
         className={classes.appBarSpacer}>
         {t('signIn')}
       </Button>
-      <Button variant='outlined' color='inherit' onClick={() => dialog.openForType('register')}>
+      <Button variant='outlined' color='inherit' onClick={() => openDialogForType('register')}>
         {t('signUp')}
       </Button>
     </Hidden>

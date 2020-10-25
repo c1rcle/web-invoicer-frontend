@@ -6,7 +6,7 @@ import useHomeDialog from '../../../hooks/useHomeDialog';
 const Footer = () => {
   const { t } = useTranslation();
 
-  const dialog = useHomeDialog();
+  const { openDialogForType } = useHomeDialog();
 
   return (
     <Box mb={4} className='text-center'>
@@ -16,7 +16,7 @@ const Footer = () => {
           variant='outlined'
           color='inherit'
           size='large'
-          onClick={() => dialog.openForType('register')}>
+          onClick={() => openDialogForType('register')}>
           {t('signUp')}
         </Button>
       </Box>

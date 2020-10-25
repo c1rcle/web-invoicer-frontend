@@ -5,24 +5,27 @@ import { Divider, Icon, List, ListItem, ListItemIcon, ListItemText } from '@mate
 import LanguageSelector from './common/LanguageSelector';
 import ThemeSwitcher from './common/ThemeSwitcher';
 
-const UserDrawerContent = ({ closeDrawer }) => {
+const UserDrawerContent = ({ closeDrawer, isDrawerPermanent }) => {
   const { t } = useTranslation();
 
   const location = useLocation();
 
   const drawerItems = t('drawer.user', { returnObjects: true });
 
+  const onItemClick = () => !isDrawerPermanent && closeDrawer();
+
   return (
     <>
       <List>
         {drawerItems.map((item, index) => (
           <ListItem
+            button
+            key={index}
             component={Link}
             to={item.pathname}
-            key={index}
-            button
+            replace={location.pathname === item.pathname}
             selected={location.pathname === item.pathname}
-            onClick={closeDrawer}>
+            onClick={onItemClick}>
             <ListItemIcon>
               <Icon>{item.icon}</Icon>
             </ListItemIcon>

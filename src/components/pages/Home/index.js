@@ -11,13 +11,13 @@ import useHomeDialog from '../../../hooks/useHomeDialog';
 const Home = () => {
   const location = useLocation();
 
-  const dialog = useHomeDialog();
+  const { isDialogOpen, openDialog, closeDialog } = useHomeDialog();
 
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
   const checkLocation = () => {
-    location.pathname !== '/' && !dialog.isDialogOpen && dialog.open();
-    location.pathname === '/' && dialog.isDialogOpen && dialog.close();
+    location.pathname !== '/' && !isDialogOpen && openDialog();
+    location.pathname === '/' && isDialogOpen && closeDialog();
   };
   useEffect(checkLocation, [location]);
 

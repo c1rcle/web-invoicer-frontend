@@ -14,7 +14,7 @@ import useHomeDialog from '../../../../hooks/useHomeDialog';
 const HomeDialog = () => {
   const { t } = useTranslation();
 
-  const dialog = useHomeDialog();
+  const { isDialogOpen, closeDialog, onExited } = useHomeDialog();
 
   const locationKey = useLocation().pathname.substring(1);
 
@@ -24,13 +24,8 @@ const HomeDialog = () => {
   };
 
   return (
-    <Dialog
-      open={dialog.isDialogOpen}
-      onClose={dialog.close}
-      onExited={dialog.onExited}
-      maxWidth='xs'
-      fullWidth>
-      <DialogHeader onClose={dialog.close} title={dialogTitle()} />
+    <Dialog open={isDialogOpen} onClose={closeDialog} onExited={onExited} maxWidth='xs' fullWidth>
+      <DialogHeader onClose={closeDialog} title={dialogTitle()} />
       <DialogAlert locationKey={locationKey} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/register' component={Register} />

@@ -9,18 +9,18 @@ const useHomeDialog = () => {
 
   const history = useHistory();
 
-  const open = () => dispatch(setDialogOpen(true));
+  const openDialog = () => dispatch(setDialogOpen(true));
 
-  const close = () => dispatch(setDialogOpen(false));
+  const closeDialog = () => dispatch(setDialogOpen(false));
 
-  const openForType = type => {
+  const openDialogForType = type => {
     history.replace(`/${type}`);
     dispatch(setDialogOpen(true));
   };
 
   const onExited = () => history.replace('/');
 
-  return { openForType, open, close, onExited, isDialogOpen };
+  return { openDialogForType, openDialog, closeDialog, onExited, isDialogOpen };
 };
 
 export default useHomeDialog;

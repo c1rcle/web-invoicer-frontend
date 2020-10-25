@@ -5,16 +5,16 @@ import HomeDrawerContent from './HomeDrawerContent';
 import UserDrawerContent from './UserDrawerContent';
 import useDrawer from '../../../hooks/useDrawer';
 
-const AppDrawer = ({ isLoggedIn, isLgUp }) => {
-  const Drawer = isLgUp && isLoggedIn ? PermanentDrawer : TemporaryDrawer;
+const AppDrawer = ({ isLoggedIn }) => {
+  const { closeDrawer, isDrawerOpen, isDrawerPermanent } = useDrawer();
+
+  const Drawer = isDrawerPermanent ? PermanentDrawer : TemporaryDrawer;
 
   const DrawerContent = isLoggedIn ? UserDrawerContent : HomeDrawerContent;
 
-  const { close, isDrawerOpen } = useDrawer();
-
   return (
-    <Drawer open={isDrawerOpen} onClose={close}>
-      <DrawerContent closeDrawer={close} />
+    <Drawer open={isDrawerOpen} onClose={closeDrawer}>
+      <DrawerContent closeDrawer={closeDrawer} isDrawerPermanent={isDrawerPermanent} />
     </Drawer>
   );
 };

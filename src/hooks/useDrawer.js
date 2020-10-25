@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery, useTheme } from '@material-ui/core';
 import { setDrawerOpen } from '../slices/appSlice';
 
 const useDrawer = () => {
@@ -6,11 +7,17 @@ const useDrawer = () => {
 
   const isDrawerOpen = useSelector(state => state.app.isDrawerOpen);
 
-  const open = () => dispatch(setDrawerOpen(true));
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
-  const close = () => dispatch(setDrawerOpen(false));
+  const isLgUp = useMediaQuery(useTheme().breakpoints.up('lg'));
 
-  return { open, close, isDrawerOpen };
+  const openDrawer = () => dispatch(setDrawerOpen(true));
+
+  const closeDrawer = () => dispatch(setDrawerOpen(false));
+
+  const isDrawerPermanent = isLoggedIn && isLgUp;
+
+  return { openDrawer, closeDrawer, isDrawerOpen, isDrawerPermanent };
 };
 
 export default useDrawer;

@@ -7,7 +7,7 @@ import useStyles from '../styles';
 const Buttons = () => {
   const { t } = useTranslation();
 
-  const dialog = useHomeDialog();
+  const { openDialogForType } = useHomeDialog();
 
   const classes = useStyles();
 
@@ -15,12 +15,12 @@ const Buttons = () => {
     <Hidden smUp>
       <Divider />
       <List>
-        <ListItem button onClick={() => dialog.openForType('login')}>
+        <ListItem button onClick={() => openDialogForType('login')}>
           <ListItemText primary={t('signIn')} />
         </ListItem>
         <ListItem
           button
-          onClick={() => dialog.openForType('register')}
+          onClick={() => openDialogForType('register')}
           className={classes.drawerHighlight}>
           <ListItemText primary={t('signUp')} className={classes.drawerHighlightText} />
         </ListItem>

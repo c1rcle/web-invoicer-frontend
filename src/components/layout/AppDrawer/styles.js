@@ -16,7 +16,10 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar
   },
   drawerHighlight: {
-    background: theme.palette.primary.main
+    background: theme.palette.primary.main,
+    '&:hover': {
+      background: theme.palette.primary.main
+    }
   },
   drawerHighlightText: {
     color: theme.palette.getContrastText(theme.palette.primary.main)
