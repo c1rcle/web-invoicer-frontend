@@ -23,10 +23,13 @@ export const login = createAsyncThunk('user/login', async (user, { dispatch }) =
 });
 
 export const refreshToken = createAsyncThunk('user/refreshToken', async (_, { dispatch }) => {
-  return await handleAction(
+  const response = await handleAction(
     { endpoint: 'users/refreshToken', errorData: 'refreshToken' },
     dispatch
   );
+
+  localStorage.setItem('token', response);
+  return response;
 });
 
 export const register = createAsyncThunk('user/register', async (user, { dispatch }) => {

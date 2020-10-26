@@ -109,12 +109,28 @@
     "footer": "Register your account and get started for free!"
   },
   "products": {
-    "title": "Products"
+    "title": "Products",
+    "name": "Article (service) name",
+    "description": "Description",
+    "netPrice": "Net price",
+    "grossPrice": "Gross price",
+    "vatRate": "VAT rate",
+    "vatExempt": "Exempt",
+    "vatNotApplicable": "Not applicable"
   },
   "counterparties": {
-    "title": "Counterparties"
+    "title": "Counterparties",
+    "name": "Full name",
+    "nip": "TIN",
+    "address": "Address",
+    "postalCode": "Postal code",
+    "city": "City",
+    "phoneNumber": "Phone number"
   },
   "employees": {
-    "title": "Employees"
+    "title": "Employees",
+    "fullName": "Full name",
+    "phoneNumber": "Phone number",
+    "dateAdded": "Date added"
   }
 }

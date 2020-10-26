@@ -108,12 +108,28 @@
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
   },
   "products": {
-    "title": "Produkty"
+    "title": "Produkty",
+    "name": "Nazwa artykułu (usługi)",
+    "description": "Opis",
+    "netPrice": "Cena netto",
+    "grossPrice": "Cena brutto",
+    "vatRate": "Stawka VAT",
+    "vatExempt": "ZW",
+    "vatNotApplicable": "NP"
   },
   "counterparties": {
-    "title": "Kontrahenci"
+    "title": "Kontrahenci",
+    "name": "Nazwa pełna",
+    "nip": "NIP",
+    "address": "Adres",
+    "postalCode": "Kod pocztowy",
+    "city": "Miasto",
+    "phoneNumber": "Numer kontaktowy"
   },
   "employees": {
-    "title": "Pracownicy"
+    "title": "Pracownicy",
+    "fullName": "Imię i nazwisko",
+    "phoneNumber": "Numer telefonu",
+    "dateAdded": "Data dodania"
   }
 }

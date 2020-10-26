@@ -5,7 +5,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 0)
   },
   tableToolbar: {
-    padding: theme.spacing(3, 3, 0),
+    padding: theme.spacing(2),
     flexWrap: 'wrap',
     backgroundColor: 'fff'
   },

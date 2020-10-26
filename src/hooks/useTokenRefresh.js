@@ -8,10 +8,13 @@ const useTokenRefresh = () => {
 
   const tokenExpiryTime = JwtDecode(localStorage.getItem('token')).exp;
 
-  const expiryDelay = tokenExpiryTime * 1000 - new Date().getTime() - 30000;
+  const calculateExpiryDelay = () => tokenExpiryTime * 1000 - new Date().getTime() - 30000;
+
+  let expiryDelay = calculateExpiryDelay();
 
   useInterval(() => {
     dispatch(refreshToken());
+    expiryDelay = calculateExpiryDelay();
   }, expiryDelay);
 };
 
