@@ -9,3 +9,7 @@
 h6 {
   font-weight: 300 !important;
 }
+
+.logged-in-container {
+  max-width: none !important;
+}
