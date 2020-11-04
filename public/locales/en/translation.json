@@ -10,6 +10,7 @@
   "reset": "Reset",
   "changePassword": "Change",
   "accountSettings": "Account settings",
+  "cancel": "Cancel",
   "drawer": {
     "language": "Language",
     "theme": "Theme",
@@ -132,5 +133,23 @@
     "fullName": "Full name",
     "phoneNumber": "Phone number",
     "dateAdded": "Date added"
+  },
+  "tableError": {
+    "create": "Could not add the record",
+    "get": "Could not retrieve the record list",
+    "update": "Could not update the record",
+    "delete": "Could not delete the record",
+    "details": "Could not retrieve the counterparty details",
+    "text": {
+      "serverDown": "Server might be down, try again later.",
+      "details": "Counterparty with this TIN does not exist."
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "validNip": "Must be a valid TIN",
+    "currency": "Must be a positive currency value",
+    "phoneNumber": "Must be a valid phone number",
+    "postalCode": "Must be a valid postal code"
   }
 }

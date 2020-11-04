@@ -9,6 +9,7 @@
   "reset": "Resetuj",
   "changePassword": "Zmień",
   "accountSettings": "Ustawienia konta",
+  "cancel": "Zamknij",
   "drawer": {
     "language": "Język",
     "theme": "Motyw",
@@ -131,5 +132,23 @@
     "fullName": "Imię i nazwisko",
     "phoneNumber": "Numer telefonu",
     "dateAdded": "Data dodania"
+  },
+  "tableError": {
+    "create": "Nie można dodać rekordu",
+    "get": "Nie można pobrać listy rekordów",
+    "update": "Nie można zaktualizować rekordu",
+    "delete": "Nie można usunąć rekordu",
+    "details": "Nie można pobrać danych kontrahenta",
+    "text": {
+      "serverDown": "Serwer może być nieosiągalny, spróbuj ponownie później.",
+      "details": "Kontrahent o podanym numerze NIP nie istnieje."
+    }
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "validNip": "Wymagany jest prawidłowy NIP",
+    "currency": "Wymagana jest dodatnia wartość pieniężna",
+    "phoneNumber": "Wymagany jest prawidłowy numer telefonu",
+    "postalCode": "Wymagany jest prawidłowy kod pocztowy"
   }
 }
