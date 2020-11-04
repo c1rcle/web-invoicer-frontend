@@ -9,6 +9,7 @@ import lightTheme from './styles/lightTheme.json';
 import darkTheme from './styles/darkTheme.json';
 
 const App = () => {
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const theme = useSelector(state => state.app.theme);
   const muiTheme = createMuiTheme(theme === 'light' ? lightTheme : darkTheme);
 
@@ -18,7 +19,7 @@ const App = () => {
         <CssBaseline />
         <Suspense fallback={<SuspenseLoading />}>
           <Navigation />
-          <Container>
+          <Container {...(isLoggedIn && { className: 'logged-in-container' })}>
             <Toolbar />
             <Routes />
           </Container>
