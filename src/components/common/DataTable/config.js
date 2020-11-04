@@ -1,10 +1,31 @@
+import React, { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { AddCircle, Check, Clear, Delete, Edit } from '@material-ui/icons';
+import useHandleAction from '../../../hooks/useHandleAction';
+import { filterProperties } from '../../../utils/dataUtils';
 
-const useConfig = () => {
+const useConfig = (editableConfig, data, setData) => {
   const { t } = useTranslation();
 
+  const handleAction = useHandleAction();
+
   const options = {
-    searchFieldVariant: 'outlined'
+    searchFieldVariant: 'outlined',
+    addRowPosition: 'first',
+    tableLayout: 'fixed',
+    draggable: false
+  };
+
+  const getIcon = (Component, iconProps) =>
+    forwardRef((props, ref) => <Component {...props} ref={ref} color='primary' {...iconProps} />);
+
+  const icons = {
+    Add: getIcon(AddCircle, { fontSize: 'large' }),
+    Check: getIcon(Check),
+    Clear: getIcon(Clear),
+    Delete: getIcon(Delete),
+    Edit: getIcon(Edit),
+    ResetSearch: getIcon(Clear, { style: { marginRight: -16 }, color: 'inherit' })
   };
 
   const localization = {
@@ -45,7 +66,27 @@ const useConfig = () => {
     }
   };
 
-  return { options, localization };
+  const { createAction, updateAction, deleteAction, idKey } = editableConfig;
+
+  const editable = {
+    onRowAdd: newRow => handleAction(createAction(newRow), result => setData([...data, result])),
+    onRowUpdate: async (newRow, oldRow) => {
+      const updateData = filterProperties(oldRow, newRow);
+
+      if (updateData) {
+        await handleAction(updateAction({ [idKey]: newRow[idKey], ...updateData }), () => {
+          const filteredData = data.filter(row => row[idKey] !== newRow[idKey]);
+          setData([{ ...newRow }, ...filteredData]);
+        });
+      }
+    },
+    onRowDelete: deletedRow =>
+      handleAction(deleteAction(deletedRow[idKey]), () =>
+        setData(data.filter(row => row[idKey] !== deletedRow[idKey]))
+      )
+  };
+
+  return { options, icons, localization, editable };
 };
 
 export default useConfig;
