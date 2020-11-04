@@ -1,30 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import DataTable from '../../common/DataTable';
+import ErrorDialog from '../../common/ErrorDialog';
+import { getProducts, setError } from '../../../slices/productSlice';
+import useConfig from './config';
 
 const Products = () => {
   const { t } = useTranslation();
 
-  const columns = [
-    { title: t('products.name'), field: 'name' },
-    { title: t('products.description'), field: 'description' },
-    { title: t('products.netPrice'), field: 'netPrice' },
-    { title: t('products.grossPrice'), field: 'grossPrice' },
-    {
-      title: t('products.vatRate'),
-      field: 'vatRate',
-      lookup: {
-        0: '23%',
-        1: '8%',
-        2: '5%',
-        3: '0%',
-        4: t('products.vatExempt'),
-        5: t('products.vatNotApplicable')
-      }
-    }
-  ];
+  const dispatch = useDispatch();
 
-  return <DataTable title={t('products.title')} columns={columns} />;
+  const products = useSelector(state => state.product.productData);
+
+  const actionPending = useSelector(state => state.product.actionPending);
+
+  const error = useSelector(state => state.product.error);
+
+  const { columns, editableConfig } = useConfig();
+
+  useEffect(() => {
+    dispatch(getProducts());
+    // eslint-disable-next-line
+  }, []);
+
+  return (
+    <>
+      <ErrorDialog error={error} clearAction={setError} />
+      <DataTable
+        title={t('products.title')}
+        isLoading={actionPending}
+        sourceData={products}
+        columns={columns}
+        editableConfig={editableConfig}
+      />
+    </>
+  );
 };
 
 export default Products;
