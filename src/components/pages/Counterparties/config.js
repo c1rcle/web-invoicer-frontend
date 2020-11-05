@@ -24,13 +24,11 @@ const useConfig = () => {
 
   const downloadDetails = (setRowData, nip) => () => {
     handleAction(getCounterpartyDetails(nip), result => {
-      const { name, street, propertyNumber, apartmentNumber, postalCode, city } = result;
+      const { street, propertyNumber, apartmentNumber, ...rest } = result;
       setRowData({
-        name: name,
-        nip: nip,
         address: `${street} ${propertyNumber}${apartmentNumber && `/${apartmentNumber}`}`,
-        postalCode: postalCode,
-        city: city
+        nip: nip,
+        ...rest
       });
     });
   };
@@ -39,13 +37,13 @@ const useConfig = () => {
     {
       title: t('counterparties.name'),
       field: 'name',
-      width: 165,
+      width: 190,
       validate: row => required(row.name)
     },
     {
       title: t('counterparties.nip'),
       field: 'nip',
-      width: 165,
+      width: 190,
       validate: row => validate('validNip', row.nip, true),
       editComponent: props => (
         <div className={classes.nipEditContainer}>
@@ -63,25 +61,25 @@ const useConfig = () => {
     {
       title: t('counterparties.address'),
       field: 'address',
-      width: 165,
+      width: 190,
       validate: row => required(row.address)
     },
     {
       title: t('counterparties.postalCode'),
       field: 'postalCode',
-      width: 165,
+      width: 190,
       validate: row => validate('postalCode', row.postalCode, true)
     },
     {
       title: t('counterparties.city'),
       field: 'city',
-      width: 165,
+      width: 190,
       validate: row => required(row.city)
     },
     {
       title: t('counterparties.phoneNumber'),
       field: 'phoneNumber',
-      width: 165,
+      width: 190,
       validate: row => validate('phoneNumber', row.phoneNumber, false)
     }
   ];

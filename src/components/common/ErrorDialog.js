@@ -37,7 +37,7 @@ const ErrorDialog = ({ error, clearAction }) => {
         <DialogContentText>{getText()}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={closeDialog} color='primary' autoFocus>
+        <Button onClick={closeDialog} color='primary'>
           {t('cancel')}
         </Button>
       </DialogActions>

@@ -11,21 +11,21 @@ const useConfig = () => {
     {
       title: t('employees.fullName'),
       field: 'fullName',
-      width: 165,
+      width: 190,
       validate: row => required(row.fullName)
     },
     {
       title: t('employees.phoneNumber'),
       field: 'phoneNumber',
-      width: 165,
+      width: 190,
       validate: row => validate('phoneNumber', row.phoneNumber, true)
     },
     {
       title: t('employees.dateAdded'),
       field: 'dateAdded',
-      width: 165,
+      width: 190,
       type: 'datetime',
-      editable: false
+      editable: 'never'
     }
   ];
 

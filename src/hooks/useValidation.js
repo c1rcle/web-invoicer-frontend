@@ -15,10 +15,14 @@ const useValidation = () => {
   };
 
   const currency = value => {
-    return Number(value) > 0 && validator.isCurrency(value, {
-      allow_negatives: false,
-      symbol: ''
-    });
+    return (
+      Number(value) > 0 &&
+      validator.isCurrency(value, {
+        allow_negatives: false,
+        digits_after_decimal: [1, 2],
+        symbol: ''
+      })
+    );
   };
 
   const phoneNumber = value => {
@@ -45,7 +49,6 @@ const useValidation = () => {
         case 'validNip':
           return validNip(coercedValue);
         case 'currency':
-          console.log([currency(coercedValue), coercedValue]);
           return currency(coercedValue);
         case 'phoneNumber':
           return phoneNumber(coercedValue);
