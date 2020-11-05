@@ -10,6 +10,7 @@
   "reset": "Reset",
   "changePassword": "Change",
   "accountSettings": "Account settings",
+  "cancel": "Cancel",
   "drawer": {
     "language": "Language",
     "theme": "Theme",
@@ -25,6 +26,26 @@
     "header": "oh no! page not found!",
     "description": "The page you are looking for is not available.",
     "button": "Go home"
+  },
+  "table": {
+    "empty": "No data to display",
+    "add": "Add",
+    "delete": "Delete",
+    "edit": "Edit",
+    "filter": "Filter",
+    "deleteText": "Are you sure you want to delete this row?",
+    "cancel": "Cancel",
+    "save": "Save",
+    "actions": "Actions",
+    "rows": "{from}-{to} of {count}",
+    "rowsSelect": "rows",
+    "rowsPerPage": "Rows per page:",
+    "first": "First page",
+    "previous": "Previous page",
+    "next": "Next page",
+    "last": "Last page",
+    "rowsSelected": "{0} row(s) selected",
+    "search": "Search"
   },
   "home": {
     "dialog": {
@@ -87,5 +108,48 @@
       }
     ],
     "footer": "Register your account and get started for free!"
+  },
+  "products": {
+    "title": "Products",
+    "name": "Article (service) name",
+    "description": "Description",
+    "netPrice": "Net price",
+    "grossPrice": "Gross price",
+    "vatRate": "VAT rate",
+    "vatExempt": "Exempt",
+    "vatNotApplicable": "Not applicable"
+  },
+  "counterparties": {
+    "title": "Counterparties",
+    "name": "Full name",
+    "nip": "TIN",
+    "address": "Address",
+    "postalCode": "Postal code",
+    "city": "City",
+    "phoneNumber": "Phone number"
+  },
+  "employees": {
+    "title": "Employees",
+    "fullName": "Full name",
+    "phoneNumber": "Phone number",
+    "dateAdded": "Date added"
+  },
+  "tableError": {
+    "create": "Could not add the record",
+    "get": "Could not retrieve the record list",
+    "update": "Could not update the record",
+    "delete": "Could not delete the record",
+    "details": "Could not retrieve the counterparty details",
+    "text": {
+      "serverDown": "Server might be down, try again later.",
+      "details": "Counterparty with this TIN does not exist."
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "validNip": "Must be a valid TIN",
+    "currency": "Must be a positive currency value",
+    "phoneNumber": "Must be a valid phone number",
+    "postalCode": "Must be a valid postal code"
   }
 }

@@ -9,6 +9,7 @@
   "reset": "Resetuj",
   "changePassword": "Zmień",
   "accountSettings": "Ustawienia konta",
+  "cancel": "Zamknij",
   "drawer": {
     "language": "Język",
     "theme": "Motyw",
@@ -24,6 +25,26 @@
     "header": "o nie! strona nie istnieje!",
     "description": "Strona, której szukasz jest niedostępna.",
     "button": "Strona główna"
+  },
+  "table": {
+    "empty": "Brak danych do wyświetlenia",
+    "add": "Dodaj",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "filter": "Filtr",
+    "deleteText": "Czy jesteś pewien, że chcesz usunąć ten wiersz?",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "actions": "Akcje",
+    "rows": "{from}-{to} z {count}",
+    "rowsSelect": "wierszy",
+    "rowsPerPage": "Wierszy na stronę:",
+    "first": "Pierwsza strona",
+    "previous": "Poprzednia strona",
+    "next": "Następna strona",
+    "last": "Ostatnia strona",
+    "rowsSelected": "{0} wiersz(y) wybrany(ch)",
+    "search": "Szukaj"
   },
   "home": {
     "dialog": {
@@ -86,5 +107,48 @@
       }
     ],
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  },
+  "products": {
+    "title": "Produkty",
+    "name": "Nazwa artykułu (usługi)",
+    "description": "Opis",
+    "netPrice": "Cena netto",
+    "grossPrice": "Cena brutto",
+    "vatRate": "Stawka VAT",
+    "vatExempt": "ZW",
+    "vatNotApplicable": "NP"
+  },
+  "counterparties": {
+    "title": "Kontrahenci",
+    "name": "Nazwa pełna",
+    "nip": "NIP",
+    "address": "Adres",
+    "postalCode": "Kod pocztowy",
+    "city": "Miasto",
+    "phoneNumber": "Numer kontaktowy"
+  },
+  "employees": {
+    "title": "Pracownicy",
+    "fullName": "Imię i nazwisko",
+    "phoneNumber": "Numer telefonu",
+    "dateAdded": "Data dodania"
+  },
+  "tableError": {
+    "create": "Nie można dodać rekordu",
+    "get": "Nie można pobrać listy rekordów",
+    "update": "Nie można zaktualizować rekordu",
+    "delete": "Nie można usunąć rekordu",
+    "details": "Nie można pobrać danych kontrahenta",
+    "text": {
+      "serverDown": "Serwer może być nieosiągalny, spróbuj ponownie później.",
+      "details": "Kontrahent o podanym numerze NIP nie istnieje."
+    }
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "validNip": "Wymagany jest prawidłowy NIP",
+    "currency": "Wymagana jest dodatnia wartość pieniężna",
+    "phoneNumber": "Wymagany jest prawidłowy numer telefonu",
+    "postalCode": "Wymagany jest prawidłowy kod pocztowy"
   }
 }
