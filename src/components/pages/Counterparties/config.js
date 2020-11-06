@@ -22,12 +22,13 @@ const useConfig = () => {
 
   const classes = useStyles();
 
-  const downloadDetails = (setRowData, nip) => () => {
-    handleAction(getCounterpartyDetails(nip), result => {
+  const downloadDetails = ({ rowData, onRowDataChange, value }) => () => {
+    handleAction(getCounterpartyDetails(value), result => {
       const { street, propertyNumber, apartmentNumber, ...rest } = result;
-      setRowData({
+      onRowDataChange({
+        ...rowData,
         address: `${street} ${propertyNumber}${apartmentNumber && `/${apartmentNumber}`}`,
-        nip: nip,
+        nip: value,
         ...rest
       });
     });
@@ -49,7 +50,7 @@ const useConfig = () => {
         <div className={classes.nipEditContainer}>
           <MTableEditField {...props} />
           <IconButton
-            onClick={downloadDetails(props.onRowDataChange, props.value)}
+            onClick={downloadDetails(props)}
             color='primary'
             disabled={Boolean(props.error)}
             className={classes.nipEditButton}>
