@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/web-invoicer-frontend/static/css/main.78b07b36.chunk.css",
-    "main.js": "/web-invoicer-frontend/static/js/main.bc10f057.chunk.js",
-    "main.js.map": "/web-invoicer-frontend/static/js/main.bc10f057.chunk.js.map",
+    "main.js": "/web-invoicer-frontend/static/js/main.e0052bea.chunk.js",
+    "main.js.map": "/web-invoicer-frontend/static/js/main.e0052bea.chunk.js.map",
     "runtime-main.js": "/web-invoicer-frontend/static/js/runtime-main.3440eb72.js",
     "runtime-main.js.map": "/web-invoicer-frontend/static/js/runtime-main.3440eb72.js.map",
-    "static/js/2.7f474e4a.chunk.js": "/web-invoicer-frontend/static/js/2.7f474e4a.chunk.js",
-    "static/js/2.7f474e4a.chunk.js.map": "/web-invoicer-frontend/static/js/2.7f474e4a.chunk.js.map",
+    "static/js/2.2060b74d.chunk.js": "/web-invoicer-frontend/static/js/2.2060b74d.chunk.js",
+    "static/js/2.2060b74d.chunk.js.map": "/web-invoicer-frontend/static/js/2.2060b74d.chunk.js.map",
     "static/js/3.376189da.chunk.js": "/web-invoicer-frontend/static/js/3.376189da.chunk.js",
     "static/js/3.376189da.chunk.js.map": "/web-invoicer-frontend/static/js/3.376189da.chunk.js.map",
     "static/js/4.5f1c4b6f.chunk.js": "/web-invoicer-frontend/static/js/4.5f1c4b6f.chunk.js",
@@ -14,10 +14,10 @@
     "static/js/5.c16c4a78.chunk.js": "/web-invoicer-frontend/static/js/5.c16c4a78.chunk.js",
     "static/js/5.c16c4a78.chunk.js.map": "/web-invoicer-frontend/static/js/5.c16c4a78.chunk.js.map",
     "index.html": "/web-invoicer-frontend/index.html",
-    "precache-manifest.5bbb834f964b362c8b23a68099ab65e2.js": "/web-invoicer-frontend/precache-manifest.5bbb834f964b362c8b23a68099ab65e2.js",
+    "precache-manifest.26695437082d5666994dbd76acb30c8e.js": "/web-invoicer-frontend/precache-manifest.26695437082d5666994dbd76acb30c8e.js",
     "service-worker.js": "/web-invoicer-frontend/service-worker.js",
     "static/css/main.78b07b36.chunk.css.map": "/web-invoicer-frontend/static/css/main.78b07b36.chunk.css.map",
-    "static/js/2.7f474e4a.chunk.js.LICENSE.txt": "/web-invoicer-frontend/static/js/2.7f474e4a.chunk.js.LICENSE.txt",
+    "static/js/2.2060b74d.chunk.js.LICENSE.txt": "/web-invoicer-frontend/static/js/2.2060b74d.chunk.js.LICENSE.txt",
     "static/js/3.376189da.chunk.js.LICENSE.txt": "/web-invoicer-frontend/static/js/3.376189da.chunk.js.LICENSE.txt",
     "static/js/4.5f1c4b6f.chunk.js.LICENSE.txt": "/web-invoicer-frontend/static/js/4.5f1c4b6f.chunk.js.LICENSE.txt",
     "static/js/5.c16c4a78.chunk.js.LICENSE.txt": "/web-invoicer-frontend/static/js/5.c16c4a78.chunk.js.LICENSE.txt",
@@ -25,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3440eb72.js",
-    "static/js/2.7f474e4a.chunk.js",
+    "static/js/2.2060b74d.chunk.js",
     "static/css/main.78b07b36.chunk.css",
-    "static/js/main.bc10f057.chunk.js"
+    "static/js/main.e0052bea.chunk.js"
   ]
 }
