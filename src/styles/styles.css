@@ -13,3 +13,9 @@ h6 {
 .logged-in-container {
   max-width: none !important;
 }
+
+@media (min-width: 1280px) {
+  .logged-in-container {
+    width: calc(100% - 250px) !important;
+  }
+}
