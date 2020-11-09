@@ -98,8 +98,8 @@
       },
       {
         "icon": "cloud_download",
-        "header": "CEIDG integration",
-        "description": "Our solution lets you integrate with the CEIDG database to quickly and easily import your counterparty details."
+        "header": "GUS integration",
+        "description": "Our solution lets you integrate with the GUS database to quickly and easily import your counterparty details."
       },
       {
         "icon": "trending_up",
@@ -108,6 +108,15 @@
       }
     ],
     "footer": "Register your account and get started for free!"
+  },
+  "invoices": {
+    "title": "Invoices",
+    "date": "Date of issue",
+    "number": "Number",
+    "counterparty": "Counterparty",
+    "netPrice": "Net price",
+    "grossPrice": "Gross price",
+    "issuer": "Issuer"
   },
   "products": {
     "title": "Products",

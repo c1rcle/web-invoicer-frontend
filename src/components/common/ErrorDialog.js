@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle
-} from '@material-ui/core';
+import { Button, DialogContentText } from '@material-ui/core';
+import Dialog from '../common/Dialog';
 
 const ErrorDialog = ({ error, clearAction }) => {
   const [displayedError, setDisplayedError] = useState('');
@@ -31,17 +25,17 @@ const ErrorDialog = ({ error, clearAction }) => {
   }, [error]);
 
   return (
-    <Dialog open={Boolean(error)} onClose={closeDialog}>
-      <DialogTitle>{getTitle()}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>{getText()}</DialogContentText>
-      </DialogContent>
-      <DialogActions>
+    <Dialog
+      open={Boolean(error)}
+      onClose={closeDialog}
+      title={getTitle()}
+      content={<DialogContentText>{getText()}</DialogContentText>}
+      actions={
         <Button onClick={closeDialog} color='primary'>
           {t('cancel')}
         </Button>
-      </DialogActions>
-    </Dialog>
+      }
+    />
   );
 };
 

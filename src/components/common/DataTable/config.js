@@ -66,32 +66,36 @@ const useConfig = (editableConfig, data, setData) => {
     }
   };
 
-  const { createAction, updateAction, deleteAction, idKey } = editableConfig;
+  let editable = null;
 
-  const editable = {
-    onRowAdd: newRow =>
-      handleAction(createAction(newRow), result => setData([...data, result]), true),
-    onRowUpdate: async (newRow, oldRow) => {
-      const updateData = filterProperties(oldRow, newRow);
+  if (editableConfig) {
+    const { createAction, updateAction, deleteAction, idKey } = editableConfig;
 
-      if (updateData) {
-        await handleAction(
-          updateAction({ [idKey]: newRow[idKey], ...updateData }),
-          () => {
-            const filteredData = data.filter(row => row[idKey] !== newRow[idKey]);
-            setData([{ ...newRow }, ...filteredData]);
-          },
+    editable = {
+      onRowAdd: newRow =>
+        handleAction(createAction(newRow), result => setData([...data, result]), true),
+      onRowUpdate: async (newRow, oldRow) => {
+        const updateData = filterProperties(oldRow, newRow);
+
+        if (updateData) {
+          await handleAction(
+            updateAction({ [idKey]: newRow[idKey], ...updateData }),
+            () => {
+              const filteredData = data.filter(row => row[idKey] !== newRow[idKey]);
+              setData([{ ...newRow }, ...filteredData]);
+            },
+            true
+          );
+        }
+      },
+      onRowDelete: deletedRow =>
+        handleAction(
+          deleteAction(deletedRow[idKey]),
+          () => setData(data.filter(row => row[idKey] !== deletedRow[idKey])),
           true
-        );
-      }
-    },
-    onRowDelete: deletedRow =>
-      handleAction(
-        deleteAction(deletedRow[idKey]),
-        () => setData(data.filter(row => row[idKey] !== deletedRow[idKey])),
-        true
-      )
-  };
+        )
+    };
+  }
 
   return { options, icons, localization, editable };
 };

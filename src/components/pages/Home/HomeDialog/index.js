@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Dialog } from '@material-ui/core';
-import DialogHeader from './DialogHeader';
+import Dialog from '../../../common/Dialog';
 import DialogAlert from './DialogAlert';
 import Login from './DialogContent/Login';
 import Register from './DialogContent/Register';
@@ -24,8 +23,15 @@ const HomeDialog = () => {
   };
 
   return (
-    <Dialog open={isDialogOpen} onClose={closeDialog} onExited={onExited} maxWidth='xs' fullWidth>
-      <DialogHeader onClose={closeDialog} title={dialogTitle()} />
+    <Dialog
+      centeredTitle
+      closeButton
+      title={dialogTitle()}
+      open={isDialogOpen}
+      onClose={closeDialog}
+      onExited={onExited}
+      maxWidth='xs'
+      fullWidth>
       <DialogAlert locationKey={locationKey} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/register' component={Register} />

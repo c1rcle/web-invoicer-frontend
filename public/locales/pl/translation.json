@@ -97,8 +97,8 @@
       },
       {
         "icon": "cloud_download",
-        "header": "Integracja z CEIDG",
-        "description": "Nasze rozwiązanie pozwala na integrację z bazą danych CEIDG, w celu szybkiego i łatwego importowania danych kontrahenta."
+        "header": "Integracja z GUS",
+        "description": "Nasze rozwiązanie pozwala na integrację z bazą danych GUS, w celu szybkiego i łatwego importowania danych kontrahenta."
       },
       {
         "icon": "trending_up",
@@ -107,6 +107,15 @@
       }
     ],
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  },
+  "invoices": {
+    "title": "Faktury",
+    "date": "Data wystawienia",
+    "number": "Numer",
+    "counterparty": "Kontrahent",
+    "netPrice": "Cena netto",
+    "grossPrice": "Cena brutto",
+    "issuer": "Wystawca"
   },
   "products": {
     "title": "Produkty",
