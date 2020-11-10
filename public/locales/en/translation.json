@@ -110,6 +110,12 @@
     "footer": "Register your account and get started for free!"
   },
   "invoices": {
+    "options": [
+      { "id": "vat", "label": "VAT invoice" },
+      { "id": "proforma", "label": "Proforma invoice" },
+      { "id": "receipt", "label": "Receipt" },
+      { "id": "margin", "label": "VAT margin invoice" }
+    ],
     "title": "Invoices",
     "date": "Date of issue",
     "number": "Number",

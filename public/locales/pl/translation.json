@@ -109,6 +109,12 @@
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
   },
   "invoices": {
+    "options": [
+      { "id": "vat", "label": "Faktura VAT" },
+      { "id": "proforma", "label": "Faktura proforma" },
+      { "id": "receipt", "label": "Paragon" },
+      { "id": "margin", "label": "Faktura VAT marża" }
+    ],
     "title": "Faktury",
     "date": "Data wystawienia",
     "number": "Numer",
