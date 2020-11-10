@@ -4,7 +4,7 @@ import { AddCircle, Check, Clear, Delete, Edit } from '@material-ui/icons';
 import useHandleAction from '../../../hooks/useHandleAction';
 import { filterProperties } from '../../../utils/dataUtils';
 
-const useConfig = (editableConfig, data, setData) => {
+const useConfig = editableConfig => {
   const { t } = useTranslation();
 
   const handleAction = useHandleAction();
@@ -72,28 +72,19 @@ const useConfig = (editableConfig, data, setData) => {
     const { createAction, updateAction, deleteAction, idKey } = editableConfig;
 
     editable = {
-      onRowAdd: newRow =>
-        handleAction(createAction(newRow), result => setData([...data, result]), true),
+      onRowAdd: newRow => handleAction({ action: createAction(newRow), rejectOnError: true }),
       onRowUpdate: async (newRow, oldRow) => {
         const updateData = filterProperties(oldRow, newRow);
 
         if (updateData) {
-          await handleAction(
-            updateAction({ [idKey]: newRow[idKey], ...updateData }),
-            () => {
-              const filteredData = data.filter(row => row[idKey] !== newRow[idKey]);
-              setData([{ ...newRow }, ...filteredData]);
-            },
-            true
-          );
+          await handleAction({
+            action: updateAction({ [idKey]: newRow[idKey], ...updateData }),
+            rejectOnError: true
+          });
         }
       },
       onRowDelete: deletedRow =>
-        handleAction(
-          deleteAction(deletedRow[idKey]),
-          () => setData(data.filter(row => row[idKey] !== deletedRow[idKey])),
-          true
-        )
+        handleAction({ action: deleteAction(deletedRow[idKey]), rejectOnError: true })
     };
   }
 

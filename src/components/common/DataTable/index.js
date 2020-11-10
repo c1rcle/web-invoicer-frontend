@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import MaterialTable from 'material-table';
 import useConfig from './config';
 import useStyles from './styles';
 
-const DataTable = ({ sourceData, editableConfig, ...props }) => {
-  const [data, setData] = useState([]);
-
-  const { options, icons, localization, editable } = useConfig(editableConfig, data, setData);
+const DataTable = ({ data, editableConfig = null, ...props }) => {
+  const { options, icons, localization, editable } = useConfig(editableConfig);
 
   const classes = useStyles();
-
-  useEffect(() => {
-    sourceData.length !== 0 && setData(sourceData.map(x => ({ ...x })));
-  }, [sourceData]);
 
   return (
     <div className={classes.tableContainer}>

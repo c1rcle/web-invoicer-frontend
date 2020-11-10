@@ -23,14 +23,17 @@ const useConfig = () => {
   const classes = useStyles();
 
   const downloadDetails = ({ rowData, onRowDataChange, value }) => () => {
-    handleAction(getCounterpartyDetails(value), result => {
-      const { street, propertyNumber, apartmentNumber, ...rest } = result;
-      onRowDataChange({
-        ...rowData,
-        address: `${street} ${propertyNumber}${apartmentNumber && `/${apartmentNumber}`}`,
-        nip: value,
-        ...rest
-      });
+    handleAction({
+      action: getCounterpartyDetails(value),
+      onSuccess: result => {
+        const { street, propertyNumber, apartmentNumber, ...rest } = result;
+        onRowDataChange({
+          ...rowData,
+          address: `${street} ${propertyNumber}${apartmentNumber && `/${apartmentNumber}`}`,
+          nip: value,
+          ...rest
+        });
+      }
     });
   };
 

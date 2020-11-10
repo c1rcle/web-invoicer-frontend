@@ -39,13 +39,15 @@ export const updateProduct = createAsyncThunk('product/update', async (product, 
 });
 
 export const deleteProduct = createAsyncThunk('product/delete', async (id, { dispatch }) => {
-  return await handleAction(
+  await handleAction(
     {
       method: () => webInvoicerApi().delete(`Products/${id}`),
       errorData: 'delete'
     },
     dispatch
   );
+
+  return id;
 });
 
 const handleAction = async ({ method, errorData }, dispatch) => {
@@ -72,8 +74,18 @@ const productSlice = createSlice({
     }
   },
   extraReducers: {
+    [createProduct.fulfilled]: (state, action) => {
+      state.productData.push(action.payload);
+    },
     [getProducts.fulfilled]: (state, action) => {
       state.productData = action.payload;
+    },
+    [updateProduct.fulfilled]: (state, action) => {
+      const index = state.productData.findIndex(x => x.productId === action.payload.productId);
+      state.productData[index] = action.payload;
+    },
+    [deleteProduct.fulfilled]: (state, action) => {
+      state.productData = state.productData.filter(x => x.productId !== action.payload);
     }
   }
 });

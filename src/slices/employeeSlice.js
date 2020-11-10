@@ -45,13 +45,15 @@ export const updateEmployee = createAsyncThunk(
 );
 
 export const deleteEmployee = createAsyncThunk('employee/delete', async (id, { dispatch }) => {
-  return await handleAction(
+  await handleAction(
     {
       method: () => webInvoicerApi().delete(`Employees/${id}`),
       errorData: 'delete'
     },
     dispatch
   );
+
+  return id;
 });
 
 const handleAction = async ({ method, errorData }, dispatch) => {
@@ -78,8 +80,18 @@ const employeeSlice = createSlice({
     }
   },
   extraReducers: {
+    [createEmployee.fulfilled]: (state, action) => {
+      state.employeeData.push(action.payload);
+    },
     [getEmployees.fulfilled]: (state, action) => {
       state.employeeData = action.payload;
+    },
+    [updateEmployee.fulfilled]: (state, action) => {
+      const index = state.employeeData.findIndex(x => x.employeeId === action.payload.employeeId);
+      state.employeeData[index] = action.payload;
+    },
+    [deleteEmployee.fulfilled]: (state, action) => {
+      state.employeeData = state.employeeData.filter(x => x.employeeId !== action.payload);
     }
   }
 });

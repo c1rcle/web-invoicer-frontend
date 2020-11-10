@@ -30,7 +30,7 @@ const Products = () => {
       <DataTable
         title={t('products.title')}
         isLoading={actionPending}
-        sourceData={products}
+        data={products}
         columns={columns}
         editableConfig={editableConfig}
       />

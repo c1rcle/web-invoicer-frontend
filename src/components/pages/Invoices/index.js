@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import DeleteDialog from './DeleteDialog';
 import DataTable from '../../common/DataTable';
-import useDialog from '../../../hooks/useDialog';
+import CreateMenu from './CreateMenu';
+import DeleteDialog from './DeleteDialog';
 import useConfig from './config';
 
 const Invoices = () => {
@@ -13,17 +13,20 @@ const Invoices = () => {
 
   const actionPending = useSelector(state => state.invoice.actionPending);
 
-  const { isDialogOpen, openDialog, closeDialog } = useDialog();
-
-  const { columns, actions, closeMenu } = useConfig(openDialog);
+  const { columns, actions, dialog, menu } = useConfig();
 
   return (
     <>
-      <DeleteDialog isDialogOpen={isDialogOpen} closeDialog={closeDialog} />
+      <CreateMenu anchor={menu.anchor} closeMenu={menu.closeMenu} />
+      <DeleteDialog
+        open={dialog.isDialogOpen}
+        onClose={dialog.closeDialog}
+        data={dialog.dialogData}
+      />
       <DataTable
         title={t('invoices.title')}
         isLoading={actionPending}
-        sourceData={invoices}
+        data={invoices}
         columns={columns}
         actions={actions}
       />

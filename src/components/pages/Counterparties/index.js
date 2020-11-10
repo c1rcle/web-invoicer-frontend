@@ -30,7 +30,7 @@ const Counterparties = () => {
       <DataTable
         title={t('counterparties.title')}
         isLoading={actionPending}
-        sourceData={counterparties}
+        data={counterparties}
         columns={columns}
         editableConfig={editableConfig}
       />

@@ -60,13 +60,15 @@ export const updateCounterparty = createAsyncThunk(
 export const deleteCounterparty = createAsyncThunk(
   'counterparty/delete',
   async (id, { dispatch }) => {
-    return await handleAction(
+    await handleAction(
       {
         method: () => webInvoicerApi().delete(`Counterparties/${id}`),
         errorData: 'delete'
       },
       dispatch
     );
+
+    return id;
   }
 );
 
@@ -94,8 +96,22 @@ const counterpartySlice = createSlice({
     }
   },
   extraReducers: {
+    [createCounterparty.fulfilled]: (state, action) => {
+      state.counterpartyData.push(action.payload);
+    },
     [getCounterparties.fulfilled]: (state, action) => {
       state.counterpartyData = action.payload;
+    },
+    [updateCounterparty.fulfilled]: (state, action) => {
+      const index = state.counterpartyData.findIndex(
+        x => x.counterpartyId === action.payload.counterpartyId
+      );
+      state.counterpartyData[index] = action.payload;
+    },
+    [deleteCounterparty.fulfilled]: (state, action) => {
+      state.counterpartyData = state.counterpartyData.filter(
+        x => x.counterpartyId !== action.payload
+      );
     }
   }
 });
