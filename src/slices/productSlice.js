@@ -81,11 +81,11 @@ const productSlice = createSlice({
       state.productData = action.payload;
     },
     [updateProduct.fulfilled]: (state, action) => {
-      const index = state.productData.findIndex(x => x.productId === action.payload.productId);
+      const index = state.productData.findIndex(x => x.id === action.payload.id);
       state.productData[index] = action.payload;
     },
     [deleteProduct.fulfilled]: (state, action) => {
-      state.productData = state.productData.filter(x => x.productId !== action.payload);
+      state.productData = state.productData.filter(x => x.id !== action.payload);
     }
   }
 });

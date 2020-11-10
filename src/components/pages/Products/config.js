@@ -97,8 +97,7 @@ const useConfig = () => {
   const editableConfig = {
     createAction: createProduct,
     updateAction: updateProduct,
-    deleteAction: deleteProduct,
-    idKey: 'productId'
+    deleteAction: deleteProduct
   };
 
   return { columns, editableConfig };

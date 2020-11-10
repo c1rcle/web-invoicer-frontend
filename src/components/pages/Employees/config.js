@@ -32,8 +32,7 @@ const useConfig = () => {
   const editableConfig = {
     createAction: createEmployee,
     updateAction: updateEmployee,
-    deleteAction: deleteEmployee,
-    idKey: 'employeeId'
+    deleteAction: deleteEmployee
   };
 
   return { columns, editableConfig };

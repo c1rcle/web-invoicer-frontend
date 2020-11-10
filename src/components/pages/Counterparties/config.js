@@ -91,8 +91,7 @@ const useConfig = () => {
   const editableConfig = {
     createAction: createCounterparty,
     updateAction: updateCounterparty,
-    deleteAction: deleteCounterparty,
-    idKey: 'counterpartyId'
+    deleteAction: deleteCounterparty
   };
 
   return { columns, editableConfig };

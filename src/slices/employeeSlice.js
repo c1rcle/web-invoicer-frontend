@@ -87,11 +87,11 @@ const employeeSlice = createSlice({
       state.employeeData = action.payload;
     },
     [updateEmployee.fulfilled]: (state, action) => {
-      const index = state.employeeData.findIndex(x => x.employeeId === action.payload.employeeId);
+      const index = state.employeeData.findIndex(x => x.id === action.payload.id);
       state.employeeData[index] = action.payload;
     },
     [deleteEmployee.fulfilled]: (state, action) => {
-      state.employeeData = state.employeeData.filter(x => x.employeeId !== action.payload);
+      state.employeeData = state.employeeData.filter(x => x.id !== action.payload);
     }
   }
 });

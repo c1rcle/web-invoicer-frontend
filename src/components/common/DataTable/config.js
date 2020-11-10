@@ -69,7 +69,7 @@ const useConfig = editableConfig => {
   let editable = null;
 
   if (editableConfig) {
-    const { createAction, updateAction, deleteAction, idKey } = editableConfig;
+    const { createAction, updateAction, deleteAction } = editableConfig;
 
     editable = {
       onRowAdd: newRow => handleAction({ action: createAction(newRow), rejectOnError: true }),
@@ -78,13 +78,13 @@ const useConfig = editableConfig => {
 
         if (updateData) {
           await handleAction({
-            action: updateAction({ [idKey]: newRow[idKey], ...updateData }),
+            action: updateAction({ id: newRow.id, ...updateData }),
             rejectOnError: true
           });
         }
       },
       onRowDelete: deletedRow =>
-        handleAction({ action: deleteAction(deletedRow[idKey]), rejectOnError: true })
+        handleAction({ action: deleteAction(deletedRow.id), rejectOnError: true })
     };
   }
 

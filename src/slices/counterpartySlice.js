@@ -103,15 +103,11 @@ const counterpartySlice = createSlice({
       state.counterpartyData = action.payload;
     },
     [updateCounterparty.fulfilled]: (state, action) => {
-      const index = state.counterpartyData.findIndex(
-        x => x.counterpartyId === action.payload.counterpartyId
-      );
+      const index = state.counterpartyData.findIndex(x => x.id === action.payload.id);
       state.counterpartyData[index] = action.payload;
     },
     [deleteCounterparty.fulfilled]: (state, action) => {
-      state.counterpartyData = state.counterpartyData.filter(
-        x => x.counterpartyId !== action.payload
-      );
+      state.counterpartyData = state.counterpartyData.filter(x => x.id !== action.payload);
     }
   }
 });
