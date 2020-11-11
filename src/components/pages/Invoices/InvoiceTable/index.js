@@ -21,7 +21,7 @@ const InvoiceTable = () => {
       <DeleteDialog
         open={dialog.isDialogOpen}
         onClose={dialog.closeDialog}
-        data={dialog.dialogData}
+        id={dialog.dialogData}
       />
       <DataTable
         title={t('invoices.title')}

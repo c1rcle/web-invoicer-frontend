@@ -6,6 +6,10 @@
   display: flex;
 }
 
+h5 {
+  font-weight: 300 !important;
+}
+
 h6 {
   font-weight: 300 !important;
 }
