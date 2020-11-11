@@ -12,6 +12,9 @@ const UserDrawerContent = ({ closeDrawer, isDrawerPermanent }) => {
 
   const drawerItems = t('drawer.user', { returnObjects: true });
 
+  const isSelected = item =>
+    location.pathname === item.pathname || location.pathname.startsWith(`${item.pathname}/`);
+
   const onItemClick = () => !isDrawerPermanent && closeDrawer();
 
   return (
@@ -24,7 +27,7 @@ const UserDrawerContent = ({ closeDrawer, isDrawerPermanent }) => {
             component={Link}
             to={item.pathname}
             replace={location.pathname === item.pathname}
-            selected={location.pathname === item.pathname}
+            selected={isSelected(item)}
             onClick={onItemClick}>
             <ListItemIcon>
               <Icon>{item.icon}</Icon>

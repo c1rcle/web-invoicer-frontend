@@ -11,9 +11,8 @@ const LanguageSelector = () => {
 
   const { anchor, openMenu, closeMenu } = useDropdownMenu();
 
-  const handleLanguageChange = index => () => {
-    const languageCode = languages[index].code;
-    if (languageCode !== i18n.language) i18n.changeLanguage(languages[index].code);
+  const handleLanguageChange = languageCode => () => {
+    if (languageCode !== i18n.language) i18n.changeLanguage(languageCode);
     closeMenu();
   };
 
@@ -30,7 +29,7 @@ const LanguageSelector = () => {
           <MenuItem
             key={index}
             selected={i18n.language.startsWith(language.code)}
-            onClick={handleLanguageChange(index)}>
+            onClick={handleLanguageChange(language.code)}>
             {language.label}
           </MenuItem>
         ))}
