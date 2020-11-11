@@ -9,6 +9,7 @@
   "reset": "Resetuj",
   "changePassword": "Zmień",
   "accountSettings": "Ustawienia konta",
+  "save": "Zapisz",
   "cancel": "Zamknij",
   "drawer": {
     "language": "Język",
@@ -115,6 +116,13 @@
       { "id": "receipt", "label": "Paragon" },
       { "id": "margin", "label": "Faktura VAT marża" }
     ],
+    "header": {
+      "vat": "Faktura VAT",
+      "proforma": "Faktura proforma",
+      "receipt": "Paragon",
+      "margin": "Faktura VAT marża",
+      "corrective": "Faktura korygująca"
+    },
     "title": "Faktury",
     "date": "Data wystawienia",
     "number": "Numer",

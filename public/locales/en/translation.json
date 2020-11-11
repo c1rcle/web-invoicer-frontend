@@ -10,6 +10,7 @@
   "reset": "Reset",
   "changePassword": "Change",
   "accountSettings": "Account settings",
+  "save": "Save",
   "cancel": "Cancel",
   "drawer": {
     "language": "Language",
@@ -116,6 +117,13 @@
       { "id": "receipt", "label": "Receipt" },
       { "id": "margin", "label": "VAT margin invoice" }
     ],
+    "header": {
+      "vat": "VAT invoice",
+      "proforma": "Proforma invoice",
+      "receipt": "Receipt",
+      "margin": "VAT margin invoice",
+      "corrective": "Corrective invoice"
+    },
     "title": "Invoices",
     "date": "Date of issue",
     "number": "Number",

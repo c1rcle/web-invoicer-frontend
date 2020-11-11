@@ -22,7 +22,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path={validHomePaths} component={Home} />
-      <PrivateRoute exact path='/invoices' component={Invoices} />
+      <PrivateRoute path='/invoices' component={Invoices} />
       <PrivateRoute exact path='/products' component={Products} />
       <PrivateRoute exact path='/counterparties' component={Counterparties} />
       <PrivateRoute exact path='/employees' component={Employees} />

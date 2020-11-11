@@ -1,11 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Button, CircularProgress } from '@material-ui/core';
 import useStyles from './styles';
 
-const SubmitButton = ({ text }) => {
-  const loading = useSelector(state => state.user.actionPending);
-
+const SubmitButton = ({ text, loading }) => {
   const classes = useStyles();
 
   return (
