@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AddCircle, Delete, Edit } from '@material-ui/icons';
-import useDropdownMenu from '../../../hooks/useDropdownMenu';
-import useDialog from '../../../hooks/useDialog';
+import useDropdownMenu from '../../../../hooks/useDropdownMenu';
+import useDialog from '../../../../hooks/useDialog';
 
 const useConfig = () => {
   const { t } = useTranslation();

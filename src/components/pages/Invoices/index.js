@@ -1,36 +1,24 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import DataTable from '../../common/DataTable';
-import CreateMenu from './CreateMenu';
-import DeleteDialog from './DeleteDialog';
-import useConfig from './config';
+import { Route, Switch } from 'react-router-dom';
+import Editor from './Editor';
+import InvoiceTable from './InvoiceTable';
+import NotFound from '../NotFound';
 
 const Invoices = () => {
-  const { t } = useTranslation();
-
-  const invoices = useSelector(state => state.invoice.invoiceData);
-
-  const actionPending = useSelector(state => state.invoice.actionPending);
-
-  const { columns, actions, dialog, menu } = useConfig();
+  const validEditorPaths = [
+    '/invoices/vat',
+    '/invoices/proforma',
+    '/invoices/receipt',
+    '/invoices/margin',
+    '/invoices/corrective'
+  ];
 
   return (
-    <>
-      <CreateMenu anchor={menu.anchor} closeMenu={menu.closeMenu} />
-      <DeleteDialog
-        open={dialog.isDialogOpen}
-        onClose={dialog.closeDialog}
-        data={dialog.dialogData}
-      />
-      <DataTable
-        title={t('invoices.title')}
-        isLoading={actionPending}
-        data={invoices}
-        columns={columns}
-        actions={actions}
-      />
-    </>
+    <Switch>
+      <Route exact path='/invoices' component={InvoiceTable} />
+      <Route exact path={validEditorPaths} component={Editor} />
+      <Route component={NotFound} />
+    </Switch>
   );
 };
 

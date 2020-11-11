@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, MenuItem } from '@material-ui/core';
 
@@ -7,15 +8,10 @@ const CreateMenu = ({ anchor, closeMenu }) => {
 
   const options = t('invoices.options', { returnObjects: true });
 
-  const onOptionSelected = index => () => {
-    //TODO switch to create component.
-    closeMenu();
-  };
-
   return (
     <Menu anchorEl={anchor} open={Boolean(anchor)} onClose={closeMenu}>
       {options.map((option, index) => (
-        <MenuItem key={index} onClick={onOptionSelected(index)}>
+        <MenuItem component={Link} to={`/invoices/${option.id}`} key={index}>
           {option.label}
         </MenuItem>
       ))}
