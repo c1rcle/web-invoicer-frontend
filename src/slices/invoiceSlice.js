@@ -85,11 +85,14 @@ const invoiceSlice = createSlice({
       state.editorData.products.push(action.payload);
     },
     updateProduct(state, action) {
-      const { product, index } = action.payload;
-      state.editorData.products[index] = product;
+      const index = state.editorData.products.findIndex(
+        x => x.editorId === action.payload.editorId
+      );
+      state.editorData.products[index] = action.payload;
     },
     deleteProduct(state, action) {
-      state.editorData.products.splice(action.payload, 1);
+      const index = state.editorData.products.findIndex(x => x.editorId === action.payload);
+      state.editorData.products.splice(index, 1);
     }
   },
   extraReducers: {
