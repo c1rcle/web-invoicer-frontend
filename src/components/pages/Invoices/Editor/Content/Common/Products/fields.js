@@ -6,11 +6,32 @@ import { Delete } from '@material-ui/icons';
 import Autocomplete from '../Input/Autocomplete';
 import EditorTextField from '../Input/EditorTextField';
 import VatRatePicker from './VatRatePicker';
+import { calculateGrossPrice, calculateNetPrice } from '../../../../../../../utils/priceUtils';
 
 const useFields = ({ update, select, remove }) => {
   const { t } = useTranslation();
 
   const products = useSelector(state => state.product.productData);
+
+  const onPriceChange = (fieldName, product) => e => {
+    const value = e.target.value;
+    const calculatedValue =
+      fieldName === 'netPrice'
+        ? calculateGrossPrice(value, product.vatRate)
+        : calculateNetPrice(value, product.vatRate);
+
+    const calculatedFieldName = fieldName === 'netPrice' ? 'grossPrice' : 'netPrice';
+    select(product, { [fieldName]: value, [calculatedFieldName]: calculatedValue });
+  };
+
+  const onVatRateChange = product => e => {
+    const value = e.target.value;
+
+    select(product, {
+      vatRate: value,
+      grossPrice: calculateGrossPrice(product.netPrice, value)
+    });
+  };
 
   return product => {
     return {
@@ -59,7 +80,7 @@ const useFields = ({ update, select, remove }) => {
           label={t('products.netPrice')}
           validators={['currency']}
           type='number'
-          onChange={update(product, 'netPrice')}
+          onChange={onPriceChange('netPrice', product)}
           value={product.netPrice}
         />
       ),
@@ -69,7 +90,7 @@ const useFields = ({ update, select, remove }) => {
           label={t('products.grossPrice')}
           validators={['currency']}
           type='number'
-          onChange={update(product, 'grossPrice')}
+          onChange={onPriceChange('grossPrice', product)}
           value={product.grossPrice}
         />
       ),
@@ -77,7 +98,7 @@ const useFields = ({ update, select, remove }) => {
         <VatRatePicker
           disabled={Boolean(product.id)}
           label={t('products.vatRate')}
-          onChange={update(product, 'vatRate')}
+          onChange={onVatRateChange(product)}
           value={product.vatRate}
         />
       ),

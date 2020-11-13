@@ -145,7 +145,10 @@
     "grossPrice": "Cena brutto",
     "vatRate": "Stawka VAT",
     "vatExempt": "ZW",
-    "vatNotApplicable": "NP"
+    "vatNotApplicable": "NP",
+    "netSum": "Suma netto: {{sum}} zł",
+    "vatSum": "Suma VAT: {{sum}} zł",
+    "amountDue": "Do zapłaty: {{sum}} zł"
   },
   "counterparties": {
     "title": "Kontrahenci",

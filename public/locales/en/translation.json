@@ -146,7 +146,10 @@
     "grossPrice": "Gross price",
     "vatRate": "VAT rate",
     "vatExempt": "Exempt",
-    "vatNotApplicable": "Not applicable"
+    "vatNotApplicable": "Not applicable",
+    "netSum": "Net sum: {{sum}} zł",
+    "vatSum": "Vat sum: {{sum}} zł",
+    "amountDue": "Amount due: {{sum}} zł"
   },
   "counterparties": {
     "title": "Counterparties",
