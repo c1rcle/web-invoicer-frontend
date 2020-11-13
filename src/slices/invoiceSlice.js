@@ -1,17 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import webInvoicerApi from '../apis/webInvoicerApi';
 import apiHandler from '../apis/apiHandler';
+import { initialEditorData } from '../utils/editorUtils';
 
 const initialState = {
   actionPending: false,
   error: null,
   invoiceData: [],
-  editorData: {
-    details: null,
-    counterparty: null,
-    products: [],
-    payment: null
-  }
+  editorData: initialEditorData
 };
 
 export const createInvoice = createAsyncThunk('invoice/create', async (invoice, dispatch) => {
