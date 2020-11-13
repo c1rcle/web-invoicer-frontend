@@ -5,6 +5,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 0),
     padding: theme.spacing(3)
   },
+  footerDivider: {
+    margin: theme.spacing(0, -3)
+  },
   footerContainer: {
     marginTop: theme.spacing(3),
     width: '100%',

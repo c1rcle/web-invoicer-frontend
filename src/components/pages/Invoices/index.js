@@ -9,7 +9,6 @@ const Invoices = () => {
     '/invoices/vat',
     '/invoices/proforma',
     '/invoices/receipt',
-    '/invoices/margin',
     '/invoices/corrective'
   ];
 

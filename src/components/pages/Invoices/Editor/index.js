@@ -1,6 +1,6 @@
 import React from 'react';
-import { ValidatorForm } from 'react-material-ui-form-validator';
 import ErrorDialog from '../../../common/ErrorDialog';
+import ValidatorForm from './ValidatorForm';
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';

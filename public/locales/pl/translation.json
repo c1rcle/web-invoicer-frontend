@@ -113,15 +113,19 @@
     "options": [
       { "id": "vat", "label": "Faktura VAT" },
       { "id": "proforma", "label": "Faktura proforma" },
-      { "id": "receipt", "label": "Paragon" },
-      { "id": "margin", "label": "Faktura VAT marża" }
+      { "id": "receipt", "label": "Paragon" }
     ],
     "header": {
       "vat": "Faktura VAT",
       "proforma": "Faktura proforma",
       "receipt": "Paragon",
-      "margin": "Faktura VAT marża",
       "corrective": "Faktura korygująca"
+    },
+    "editor": {
+      "details": "Dane",
+      "counterparty": "Kontrahent",
+      "products": "Produkty",
+      "payment": "Płatność"
     },
     "title": "Faktury",
     "date": "Data wystawienia",
@@ -135,6 +139,8 @@
     "title": "Produkty",
     "name": "Nazwa artykułu (usługi)",
     "description": "Opis",
+    "count": "Ilość",
+    "unit": "j. m.",
     "netPrice": "Cena netto",
     "grossPrice": "Cena brutto",
     "vatRate": "Stawka VAT",
@@ -172,6 +178,7 @@
     "validNip": "Wymagany jest prawidłowy NIP",
     "currency": "Wymagana jest dodatnia wartość pieniężna",
     "phoneNumber": "Wymagany jest prawidłowy numer telefonu",
-    "postalCode": "Wymagany jest prawidłowy kod pocztowy"
+    "postalCode": "Wymagany jest prawidłowy kod pocztowy",
+    "isPositive": "Wymagana jest dodatnia wartość"
   }
 }

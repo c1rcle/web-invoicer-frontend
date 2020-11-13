@@ -114,15 +114,19 @@
     "options": [
       { "id": "vat", "label": "VAT invoice" },
       { "id": "proforma", "label": "Proforma invoice" },
-      { "id": "receipt", "label": "Receipt" },
-      { "id": "margin", "label": "VAT margin invoice" }
+      { "id": "receipt", "label": "Receipt" }
     ],
     "header": {
       "vat": "VAT invoice",
       "proforma": "Proforma invoice",
       "receipt": "Receipt",
-      "margin": "VAT margin invoice",
       "corrective": "Corrective invoice"
+    },
+    "editor": {
+      "details": "Details",
+      "counterparty": "Counterparty",
+      "products": "Products",
+      "payment": "Payment"
     },
     "title": "Invoices",
     "date": "Date of issue",
@@ -136,6 +140,8 @@
     "title": "Products",
     "name": "Article (service) name",
     "description": "Description",
+    "count": "Count",
+    "unit": "Unit",
     "netPrice": "Net price",
     "grossPrice": "Gross price",
     "vatRate": "VAT rate",
@@ -173,6 +179,7 @@
     "validNip": "Must be a valid TIN",
     "currency": "Must be a positive currency value",
     "phoneNumber": "Must be a valid phone number",
-    "postalCode": "Must be a valid postal code"
+    "postalCode": "Must be a valid postal code",
+    "isPositive": "Must be a positive value"
   }
 }

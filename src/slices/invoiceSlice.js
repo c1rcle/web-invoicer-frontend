@@ -6,7 +6,12 @@ const initialState = {
   actionPending: false,
   error: null,
   invoiceData: [],
-  editorData: null
+  editorData: {
+    details: null,
+    counterparty: null,
+    products: [],
+    payment: null
+  }
 };
 
 export const createInvoice = createAsyncThunk('invoice/create', async (invoice, dispatch) => {
@@ -75,6 +80,16 @@ const invoiceSlice = createSlice({
     },
     setEditorData(state, action) {
       state.editorData = action.payload;
+    },
+    addProduct(state, action) {
+      state.editorData.products.push(action.payload);
+    },
+    updateProduct(state, action) {
+      const { product, index } = action.payload;
+      state.editorData.products[index] = product;
+    },
+    deleteProduct(state, action) {
+      state.editorData.products.splice(action.payload, 1);
     }
   },
   extraReducers: {
@@ -84,6 +99,13 @@ const invoiceSlice = createSlice({
   }
 });
 
-export const { setActionPending, setError, setEditorData } = invoiceSlice.actions;
+export const {
+  setActionPending,
+  setError,
+  setEditorData,
+  addProduct,
+  updateProduct,
+  deleteProduct
+} = invoiceSlice.actions;
 
 export default invoiceSlice.reducer;

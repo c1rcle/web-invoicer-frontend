@@ -1,10 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import EditCorrectiveInvoice from './EditCorrectiveInvoice';
-import EditMarginInvoice from './EditMarginInvoice';
-import EditProformaInvoice from './EditProformaInvoice';
-import EditReceipt from './EditReceipt';
-import EditVatInvoice from './EditVatInvoice';
+import CorrectiveInvoice from './CorrectiveInvoice';
+import ProformaInvoice from './ProformaInvoice';
+import Receipt from './Receipt';
+import VatInvoice from './VatInvoice';
 import useStyles from './styles';
 
 const Content = () => {
@@ -12,11 +11,10 @@ const Content = () => {
 
   return (
     <div className={classes.contentContainer}>
-      <Route exact path='/invoices/vat' component={EditVatInvoice} />
-      <Route exact path='/invoices/proforma' component={EditProformaInvoice} />
-      <Route exact path='/invoices/receipt' component={EditReceipt} />
-      <Route exact path='/invoices/margin' component={EditMarginInvoice} />
-      <Route exact path='/invoices/corrective' component={EditCorrectiveInvoice} />
+      <Route exact path='/invoices/vat' component={VatInvoice} />
+      <Route exact path='/invoices/proforma' component={ProformaInvoice} />
+      <Route exact path='/invoices/receipt' component={Receipt} />
+      <Route exact path='/invoices/corrective' component={CorrectiveInvoice} />
     </div>
   );
 };

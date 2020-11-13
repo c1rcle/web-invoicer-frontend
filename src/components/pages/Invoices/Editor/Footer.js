@@ -12,7 +12,7 @@ const Footer = ({ actionPending }) => {
 
   return (
     <>
-      <Divider />
+      <Divider className={classes.footerDivider} />
       <div className={classes.footerContainer}>
         <Box mr={1}>
           <SubmitButton text={t('save')} loading={actionPending} />
