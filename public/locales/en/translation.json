@@ -128,13 +128,16 @@
       "products": "Products",
       "payment": "Payment"
     },
+    "paymentTypes": ["Transfer", "Cash", "On delivery", "Card"],
     "title": "Invoices",
     "date": "Date of issue",
     "number": "Number",
     "counterparty": "Counterparty",
     "netPrice": "Net price",
     "grossPrice": "Gross price",
-    "issuer": "Issuer"
+    "issuer": "Issuer",
+    "paymentType": "Payment type",
+    "deadline": "Deadline"
   },
   "products": {
     "title": "Products",

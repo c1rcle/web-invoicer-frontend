@@ -127,13 +127,16 @@
       "products": "Produkty",
       "payment": "Płatność"
     },
+    "paymentTypes": ["Przelew", "Gotówka", "Pobranie", "Karta"],
     "title": "Faktury",
     "date": "Data wystawienia",
     "number": "Numer",
     "counterparty": "Kontrahent",
     "netPrice": "Cena netto",
     "grossPrice": "Cena brutto",
-    "issuer": "Wystawca"
+    "issuer": "Wystawca",
+    "paymentType": "Sposób zapłaty",
+    "deadline": "Termin"
   },
   "products": {
     "title": "Produkty",
