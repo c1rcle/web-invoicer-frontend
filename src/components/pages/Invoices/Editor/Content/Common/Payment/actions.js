@@ -10,9 +10,7 @@ const useActions = () => {
 
   const update = property => event => {
     const value = event.target ? event.target.value : event;
-    dispatch(
-      setEditorData({ ...editorData, payment: { ...editorData.payment, [property]: value } })
-    );
+    dispatch(setEditorData({ ...editorData, payment: { ...payment, [property]: value } }));
   };
 
   return { update, payment };
