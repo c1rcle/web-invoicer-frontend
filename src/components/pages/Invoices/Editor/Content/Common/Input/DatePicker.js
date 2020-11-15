@@ -4,7 +4,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import * as locales from 'date-fns/locale';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
-const DatePicker = props => {
+const DatePicker = ({ onChange, ...props }) => {
   const { i18n } = useTranslation();
 
   return (
@@ -15,6 +15,7 @@ const DatePicker = props => {
         inputVariant='outlined'
         fullWidth
         format='dd/MM/yyyy'
+        onChange={(date, _) => onChange(new Date(date).toISOString())}
         {...props}
       />
     </MuiPickersUtilsProvider>

@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Box, Divider, Grid, Typography } from '@material-ui/core';
 import Button from '../Input/Button';
 import Summary from './Summary';
-import useProducts from './useProducts';
+import useItems from './useItems';
 import useStyles from './styles';
 
-const Products = () => {
+const Items = () => {
   const { t } = useTranslation();
 
-  const { actions, productRows } = useProducts();
+  const { actions, itemRows } = useItems();
 
   const classes = useStyles();
 
@@ -17,7 +17,7 @@ const Products = () => {
     <>
       <Typography variant='h6'>{t('invoices.editor.products')}</Typography>
       <Box mt={2} mb={4}>
-        {productRows.map(({ editorId, fields }) => (
+        {itemRows.map(({ editorId, fields }) => (
           <div key={editorId}>
             <Grid container spacing={2}>
               <Grid item xs={12} xl={5}>
@@ -65,4 +65,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Items;

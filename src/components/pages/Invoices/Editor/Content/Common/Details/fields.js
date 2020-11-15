@@ -5,25 +5,25 @@ import Autocomplete from '../Input/Autocomplete';
 import DatePicker from '../Input/DatePicker';
 import EditorTextField from '../Input/EditorTextField';
 
-const useFields = ({ update, select, details }) => {
+const useFields = ({ update, select, editorData }) => {
   const { t } = useTranslation();
 
   const employees = useSelector(state => state.employee.employeeData);
 
-  const employee = details.employee;
+  const employee = editorData.employee;
 
   const getAutocomplete = (property, label) => (
     <Autocomplete
-      disabled={Boolean(employee.id)}
+      disabled={Boolean(employee?.id)}
       options={employees}
-      getOptionLabel={employee => employee[property]}
+      getOptionLabel={employee => employee && employee[property]}
       onChange={(_, value, reason) => reason === 'select-option' && select(value)}
-      value={employee}
+      value={employee || ''}
       textProps={{
         label: label,
         validators: [property === 'fullName' ? 'required' : 'phoneNumber'],
         onChange: update(property, true),
-        value: employee[property]
+        value: employee?.[property]
       }}
     />
   );
@@ -34,10 +34,12 @@ const useFields = ({ update, select, details }) => {
         label={t('invoices.number')}
         validators={['required']}
         onChange={update('number')}
-        value={details.number}
+        value={editorData.number}
       />
     ),
-    Date: <DatePicker label={t('invoices.date')} onChange={update('date')} value={details.date} />,
+    Date: (
+      <DatePicker label={t('invoices.date')} onChange={update('date')} value={editorData.date} />
+    ),
     FullName: getAutocomplete('fullName', t('employees.fullName')),
     PhoneNumber: getAutocomplete('phoneNumber', t('employees.phoneNumber'))
   };

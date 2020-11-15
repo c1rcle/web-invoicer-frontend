@@ -4,20 +4,20 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import useFields from './fields';
 import useActions from './actions';
 
-const Details = () => {
+const Details = ({ type }) => {
   const { t } = useTranslation();
 
-  const fields = useFields(useActions());
+  const fields = useFields(useActions(type));
 
   return (
     <>
       <Typography variant='h6'>{t('invoices.editor.details')}</Typography>
-      <Box mt={2} mb={4}>
+      <Box mt={2}>
         <Grid container spacing={2}>
-          <Grid xs={6} item>
+          <Grid xs={12} sm={6} item>
             {fields.Number}
           </Grid>
-          <Grid xs={6} item>
+          <Grid xs={12} sm={6} item>
             {fields.Date}
           </Grid>
           <Grid xs={6} item>

@@ -13,48 +13,48 @@ const useFields = ({ update, select, remove }) => {
 
   const products = useSelector(state => state.product.productData);
 
-  const onPriceChange = (fieldName, product) => e => {
+  const onPriceChange = (fieldName, item) => e => {
     const value = e.target.value;
     const calculatedValue =
       fieldName === 'netPrice'
-        ? calculateGrossPrice(value, product.vatRate)
-        : calculateNetPrice(value, product.vatRate);
+        ? calculateGrossPrice(value, item.vatRate)
+        : calculateNetPrice(value, item.vatRate);
 
     const calculatedFieldName = fieldName === 'netPrice' ? 'grossPrice' : 'netPrice';
-    select(product, { [fieldName]: value, [calculatedFieldName]: calculatedValue });
+    select(item, { [fieldName]: value, [calculatedFieldName]: calculatedValue });
   };
 
-  const onVatRateChange = product => e => {
+  const onVatRateChange = item => e => {
     const value = e.target.value;
 
-    select(product, {
+    select(item, {
       vatRate: value,
-      grossPrice: calculateGrossPrice(product.netPrice, value)
+      grossPrice: calculateGrossPrice(item.netPrice, value)
     });
   };
 
-  return product => {
+  return item => {
     return {
       Name: (
         <Autocomplete
-          disabled={Boolean(product.id)}
+          disabled={Boolean(item?.id)}
           options={products}
-          getOptionLabel={product => product.name}
-          onChange={(_, value, reason) => reason === 'select-option' && select(product, value)}
+          getOptionLabel={item => item?.name}
+          onChange={(_, value, reason) => reason === 'select-option' && select(item, value)}
           textProps={{
             label: t('products.name'),
             validators: ['required'],
-            onChange: update(product, 'name'),
-            value: product.name
+            onChange: update(item, 'name'),
+            value: item?.name
           }}
         />
       ),
       Description: (
         <EditorTextField
-          disabled={Boolean(product.id)}
+          disabled={Boolean(item?.id)}
           label={t('products.description')}
-          onChange={update(product, 'description')}
-          value={product.description}
+          onChange={update(item, 'description')}
+          value={item?.description}
         />
       ),
       Count: (
@@ -62,49 +62,49 @@ const useFields = ({ update, select, remove }) => {
           label={t('products.count')}
           validators={['required', 'isPositive']}
           type='number'
-          onChange={update(product, 'count')}
-          value={product.count}
+          onChange={update(item, 'count')}
+          value={item?.count}
         />
       ),
       Unit: (
         <EditorTextField
           label={t('products.unit')}
           validators={['required']}
-          onChange={update(product, 'unit')}
-          value={product.unit}
+          onChange={update(item, 'unit')}
+          value={item?.unit}
         />
       ),
       NetPrice: (
         <EditorTextField
-          disabled={Boolean(product.id)}
+          disabled={Boolean(item?.id)}
           label={t('products.netPrice')}
           validators={['currency']}
           type='number'
-          onChange={onPriceChange('netPrice', product)}
-          value={product.netPrice}
+          onChange={onPriceChange('netPrice', item)}
+          value={item?.netPrice}
         />
       ),
       GrossPrice: (
         <EditorTextField
-          disabled={Boolean(product.id)}
+          disabled={Boolean(item?.id)}
           label={t('products.grossPrice')}
           validators={['currency']}
           type='number'
-          onChange={onPriceChange('grossPrice', product)}
-          value={product.grossPrice}
+          onChange={onPriceChange('grossPrice', item)}
+          value={item?.grossPrice}
         />
       ),
       VatRate: (
         <VatRatePicker
-          disabled={Boolean(product.id)}
+          disabled={Boolean(item?.id)}
           label={t('products.vatRate')}
-          onChange={onVatRateChange(product)}
-          value={product.vatRate}
+          onChange={onVatRateChange(item)}
+          value={item?.vatRate}
         />
       ),
       Delete: (
         <Box mt={0.5} ml={1} mr={-2}>
-          <IconButton onClick={remove(product.editorId)}>
+          <IconButton onClick={remove(item?.editorId)}>
             <Delete color='primary' />
           </IconButton>
         </Box>

@@ -11,16 +11,16 @@ const useFields = ({ update, select, counterparty }) => {
 
   const getAutocomplete = (property, label) => (
     <Autocomplete
-      disabled={Boolean(counterparty.id)}
+      disabled={Boolean(counterparty?.id)}
       options={counterparties}
-      getOptionLabel={counterparty => counterparty[property]}
+      getOptionLabel={counterparty => counterparty && counterparty[property]}
       onChange={(_, value, reason) => reason === 'select-option' && select(value)}
-      value={counterparty}
+      value={counterparty || ''}
       textProps={{
         label: label,
         validators: [property === 'nip' ? 'validNip' : 'required'],
         onChange: update(property),
-        value: counterparty[property]
+        value: counterparty?.[property]
       }}
     />
   );
@@ -30,29 +30,29 @@ const useFields = ({ update, select, counterparty }) => {
     Nip: getAutocomplete('nip', t('counterparties.nip')),
     Address: (
       <EditorTextField
-        disabled={Boolean(counterparty.id)}
+        disabled={Boolean(counterparty?.id)}
         label={t('counterparties.address')}
         validators={['required']}
         onChange={update('address')}
-        value={counterparty.address}
+        value={counterparty?.address || ''}
       />
     ),
     PostalCode: (
       <EditorTextField
-        disabled={Boolean(counterparty.id)}
+        disabled={Boolean(counterparty?.id)}
         label={t('counterparties.postalCode')}
         validators={['postalCode']}
         onChange={update('postalCode')}
-        value={counterparty.postalCode}
+        value={counterparty?.postalCode || ''}
       />
     ),
     City: (
       <EditorTextField
-        disabled={Boolean(counterparty.id)}
+        disabled={Boolean(counterparty?.id)}
         label={t('counterparties.city')}
         validators={['required']}
         onChange={update('city')}
-        value={counterparty.city}
+        value={counterparty?.city || ''}
       />
     )
   };

@@ -23,10 +23,10 @@ const Counterparty = () => {
           <Grid item xs={12} sm={5}>
             {fields.Address}
           </Grid>
-          <Grid item xs={4} sm={3}>
+          <Grid item xs={6} sm={3}>
             {fields.PostalCode}
           </Grid>
-          <Grid item xs={8} sm={4}>
+          <Grid item xs={6} sm={4}>
             {fields.City}
           </Grid>
         </Grid>

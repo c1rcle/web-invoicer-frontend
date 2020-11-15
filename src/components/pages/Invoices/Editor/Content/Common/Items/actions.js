@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addProduct, updateProduct, deleteProduct } from '../../../../../../../slices/invoiceSlice';
+import { addItem, updateItem, deleteItem } from '../../../../../../../slices/invoiceSlice';
 import { getProducts } from '../../../../../../../slices/productSlice';
 
 const useActions = () => {
   const dispatch = useDispatch();
 
-  const editorProducts = useSelector(state => state.invoice.editorData.products);
+  const editorItems = useSelector(state => state.invoice.editorData.items);
 
-  const initialProductData = () => {
+  const initialItemData = () => {
     return {
       editorId: nanoid(),
       name: '',
@@ -28,24 +28,24 @@ const useActions = () => {
   }, []);
 
   useEffect(() => {
-    editorProducts.length === 0 && add();
+    editorItems.length === 0 && add();
     // eslint-disable-next-line
-  }, [editorProducts]);
+  }, [editorItems]);
 
   const add = () => {
-    dispatch(addProduct(initialProductData()));
+    dispatch(addItem(initialItemData()));
   };
 
-  const update = (product, property) => e => {
-    dispatch(updateProduct({ ...product, [property]: e.target.value }));
+  const update = (item, property) => e => {
+    dispatch(updateItem({ ...item, [property]: e.target.value }));
   };
 
   const remove = editorId => () => {
-    dispatch(deleteProduct(editorId));
+    dispatch(deleteItem(editorId));
   };
 
-  const select = (product, selectedProduct) => {
-    dispatch(updateProduct({ ...product, ...selectedProduct }));
+  const select = (item, selectedItem) => {
+    dispatch(updateItem({ ...item, ...selectedItem }));
   };
 
   return { add, update, remove, select };

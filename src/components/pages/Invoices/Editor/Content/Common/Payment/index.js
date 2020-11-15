@@ -10,7 +10,7 @@ const Payment = () => {
 
   const paymentTypes = t('invoices.paymentTypes', { returnObjects: true });
 
-  const { update, payment } = useActions();
+  const { update, editorData } = useActions();
 
   return (
     <>
@@ -20,8 +20,8 @@ const Payment = () => {
           <Grid item xs={12} sm={6} lg={3} xl={2}>
             <Picker
               label={t('invoices.paymentType')}
-              onChange={update('type')}
-              value={payment.type}>
+              onChange={update('paymentType')}
+              value={editorData?.paymentType || 0}>
               {paymentTypes.map((value, index) => (
                 <MenuItem key={index} value={index}>
                   {value}
@@ -32,8 +32,8 @@ const Payment = () => {
           <Grid item xs={12} sm={6} lg={3} xl={2}>
             <DatePicker
               label={t('invoices.deadline')}
-              onChange={update('deadline')}
-              value={payment.deadline}
+              onChange={update('paymentDeadline')}
+              value={editorData?.paymentDeadline}
             />
           </Grid>
         </Grid>

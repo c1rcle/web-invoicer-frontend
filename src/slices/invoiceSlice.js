@@ -77,18 +77,16 @@ const invoiceSlice = createSlice({
     setEditorData(state, action) {
       state.editorData = action.payload;
     },
-    addProduct(state, action) {
-      state.editorData.products.push(action.payload);
+    addItem(state, action) {
+      state.editorData.items.push(action.payload);
     },
-    updateProduct(state, action) {
-      const index = state.editorData.products.findIndex(
-        x => x.editorId === action.payload.editorId
-      );
-      state.editorData.products[index] = action.payload;
+    updateItem(state, action) {
+      const index = state.editorData.items.findIndex(x => x.editorId === action.payload.editorId);
+      state.editorData.items[index] = action.payload;
     },
-    deleteProduct(state, action) {
-      const index = state.editorData.products.findIndex(x => x.editorId === action.payload);
-      state.editorData.products.splice(index, 1);
+    deleteItem(state, action) {
+      const index = state.editorData.items.findIndex(x => x.editorId === action.payload);
+      state.editorData.items.splice(index, 1);
     }
   },
   extraReducers: {
@@ -102,9 +100,9 @@ export const {
   setActionPending,
   setError,
   setEditorData,
-  addProduct,
-  updateProduct,
-  deleteProduct
+  addItem,
+  updateItem,
+  deleteItem
 } = invoiceSlice.actions;
 
 export default invoiceSlice.reducer;

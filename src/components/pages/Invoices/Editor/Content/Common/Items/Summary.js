@@ -7,15 +7,15 @@ import useStyles from './styles';
 const Summary = () => {
   const { t } = useTranslation();
 
-  const products = useSelector(state => state.invoice.editorData.products);
+  const items = useSelector(state => state.invoice.editorData.items);
 
   const getSumForProperty = propertyName =>
-    products.reduce((prev, curr) => prev + Number(curr[propertyName]) * Number(curr.count), 0) || 0;
+    items.reduce((prev, curr) => prev + Number(curr[propertyName]) * Number(curr.count), 0) || 0;
 
   const classes = useStyles();
 
   return (
-    <Paper elevation={3} className={classes.summaryContainer}>
+    <Paper variant='outlined' className={classes.summaryContainer}>
       <Typography variant='body1'>
         {t('products.netSum', { sum: getSumForProperty('netPrice').toFixed(2) })}
       </Typography>
