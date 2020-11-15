@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Autocomplete from '../Input/Autocomplete';
+import ClearButton from '../Input/ClearButton';
 import EditorTextField from '../Input/EditorTextField';
 
-const useFields = ({ update, select, counterparty }) => {
+const useFields = ({ update, select, clear, counterparty }) => {
   const { t } = useTranslation();
 
   const counterparties = useSelector(state => state.counterparty.counterpartyData);
@@ -54,7 +55,8 @@ const useFields = ({ update, select, counterparty }) => {
         onChange={update('city')}
         value={counterparty?.city || ''}
       />
-    )
+    ),
+    Clear: <ClearButton onClick={clear} />
   };
 };
 

@@ -11,7 +11,10 @@ const Counterparty = () => {
 
   return (
     <>
-      <Typography variant='h6'>{t('invoices.editor.counterparty')}</Typography>
+      <div className='d-flex'>
+        <Typography variant='h6'>{t('invoices.editor.counterparty')}</Typography>
+        {fields.Clear}
+      </div>
       <Box mt={2} mb={4}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={8}>

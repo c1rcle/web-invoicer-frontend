@@ -11,7 +11,10 @@ const Details = ({ type }) => {
 
   return (
     <>
-      <Typography variant='h6'>{t('invoices.editor.details')}</Typography>
+      <div className='d-flex'>
+        <Typography variant='h6'>{t('invoices.editor.details')}</Typography>
+        {fields.Clear}
+      </div>
       <Box mt={2}>
         <Grid container spacing={2}>
           <Grid xs={12} sm={6} item>

@@ -35,6 +35,10 @@ const useActions = type => {
     dispatch(setEditorData({ ...editorData, employee: employee }));
   };
 
+  const clearEmployee = () => {
+    dispatch(setEditorData({ ...editorData, employee: null }));
+  };
+
   const setDates = () => {
     const number = getNumber(type, editorData.date, invoices);
     dispatch(
@@ -50,7 +54,7 @@ const useActions = type => {
     );
   };
 
-  return { update, select, editorData };
+  return { update, select, clearEmployee, editorData };
 };
 
 export default useActions;

@@ -28,7 +28,11 @@ const useActions = () => {
     dispatch(setEditorData({ ...editorData, counterparty: counterparty }));
   };
 
-  return { update, select, counterparty };
+  const clear = () => {
+    dispatch(setEditorData({ ...editorData, counterparty: null }));
+  };
+
+  return { update, select, clear, counterparty };
 };
 
 export default useActions;

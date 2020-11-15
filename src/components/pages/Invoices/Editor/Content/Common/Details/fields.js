@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next';
 import Autocomplete from '../Input/Autocomplete';
 import DatePicker from '../Input/DatePicker';
 import EditorTextField from '../Input/EditorTextField';
+import ClearButton from '../Input/ClearButton';
 
-const useFields = ({ update, select, editorData }) => {
+const useFields = ({ update, select, clearEmployee, editorData }) => {
   const { t } = useTranslation();
 
   const employees = useSelector(state => state.employee.employeeData);
@@ -41,7 +42,8 @@ const useFields = ({ update, select, editorData }) => {
       <DatePicker label={t('invoices.date')} onChange={update('date')} value={editorData.date} />
     ),
     FullName: getAutocomplete('fullName', t('employees.fullName')),
-    PhoneNumber: getAutocomplete('phoneNumber', t('employees.phoneNumber'))
+    PhoneNumber: getAutocomplete('phoneNumber', t('employees.phoneNumber')),
+    Clear: <ClearButton onClick={clearEmployee} />
   };
 };
 
