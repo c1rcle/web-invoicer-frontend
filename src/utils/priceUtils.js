@@ -6,6 +6,9 @@ export const calculateNetPrice = (grossPrice, vatRate) => {
   return roundValue(grossPrice / getVatRate(vatRate));
 };
 
+export const getPropertyTotal = (property, items) =>
+  items.reduce((prev, curr) => prev + Number(curr[property]) * Number(curr.count), 0) || 0;
+
 const roundValue = value => (isNaN(value) ? undefined : Number(Math.round(value + 'e2') + 'e-2'));
 
 const getVatRate = vatRate => {

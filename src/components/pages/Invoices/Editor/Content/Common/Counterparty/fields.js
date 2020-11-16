@@ -5,7 +5,7 @@ import Autocomplete from '../Input/Autocomplete';
 import ClearButton from '../Input/ClearButton';
 import EditorTextField from '../Input/EditorTextField';
 
-const useFields = ({ update, select, clear, counterparty }) => {
+const useFields = ({ update, select, counterparty }) => {
   const { t } = useTranslation();
 
   const counterparties = useSelector(state => state.counterparty.counterpartyData);
@@ -14,9 +14,9 @@ const useFields = ({ update, select, clear, counterparty }) => {
     <Autocomplete
       disabled={Boolean(counterparty?.id)}
       options={counterparties}
-      getOptionLabel={counterparty => counterparty && counterparty[property]}
+      getOptionLabel={counterparty => counterparty[property]}
       onChange={(_, value, reason) => reason === 'select-option' && select(value)}
-      value={counterparty || ''}
+      inputValue={counterparty?.[property] || ''}
       textProps={{
         label: label,
         validators: [property === 'nip' ? 'validNip' : 'required'],
@@ -56,7 +56,7 @@ const useFields = ({ update, select, clear, counterparty }) => {
         value={counterparty?.city || ''}
       />
     ),
-    Clear: <ClearButton onClick={clear} />
+    Clear: <ClearButton onClick={() => select(null)} />
   };
 };
 

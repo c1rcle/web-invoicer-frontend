@@ -1,5 +1,5 @@
-import { Grid } from '@material-ui/core';
 import React from 'react';
+import { Grid } from '@material-ui/core';
 import Counterparty from './Common/Counterparty';
 import Details from './Common/Details';
 import Payment from './Common/Payment';

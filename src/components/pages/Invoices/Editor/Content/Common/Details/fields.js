@@ -6,7 +6,7 @@ import DatePicker from '../Input/DatePicker';
 import EditorTextField from '../Input/EditorTextField';
 import ClearButton from '../Input/ClearButton';
 
-const useFields = ({ update, select, clearEmployee, editorData }) => {
+const useFields = ({ update, select, editorData }) => {
   const { t } = useTranslation();
 
   const employees = useSelector(state => state.employee.employeeData);
@@ -17,9 +17,9 @@ const useFields = ({ update, select, clearEmployee, editorData }) => {
     <Autocomplete
       disabled={Boolean(employee?.id)}
       options={employees}
-      getOptionLabel={employee => employee && employee[property]}
+      getOptionLabel={employee => employee[property]}
       onChange={(_, value, reason) => reason === 'select-option' && select(value)}
-      value={employee || ''}
+      inputValue={employee?.[property] || ''}
       textProps={{
         label: label,
         validators: [property === 'fullName' ? 'required' : 'phoneNumber'],
@@ -43,7 +43,7 @@ const useFields = ({ update, select, clearEmployee, editorData }) => {
     ),
     FullName: getAutocomplete('fullName', t('employees.fullName')),
     PhoneNumber: getAutocomplete('phoneNumber', t('employees.phoneNumber')),
-    Clear: <ClearButton onClick={clearEmployee} />
+    Clear: <ClearButton onClick={() => select(null)} />
   };
 };
 

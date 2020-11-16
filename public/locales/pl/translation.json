@@ -32,6 +32,7 @@
     "add": "Dodaj",
     "delete": "Usuń",
     "edit": "Edytuj",
+    "more": "Więcej",
     "filter": "Filtr",
     "deleteText": "Czy jesteś pewien, że chcesz usunąć ten wiersz?",
     "cancel": "Anuluj",
@@ -110,6 +111,7 @@
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
   },
   "invoices": {
+    "issueCorrective": "Issue corrective invoice",
     "options": [
       { "id": "vat", "label": "Faktura VAT" },
       { "id": "proforma", "label": "Faktura proforma" },
@@ -125,15 +127,18 @@
       "details": "Dane",
       "counterparty": "Kontrahent",
       "products": "Produkty",
-      "payment": "Płatność"
+      "payment": "Płatność",
+      "netTotal": "Suma netto: {{sum}} zł",
+      "vatTotal": "Suma VAT: {{sum}} zł",
+      "grossTotal": "Do zapłaty: {{sum}} zł"
     },
     "paymentTypes": ["Przelew", "Gotówka", "Pobranie", "Karta"],
     "title": "Faktury",
     "date": "Data wystawienia",
     "number": "Numer",
     "counterparty": "Kontrahent",
-    "netPrice": "Cena netto",
-    "grossPrice": "Cena brutto",
+    "netTotal": "Suma netto",
+    "grossTotal": "Suma brutto",
     "issuer": "Wystawca",
     "paymentType": "Sposób zapłaty",
     "deadline": "Termin"
@@ -148,10 +153,7 @@
     "grossPrice": "Cena brutto",
     "vatRate": "Stawka VAT",
     "vatExempt": "ZW",
-    "vatNotApplicable": "NP",
-    "netSum": "Suma netto: {{sum}} zł",
-    "vatSum": "Suma VAT: {{sum}} zł",
-    "amountDue": "Do zapłaty: {{sum}} zł"
+    "vatNotApplicable": "NP"
   },
   "counterparties": {
     "title": "Kontrahenci",

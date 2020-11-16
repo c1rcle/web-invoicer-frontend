@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import add from 'date-fns/add';
+import useDidUpdateEffect from '../../../../../../../hooks/useDidUpdateEffect';
 import { setEditorData } from '../../../../../../../slices/invoiceSlice';
 import { getEmployees } from '../../../../../../../slices/employeeSlice';
 import { getNumber, getType } from '../../../../../../../utils/editorUtils';
@@ -14,13 +15,17 @@ const useActions = type => {
 
   useEffect(() => {
     dispatch(getEmployees());
+    editorData.id || initialize();
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
+  useDidUpdateEffect(() => {
     setDates();
-    // eslint-disable-next-line
   }, [editorData.date]);
+
+  const initialize = () => {
+    dispatch(setEditorData({ ...editorData, type: type, paymentType: 0, ...getNewDateProps() }));
+  };
 
   const update = (property, isEmployee) => event => {
     const value = event.target ? event.target.value : event;
@@ -35,26 +40,23 @@ const useActions = type => {
     dispatch(setEditorData({ ...editorData, employee: employee }));
   };
 
-  const clearEmployee = () => {
-    dispatch(setEditorData({ ...editorData, employee: null }));
-  };
-
   const setDates = () => {
-    const number = getNumber(type, editorData.date, invoices);
-    dispatch(
-      setEditorData({
-        ...editorData,
-        type: type,
-        number: number,
-        paymentDeadline:
-          type !== getType('receipt')
-            ? add(new Date(editorData.date), { days: 7 }).toISOString()
-            : null
-      })
-    );
+    dispatch(setEditorData({ ...editorData, ...getNewDateProps() }));
   };
 
-  return { update, select, clearEmployee, editorData };
+  const getNewDateProps = () => {
+    const number = getNumber(type, editorData.date, invoices);
+
+    return {
+      number,
+      paymentDeadline:
+        type !== getType('receipt')
+          ? add(new Date(editorData.date), { days: 7 }).toISOString()
+          : null
+    };
+  };
+
+  return { update, select, editorData };
 };
 
 export default useActions;

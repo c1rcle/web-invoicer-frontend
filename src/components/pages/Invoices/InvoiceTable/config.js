@@ -1,18 +1,17 @@
 import React, { forwardRef } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { AddCircle, Delete, Edit } from '@material-ui/icons';
+import { AddCircle, MoreHoriz } from '@material-ui/icons';
 import useDropdownMenu from '../../../../hooks/useDropdownMenu';
 import useDialog from '../../../../hooks/useDialog';
 
 const useConfig = () => {
   const { t } = useTranslation();
 
-  const history = useHistory();
-
   const dialog = useDialog();
 
-  const menu = useDropdownMenu();
+  const createMenu = useDropdownMenu();
+
+  const actionMenu = useDropdownMenu();
 
   const columns = [
     {
@@ -27,22 +26,22 @@ const useConfig = () => {
     },
     {
       title: t('invoices.counterparty'),
-      field: 'counterparty',
+      field: 'counterparty.name',
       width: 190
     },
     {
-      title: t('invoices.netPrice'),
-      field: 'netPrice',
+      title: t('invoices.netTotal'),
+      field: 'netTotal',
       width: 190
     },
     {
-      title: t('invoices.grossPrice'),
-      field: 'grossPrice',
+      title: t('invoices.grossTotal'),
+      field: 'grossTotal',
       width: 190
     },
     {
       title: t('invoices.issuer'),
-      field: 'issuer',
+      field: 'employee.fullName',
       width: 190
     }
   ];
@@ -55,21 +54,16 @@ const useConfig = () => {
       icon: getIcon(AddCircle, { fontSize: 'large' }),
       tooltip: t('table.add'),
       isFreeAction: true,
-      onClick: menu.openMenu
+      onClick: createMenu.openMenu
     },
     {
-      icon: getIcon(Edit),
-      tooltip: t('table.edit'),
-      onClick: (_, rowData) => history.replace(`/invoices/${rowData.number}`)
-    },
-    {
-      icon: getIcon(Delete),
-      tooltip: t('table.delete'),
-      onClick: (_, rowData) => dialog.openDialog(rowData.id)
+      icon: getIcon(MoreHoriz, { fontSize: 'large' }),
+      tooltip: t('table.more'),
+      onClick: (event, rowData) => actionMenu.openMenu(event, rowData)
     }
   ];
 
-  return { columns, actions, dialog, menu };
+  return { columns, actions, dialog, createMenu, actionMenu };
 };
 
 export default useConfig;

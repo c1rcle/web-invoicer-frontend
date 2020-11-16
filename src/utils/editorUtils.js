@@ -15,6 +15,10 @@ export const getType = id => {
   return invoiceTypes.findIndex(x => x.id === id);
 };
 
+export const getId = type => {
+  return invoiceTypes[type].id;
+};
+
 export const getNumber = (type, invoiceDate, invoices) => {
   let count = 1;
   const date = new Date(invoiceDate);

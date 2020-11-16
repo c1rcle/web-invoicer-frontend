@@ -33,6 +33,7 @@
     "add": "Add",
     "delete": "Delete",
     "edit": "Edit",
+    "more": "More",
     "filter": "Filter",
     "deleteText": "Are you sure you want to delete this row?",
     "cancel": "Cancel",
@@ -111,6 +112,7 @@
     "footer": "Register your account and get started for free!"
   },
   "invoices": {
+    "issueCorrective": "Issue corrective invoice",
     "options": [
       { "id": "vat", "label": "VAT invoice" },
       { "id": "proforma", "label": "Proforma invoice" },
@@ -126,15 +128,18 @@
       "details": "Details",
       "counterparty": "Counterparty",
       "products": "Products",
-      "payment": "Payment"
+      "payment": "Payment",
+      "netTotal": "Net total: {{sum}} zł",
+      "vatTotal": "VAT total: {{sum}} zł",
+      "grossTotal": "Amount due: {{sum}} zł"
     },
     "paymentTypes": ["Transfer", "Cash", "On delivery", "Card"],
     "title": "Invoices",
     "date": "Date of issue",
     "number": "Number",
     "counterparty": "Counterparty",
-    "netPrice": "Net price",
-    "grossPrice": "Gross price",
+    "netTotal": "Net total",
+    "grossTotal": "Gross total",
     "issuer": "Issuer",
     "paymentType": "Payment type",
     "deadline": "Deadline"
@@ -149,10 +154,7 @@
     "grossPrice": "Gross price",
     "vatRate": "VAT rate",
     "vatExempt": "Exempt",
-    "vatNotApplicable": "Not applicable",
-    "netSum": "Net sum: {{sum}} zł",
-    "vatSum": "Vat sum: {{sum}} zł",
-    "amountDue": "Amount due: {{sum}} zł"
+    "vatNotApplicable": "Not applicable"
   },
   "counterparties": {
     "title": "Counterparties",
