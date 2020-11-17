@@ -9,6 +9,7 @@ const ValidatorForm = ({ children, ...props }) => {
 
   const validationRules = [
     { name: 'validNip', validator: value => booleanResult(validate('validNip', value, true)) },
+    { name: 'positiveInt', validator: value => booleanResult(validate('positiveInt', value, true)) },
     { name: 'currency', validator: value => booleanResult(validate('currency', value, true)) },
     { name: 'phoneNumber', validator: value => booleanResult(validate('phoneNumber', value, true)) },
     { name: 'postalCode', validator: value => booleanResult(validate('postalCode', value, true)) }

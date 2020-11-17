@@ -187,6 +187,6 @@
     "currency": "Wymagana jest dodatnia wartość pieniężna",
     "phoneNumber": "Wymagany jest prawidłowy numer telefonu",
     "postalCode": "Wymagany jest prawidłowy kod pocztowy",
-    "isPositive": "Wymagana jest dodatnia wartość"
+    "positiveInt": "Wymagana jest dodatnia wartość"
   }
 }

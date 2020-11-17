@@ -9,6 +9,8 @@ const useActions = () => {
 
   const editorItems = useSelector(state => state.invoice.editorData.items);
 
+  const numericProperties = ['count', 'netPrice', 'grossPrice'];
+
   const initialItemData = () => {
     return {
       editorId: nanoid(),
@@ -37,7 +39,8 @@ const useActions = () => {
   };
 
   const update = (item, property) => e => {
-    dispatch(updateItem({ ...item, [property]: e.target.value }));
+    const value = numericProperties.includes(property) ? e.target.valueAsNumber : e.target.value;
+    dispatch(updateItem({ ...item, [property]: value }));
   };
 
   const remove = editorId => () => {

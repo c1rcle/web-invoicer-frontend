@@ -188,6 +188,6 @@
     "currency": "Must be a positive currency value",
     "phoneNumber": "Must be a valid phone number",
     "postalCode": "Must be a valid postal code",
-    "isPositive": "Must be a positive value"
+    "positiveInt": "Must be a positive value"
   }
 }

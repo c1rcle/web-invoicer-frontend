@@ -14,6 +14,10 @@ const useValidation = () => {
     return sum % 11 === Number(value[9]);
   };
 
+  const positiveInt = value => {
+    return validator.isInt(value, { gt: 0, allow_leading_zeroes: false });
+  };
+
   const currency = value => {
     return (
       Number(value) > 0 &&
@@ -48,6 +52,8 @@ const useValidation = () => {
       switch (validationType) {
         case 'validNip':
           return validNip(coercedValue);
+        case 'positiveInt':
+          return positiveInt(coercedValue);
         case 'currency':
           return currency(coercedValue);
         case 'phoneNumber':

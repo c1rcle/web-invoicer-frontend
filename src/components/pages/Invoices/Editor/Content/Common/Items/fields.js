@@ -63,10 +63,10 @@ const useFields = ({ update, select, remove }) => {
       Count: (
         <EditorTextField
           label={t('products.count')}
-          validators={['required', 'isPositive']}
+          validators={['required', 'positiveInt']}
           type='number'
           onChange={update(item, 'count')}
-          value={item.count}
+          value={item.count || ''}
         />
       ),
       Unit: (
@@ -84,7 +84,7 @@ const useFields = ({ update, select, remove }) => {
           validators={['currency']}
           type='number'
           onChange={onPriceChange('netPrice', item)}
-          value={item.netPrice}
+          value={item.netPrice || ''}
         />
       ),
       GrossPrice: (
@@ -94,7 +94,7 @@ const useFields = ({ update, select, remove }) => {
           validators={['currency']}
           type='number'
           onChange={onPriceChange('grossPrice', item)}
-          value={item.grossPrice}
+          value={item.grossPrice || ''}
         />
       ),
       VatRate: (
