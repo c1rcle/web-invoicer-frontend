@@ -4,18 +4,19 @@ import DateFnsUtils from '@date-io/date-fns';
 import * as locales from 'date-fns/locale';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
-const DatePicker = ({ onChange, permitPast = false, ...props }) => {
+const DatePicker = ({ onChange, minDate, ...props }) => {
   const { i18n } = useTranslation();
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locales[i18n.language]}>
       <KeyboardDatePicker
-        disablePast={!permitPast}
+        disablePast={!Boolean(minDate)}
         variant='inline'
         inputVariant='outlined'
         fullWidth
         format='dd/MM/yyyy'
         onChange={(date, _) => onChange(new Date(date).toISOString())}
+        {...(minDate && { minDate: minDate })}
         {...props}
       />
     </MuiPickersUtilsProvider>

@@ -40,8 +40,7 @@ const useFields = ({ update, select, editorData }) => {
     ),
     Date: (
       <DatePicker
-        disabled={Boolean(editorData.id)}
-        permitPast={Boolean(editorData.id)}
+        minDate={Boolean(editorData.id) && new Date(editorData.date)}
         label={t('invoices.date')}
         onChange={update('date')}
         value={editorData.date}

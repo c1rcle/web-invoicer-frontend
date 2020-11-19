@@ -31,6 +31,7 @@ const Payment = () => {
           </Grid>
           <Grid item xs={12} sm={6} lg={3} xl={2}>
             <DatePicker
+              minDate={Boolean(editorData.id) && new Date(editorData.date)}
               label={t('invoices.deadline')}
               onChange={update('paymentDeadline')}
               value={editorData?.paymentDeadline}
