@@ -2,7 +2,10 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   backdrop: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: theme.zIndex.drawer + 1,
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: 252
+    }
   },
   editorContainer: {
     margin: theme.spacing(3, 0),
