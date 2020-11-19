@@ -1,8 +1,9 @@
+import apiHandler from '../apis/apiHandler';
 import webInvoicerApi from '../apis/webInvoicerApi';
 import { filterProperties } from './dataUtils';
 import { getType } from './editorUtils';
 
-const useInvoicePayloadCreators = handleAction => {
+const useInvoicePayloadCreators = () => {
   const createPayload = invoice => async () => {
     const { employee, counterparty, items, ...invoiceData } = invoice;
 
@@ -129,7 +130,8 @@ const useInvoicePayloadCreators = handleAction => {
 
         updateData &&
           (await handleAction({
-            method: () => webInvoicerApi().put('InvoiceItems', updateData),
+            method: () =>
+              webInvoicerApi().put('InvoiceItems', { ...updateData, itemId: item.itemId }),
             errorData: 'item'
           }));
       } else {
@@ -139,6 +141,15 @@ const useInvoicePayloadCreators = handleAction => {
         });
       }
     }
+  };
+
+  const handleAction = async ({ method, errorData }) => {
+    const response = await apiHandler(method(), errorData);
+
+    if (response.type === 'ERROR') {
+      throw new Error(response.data);
+    }
+    return response.data;
   };
 
   const extractInvoice = ({ employee, counterparty, items, ...rest }) => ({

@@ -31,7 +31,7 @@ export const updateInvoice = createAsyncThunk(
 );
 
 export const deleteInvoice = createAsyncThunk('invoice/delete', async (id, { dispatch }) => {
-  await handleLoadingAction(
+  await handleAction(
     {
       method: () => webInvoicerApi().delete(`Invoices/${id}`),
       errorData: 'delete'
@@ -43,7 +43,7 @@ export const deleteInvoice = createAsyncThunk('invoice/delete', async (id, { dis
 });
 
 export const getProducts = createAsyncThunk('invoice/getProducts', async (_, { dispatch }) => {
-  return await handleLoadingAction(
+  return await handleAction(
     {
       method: () => webInvoicerApi().get('Products'),
       errorData: 'getProducts'
@@ -55,7 +55,7 @@ export const getProducts = createAsyncThunk('invoice/getProducts', async (_, { d
 export const getInvoiceItems = createAsyncThunk(
   'invoice/getItems',
   async (id, { dispatch, getState }) => {
-    const items = await handleLoadingAction(
+    const items = await handleAction(
       {
         method: () => webInvoicerApi().get(`InvoiceItems/${id}`),
         errorData: 'getInvoiceItems'
@@ -84,7 +84,7 @@ const handlePayloadCreator = async (payloadCreator, dispatch) => {
   }
 };
 
-const handleLoadingAction = async ({ method, errorData }, dispatch) => {
+const handleAction = async ({ method, errorData }, dispatch) => {
   dispatch(setActionPending(true));
   const response = await apiHandler(method(), errorData);
   dispatch(setActionPending(false));
@@ -96,16 +96,7 @@ const handleLoadingAction = async ({ method, errorData }, dispatch) => {
   return response.data;
 };
 
-const handleAction = async ({ method, errorData }) => {
-  const response = await apiHandler(method(), errorData);
-
-  if (response.type === 'ERROR') {
-    throw new Error(response.data);
-  }
-  return response.data;
-};
-
-const { createPayload, getPayload, updatePayload } = useInvoicePayloadCreators(handleAction);
+const { createPayload, getPayload, updatePayload } = useInvoicePayloadCreators();
 
 const invoiceSlice = createSlice({
   name: 'invoice',
