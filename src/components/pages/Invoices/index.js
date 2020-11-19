@@ -5,12 +5,7 @@ import InvoiceTable from './InvoiceTable';
 import NotFound from '../NotFound';
 
 const Invoices = () => {
-  const validEditorPaths = [
-    '/invoices/vat',
-    '/invoices/proforma',
-    '/invoices/receipt',
-    '/invoices/corrective'
-  ];
+  const validEditorPaths = ['/invoices/vat', '/invoices/proforma', '/invoices/receipt'];
 
   return (
     <Switch>

@@ -22,7 +22,7 @@ export const getId = type => {
 export const getNumber = (type, invoiceDate, invoices) => {
   let count = 1;
   const date = new Date(invoiceDate);
-  invoices.forEach(invoice => isEqual(type, invoiceDate, invoice.details) && count++);
+  invoices.forEach(invoice => isEqual(type, date.getMonth(), invoice) && count++);
 
   const symbol = invoiceTypes[type].symbol;
   const index = ('' + count).padStart(4, '0');
@@ -39,5 +39,5 @@ const invoiceTypes = [
   { id: 'corrective', symbol: 'FC' }
 ];
 
-const isEqual = (type, date, details) =>
-  type === details.type && date === new Date(details.date).getMonth();
+const isEqual = (type, month, invoice) =>
+  type === invoice.type && month === new Date(invoice.date).getMonth();

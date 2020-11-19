@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import add from 'date-fns/add';
 import useDidUpdateEffect from '../../../../../../../hooks/useDidUpdateEffect';
 import { setEditorData } from '../../../../../../../slices/invoiceSlice';
-import { getEmployees } from '../../../../../../../slices/employeeSlice';
 import { getNumber, getType } from '../../../../../../../utils/editorUtils';
 
 const useActions = type => {
@@ -14,7 +13,6 @@ const useActions = type => {
   const invoices = useSelector(state => state.invoice.invoiceData);
 
   useEffect(() => {
-    dispatch(getEmployees());
     editorData.id || initialize();
     // eslint-disable-next-line
   }, []);
@@ -24,7 +22,8 @@ const useActions = type => {
   }, [editorData.date]);
 
   const initialize = () => {
-    dispatch(setEditorData({ ...editorData, type: type, paymentType: 0, ...getNewDateProps() }));
+    const paymentType = type === getType('receipt') ? null : 0;
+    dispatch(setEditorData({ ...editorData, type: type, paymentType, ...getNewDateProps() }));
   };
 
   const update = (property, isEmployee) => event => {

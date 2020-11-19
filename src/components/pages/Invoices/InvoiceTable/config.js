@@ -13,10 +13,20 @@ const useConfig = () => {
 
   const actionMenu = useDropdownMenu();
 
+  const currencySettings = {
+    type: 'currency',
+    align: 'left',
+    currencySetting: {
+      locale: 'pl',
+      currencyCode: 'PLN'
+    }
+  };
+
   const columns = [
     {
       title: t('invoices.date'),
       field: 'date',
+      type: 'date',
       width: 190
     },
     {
@@ -32,11 +42,13 @@ const useConfig = () => {
     {
       title: t('invoices.netTotal'),
       field: 'netTotal',
+      ...currencySettings,
       width: 190
     },
     {
       title: t('invoices.grossTotal'),
       field: 'grossTotal',
+      ...currencySettings,
       width: 190
     },
     {
@@ -57,7 +69,7 @@ const useConfig = () => {
       onClick: createMenu.openMenu
     },
     {
-      icon: getIcon(MoreHoriz, { fontSize: 'large' }),
+      icon: getIcon(MoreHoriz),
       tooltip: t('table.more'),
       onClick: (event, rowData) => actionMenu.openMenu(event, rowData)
     }

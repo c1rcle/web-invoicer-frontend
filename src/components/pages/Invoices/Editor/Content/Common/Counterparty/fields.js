@@ -8,7 +8,7 @@ import EditorTextField from '../Input/EditorTextField';
 const useFields = ({ update, select, counterparty }) => {
   const { t } = useTranslation();
 
-  const counterparties = useSelector(state => state.counterparty.counterpartyData);
+  const counterparties = useSelector(state => state.invoice.counterpartyData);
 
   const getAutocomplete = (property, label) => (
     <Autocomplete

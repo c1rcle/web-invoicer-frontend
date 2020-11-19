@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Menu, MenuItem } from '@material-ui/core';
-import { deleteInvoice, setEditorData } from '../../../../slices/invoiceSlice';
+import { setEditorData } from '../../../../slices/invoiceSlice';
 import { getId } from '../../../../utils/editorUtils';
 
-const ActionMenu = ({ anchor, menuData, closeMenu }) => {
+const ActionMenu = ({ anchor, menuData, closeMenu, openDeleteDialog }) => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
 
+  const editorData = useSelector(state => state.invoice.editorData);
+
   const { id, type } = menuData || {};
 
   const handleEdit = () => {
-    dispatch(setEditorData(menuData));
+    const { tableData, ...data } = menuData;
+    dispatch(setEditorData({ ...editorData, ...data }));
   };
 
   const handleDelete = () => {
     closeMenu();
-    dispatch(deleteInvoice(id));
+    openDeleteDialog(id);
   };
 
-  const editLink = type && `/invoices/${getId(type)}`;
+  const editLink = type !== undefined && `/invoices/${getId(type)}`;
 
   return (
     <Menu anchorEl={anchor} open={Boolean(anchor)} onClose={closeMenu}>

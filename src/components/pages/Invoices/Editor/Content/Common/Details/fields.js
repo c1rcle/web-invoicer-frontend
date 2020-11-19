@@ -9,7 +9,7 @@ import ClearButton from '../Input/ClearButton';
 const useFields = ({ update, select, editorData }) => {
   const { t } = useTranslation();
 
-  const employees = useSelector(state => state.employee.employeeData);
+  const employees = useSelector(state => state.invoice.employeeData);
 
   const employee = editorData.employee;
 
@@ -39,7 +39,13 @@ const useFields = ({ update, select, editorData }) => {
       />
     ),
     Date: (
-      <DatePicker label={t('invoices.date')} onChange={update('date')} value={editorData.date} />
+      <DatePicker
+        disabled={Boolean(editorData.id)}
+        permitPast={Boolean(editorData.id)}
+        label={t('invoices.date')}
+        onChange={update('date')}
+        value={editorData.date}
+      />
     ),
     FullName: getAutocomplete('fullName', t('employees.fullName')),
     PhoneNumber: getAutocomplete('phoneNumber', t('employees.phoneNumber')),

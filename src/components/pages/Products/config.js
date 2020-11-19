@@ -12,6 +12,7 @@ const useConfig = () => {
 
   const currencySettings = fieldName => {
     return {
+      type: 'currency',
       align: 'left',
       currencySetting: {
         locale: 'pl',
@@ -65,7 +66,6 @@ const useConfig = () => {
       title: t('products.netPrice'),
       field: 'netPrice',
       width: 190,
-      type: 'currency',
       ...currencySettings('netPrice'),
       validate: row => validate('currency', row.netPrice, true)
     },
@@ -73,7 +73,6 @@ const useConfig = () => {
       title: t('products.grossPrice'),
       field: 'grossPrice',
       width: 190,
-      type: 'currency',
       ...currencySettings('grossPrice'),
       validate: row => validate('currency', row.grossPrice, true)
     },

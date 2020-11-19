@@ -1,15 +1,23 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addItem, updateItem, deleteItem } from '../../../../../../../slices/invoiceSlice';
-import { getProducts } from '../../../../../../../slices/productSlice';
+import {
+  addItem,
+  updateItem,
+  deleteItem,
+  getInvoiceItems
+} from '../../../../../../../slices/invoiceSlice';
+import { getProducts } from '../../../../../../../slices/invoiceSlice';
+import useHandleAction from '../../../../../../../hooks/useHandleAction';
 
 const useActions = () => {
   const dispatch = useDispatch();
 
-  const editorItems = useSelector(state => state.invoice.editorData.items);
+  const handleAction = useHandleAction();
 
-  const numericProperties = ['count', 'netPrice', 'grossPrice'];
+  const editorData = useSelector(state => state.invoice.editorData);
+
+  const editorItems = editorData.items;
 
   const initialItemData = () => {
     return {
@@ -25,7 +33,10 @@ const useActions = () => {
   };
 
   useEffect(() => {
-    dispatch(getProducts());
+    handleAction({
+      action: getProducts(),
+      onSuccess: () => editorData.id && dispatch(getInvoiceItems(editorData.id))
+    });
     // eslint-disable-next-line
   }, []);
 
@@ -39,7 +50,7 @@ const useActions = () => {
   };
 
   const update = (item, property) => e => {
-    const value = numericProperties.includes(property) ? e.target.valueAsNumber : e.target.value;
+    const value = property === 'count' ? e.target.valueAsNumber : e.target.value;
     dispatch(updateItem({ ...item, [property]: value }));
   };
 

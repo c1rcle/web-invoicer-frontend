@@ -14,6 +14,8 @@ const useEditor = () => {
 
   const editorData = useSelector(state => state.invoice.editorData);
 
+  const oldEditorData = useSelector(state => state.invoice.oldEditorData);
+
   const actionPending = useSelector(state => state.invoice.actionPending);
 
   const error = useSelector(state => state.invoice.error);
@@ -32,8 +34,9 @@ const useEditor = () => {
       grossTotal: getPropertyTotal('grossPrice', editorData.items)
     };
 
-    console.log(payload);
-    editorData.id ? dispatch(updateInvoice(payload)) : dispatch(createInvoice(payload));
+    editorData.id
+      ? dispatch(updateInvoice({ oldInvoice: oldEditorData, invoice: payload }))
+      : dispatch(createInvoice(payload));
   };
 
   return { onSubmit, actionPending, error, setError };

@@ -11,10 +11,10 @@ import { calculateGrossPrice, calculateNetPrice } from '../../../../../../../uti
 const useFields = ({ update, select, remove }) => {
   const { t } = useTranslation();
 
-  const products = useSelector(state => state.product.productData);
+  const products = useSelector(state => state.invoice.productData);
 
   const onPriceChange = (fieldName, item) => e => {
-    const value = e.target.value;
+    const value = e.target.valueAsNumber;
     const calculatedValue =
       fieldName === 'netPrice'
         ? calculateGrossPrice(value, item.vatRate)
@@ -41,6 +41,7 @@ const useFields = ({ update, select, remove }) => {
           options={products}
           getOptionLabel={item => item.name}
           onChange={(_, value, reason) => reason === 'select-option' && select(item, value)}
+          inputValue={item.name}
           renderOption={({ name, netPrice }) => (
             <Typography variant='body1'>{`${name} (${netPrice.toFixed(2)} zł)`}</Typography>
           )}
