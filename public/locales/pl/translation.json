@@ -170,15 +170,27 @@
     "phoneNumber": "Numer telefonu",
     "dateAdded": "Data dodania"
   },
-  "tableError": {
+  "errors": {
     "create": "Nie można dodać rekordu",
     "get": "Nie można pobrać listy rekordów",
     "update": "Nie można zaktualizować rekordu",
     "delete": "Nie można usunąć rekordu",
     "details": "Nie można pobrać danych kontrahenta",
+    "getProducts": "Nie można pobrać danych produktów",
+    "getInvoiceItems": "Nie można pobrać pozycji faktury",
+    "invoice": "Nie można zapisać faktury",
+    "invoices": "Nie można pobrać faktur",
+    "employee": "Nie można stworzyć pracownika",
+    "employees": "Nie można pobrać listy wystawców",
+    "counterparty": "Nie można stworzyć kontrahenta",
+    "counterparties": "Nie można pobrać listy kontrahentów",
+    "product": "Nie można stworzyć produktu",
+    "item": "Nie można zapisać pozycji na fakturze",
     "text": {
-      "serverDown": "Serwer może być nieosiągalny, spróbuj ponownie później.",
-      "details": "Kontrahent o podanym numerze NIP nie istnieje."
+      "create": "Serwer może być nieosiągalny lub dodawany rekord narusza zasady unikalności.",
+      "delete": "Serwer może być nieosiągalny lub usuwany rekord posiada aktywne zależności.",
+      "details": "Kontrahent o podanym numerze NIP nie istnieje.",
+      "serverDown": "Serwer może być nieosiągalny, spróbuj ponownie później."
     }
   },
   "validation": {

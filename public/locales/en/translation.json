@@ -171,12 +171,22 @@
     "phoneNumber": "Phone number",
     "dateAdded": "Date added"
   },
-  "tableError": {
+  "errors": {
     "create": "Could not add the record",
     "get": "Could not retrieve the record list",
     "update": "Could not update the record",
     "delete": "Could not delete the record",
     "details": "Could not retrieve the counterparty details",
+    "getProducts": "Could not retrieve products information",
+    "getInvoiceItems": "Could not retrieve invoice items",
+    "invoice": "Could not save the invoice",
+    "invoices": "Could not retrieve invoices",
+    "employee": "Could not create the employee",
+    "employees": "Could not retrieve issuers",
+    "counterparty": "Could not create the counterparty",
+    "counterparties": "Could not retrieve counterparties",
+    "product": "Could not create the product",
+    "item": "Could not save an invoice item",
     "text": {
       "serverDown": "Server might be down, try again later.",
       "details": "Counterparty with this TIN does not exist."

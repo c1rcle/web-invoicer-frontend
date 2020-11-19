@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, DialogContentText } from '@material-ui/core';
 import Dialog from '../common/Dialog';
 
-const ErrorDialog = ({ error, clearAction }) => {
+const ErrorDialog = ({ error, clearAction, onClose }) => {
   const [displayedError, setDisplayedError] = useState('');
 
   const { t } = useTranslation();
@@ -12,13 +12,28 @@ const ErrorDialog = ({ error, clearAction }) => {
   const dispatch = useDispatch();
 
   const closeDialog = () => {
-    dispatch(clearAction(null));
+    onClose ? onClose() : dispatch(clearAction(null));
   };
 
-  const getTitle = () => (displayedError ? t(`tableError.${displayedError}`) : '');
+  const getTitle = () => (displayedError ? t(`errors.${displayedError}`) : '');
 
-  const getText = () =>
-    t(`tableError.text.${displayedError === 'details' ? 'details' : 'serverDown'}`);
+  const getText = () => {
+    const createErrors = ['create', 'invoice', 'counterparty'];
+    const translationKey = () => {
+      switch (displayedError) {
+        case createErrors.includes(displayedError):
+          return 'create';
+        case 'delete':
+          return 'delete';
+        case 'details':
+          return 'details';
+        default:
+          return 'serverDown';
+      }
+    };
+
+    return t(`errors.text.${translationKey()}`);
+  };
 
   useEffect(() => {
     error && setDisplayedError(error);
