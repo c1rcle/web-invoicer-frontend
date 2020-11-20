@@ -18,10 +18,10 @@ const getCounterpartiesElement = (counterparty, companyData, t) => {
           widths: ['*'],
           body: [
             [{ text: t('invoices.seller'), fontSize: 14 }],
-            [{ text: counterparty.name, margin: [0, 5, 0, 0] }],
-            [counterparty.address],
-            [`${counterparty.postalCode} ${counterparty.city}`],
-            [`${t('counterparties.nip')}: ${counterparty.nip}`]
+            [{ text: companyData.companyName, margin: [0, 5, 0, 0] }],
+            [companyData.address],
+            [`${companyData.postalCode} ${companyData.city}`],
+            [`${t('counterparties.nip')}: ${companyData.nip}`]
           ]
         }
       },
@@ -33,10 +33,10 @@ const getCounterpartiesElement = (counterparty, companyData, t) => {
           widths: ['*'],
           body: [
             [{ text: t('invoices.buyer'), fontSize: 14 }],
-            [{ text: companyData.companyName, margin: [0, 5, 0, 0] }],
-            [companyData.address],
-            [`${companyData.postalCode} ${companyData.city}`],
-            [`${t('counterparties.nip')}: ${companyData.nip}`]
+            [{ text: counterparty.name, margin: [0, 5, 0, 0] }],
+            [counterparty.address],
+            [`${counterparty.postalCode} ${counterparty.city}`],
+            [`${t('counterparties.nip')}: ${counterparty.nip}`]
           ]
         }
       }
