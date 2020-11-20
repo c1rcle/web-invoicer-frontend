@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Menu, MenuItem } from '@material-ui/core';
-import { setEditorData } from '../../../../slices/invoiceSlice';
+import { exportInvoice, setEditorData } from '../../../../slices/invoiceSlice';
 import { getId } from '../../../../utils/editorUtils';
 
 const ActionMenu = ({ anchor, menuData, closeMenu, openDeleteDialog }) => {
@@ -25,6 +25,11 @@ const ActionMenu = ({ anchor, menuData, closeMenu, openDeleteDialog }) => {
     openDeleteDialog(id);
   };
 
+  const handleExport = () => {
+    closeMenu();
+    dispatch(exportInvoice(menuData));
+  };
+
   const editLink = type !== undefined && `/invoices/${getId(type)}`;
 
   return (
@@ -33,6 +38,7 @@ const ActionMenu = ({ anchor, menuData, closeMenu, openDeleteDialog }) => {
         {t('table.edit')}
       </MenuItem>
       <MenuItem onClick={handleDelete}>{t('table.delete')}</MenuItem>
+      <MenuItem onClick={handleExport}>{t('table.export')}</MenuItem>
     </Menu>
   );
 };

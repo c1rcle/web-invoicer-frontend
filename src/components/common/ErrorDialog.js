@@ -23,6 +23,8 @@ const ErrorDialog = ({ error, clearAction, onClose }) => {
       switch (displayedError) {
         case createErrors.includes(displayedError):
           return 'create';
+        case 'createInvoice':
+          return 'createInvoice';
         case 'delete':
           return 'delete';
         case 'details':

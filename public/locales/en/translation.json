@@ -32,6 +32,7 @@
     "empty": "No data to display",
     "add": "Add",
     "delete": "Delete",
+    "export": "Export",
     "edit": "Edit",
     "more": "More",
     "filter": "Filter",
@@ -142,9 +143,20 @@
     "grossTotal": "Gross total",
     "issuer": "Issuer",
     "paymentType": "Payment type",
-    "deadline": "Deadline"
+    "deadline": "Payment deadline",
+    "seller": "Seller",
+    "buyer": "Buyer",
+    "netPrice": "Net price",
+    "netValue": "Net value",
+    "vatValue": "VAT value",
+    "grossValue": "Gross value",
+    "total": "Total",
+    "amountDue": "Amount due",
+    "issuerSignature": "Authorized issuer",
+    "recipientSignature": "Authorized recipient"
   },
   "products": {
+    "ordinal": "No.",
     "title": "Products",
     "name": "Article (service) name",
     "description": "Description",
@@ -181,6 +193,8 @@
     "getInvoiceItems": "Could not retrieve invoice items",
     "invoice": "Could not save the invoice",
     "invoices": "Could not retrieve invoices",
+    "export": "Could not export the invoice",
+    "createInvoice": "Could not add an invoice",
     "employee": "Could not create the employee",
     "employees": "Could not retrieve issuers",
     "counterparty": "Could not create the counterparty",
@@ -188,6 +202,9 @@
     "product": "Could not create the product",
     "item": "Could not save an invoice item",
     "text": {
+      "createInvoice": "Creating an invoice is impossible without your company data. Click the icon in the upper right corner to set it up.",
+      "create": "Server might be down or added record violates the uniqueness rules.",
+      "delete": "Server might be down or deleted record has active dependencies.",
       "serverDown": "Server might be down, try again later.",
       "details": "Counterparty with this TIN does not exist."
     }

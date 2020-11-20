@@ -1,5 +1,8 @@
 import apiHandler from '../apis/apiHandler';
 import webInvoicerApi from '../apis/webInvoicerApi';
+import i18n from '../i18n';
+import pdfMake from '../pdfMake';
+import getDocumentDefinition from '../pdf/documentDefinition';
 import { filterProperties } from './dataUtils';
 import { getType } from './editorUtils';
 
@@ -69,6 +72,29 @@ const useInvoicePayloadCreators = () => {
       }));
 
     await updateItems(invoice.id, oldInvoice.items, items);
+  };
+
+  const exportPayload = (invoice, companyData) => async () => {
+    const items = await handleAction({
+      method: () => webInvoicerApi().get(`InvoiceItems/${invoice.id}`),
+      errorData: 'export'
+    });
+
+    const mappedItems = [];
+    for (const item of items) {
+      const productData = await handleAction({
+        method: () => webInvoicerApi().get(`Products/${item.id}`),
+        errorData: 'export'
+      });
+
+      mappedItems.push({ ...item, ...productData });
+    }
+
+    pdfMake
+      .createPdf(
+        getDocumentDefinition({ ...invoice, items: mappedItems }, companyData, i18n.t.bind(i18n))
+      )
+      .download(`${invoice.number}.pdf`);
   };
 
   const getEmployeeId = async employee => {
@@ -160,7 +186,7 @@ const useInvoicePayloadCreators = () => {
 
   const extractItem = ({ id, index, count, unit }) => ({ id, index, count, unit });
 
-  return { createPayload, getPayload, updatePayload };
+  return { createPayload, getPayload, updatePayload, exportPayload };
 };
 
 export default useInvoicePayloadCreators;

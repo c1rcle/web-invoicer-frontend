@@ -42,6 +42,13 @@ export const deleteInvoice = createAsyncThunk('invoice/delete', async (id, { dis
   return id;
 });
 
+export const exportInvoice = createAsyncThunk(
+  'invoice/export',
+  async (invoice, { dispatch, getState }) => {
+    return await handlePayloadCreator(exportPayload(invoice, getState().user.userData), dispatch);
+  }
+);
+
 export const getProducts = createAsyncThunk('invoice/getProducts', async (_, { dispatch }) => {
   return await handleAction(
     {
@@ -96,7 +103,7 @@ const handleAction = async ({ method, errorData }, dispatch) => {
   return response.data;
 };
 
-const { createPayload, getPayload, updatePayload } = useInvoicePayloadCreators();
+const { createPayload, getPayload, updatePayload, exportPayload } = useInvoicePayloadCreators();
 
 const invoiceSlice = createSlice({
   name: 'invoice',
