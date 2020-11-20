@@ -76,6 +76,16 @@ export const changePassword = createAsyncThunk(
   }
 );
 
+export const setCompanyData = createAsyncThunk(
+  'user/setCompanyData',
+  async (data, { dispatch }) => {
+    return await handleAction(
+      { endpoint: 'users/setCompanyDetails', payload: data, errorData: 'setCompanyData' },
+      dispatch
+    );
+  }
+);
+
 const handleAction = async ({ endpoint, payload, errorData }, dispatch) => {
   dispatch(setActionPending(true));
   const response = await apiHandler(webInvoicerApi().post(endpoint, payload), errorData);

@@ -8,6 +8,8 @@
   "signOut": "Wyloguj się",
   "reset": "Resetuj",
   "changePassword": "Zmień",
+  "accountChangePassword": "Zmień hasło",
+  "accountSetCompanyData": "Ustaw dane firmy",
   "accountSettings": "Ustawienia konta",
   "save": "Zapisz",
   "cancel": "Zamknij",
@@ -110,6 +112,17 @@
       }
     ],
     "footer": "Zarejestruj się i zacznij korzystać z aplikacji za darmo!"
+  },
+  "user": {
+    "success": {
+      "changePassword": "Hasło zostało pomyślnie zmienione",
+      "setCompanyData": "Dane twojej firmy zostały pomyślnie zapisane"
+    },
+    "error": {
+      "changePassword": "Nieprawidłowe hasło",
+      "passwordsEqual": "Nowe hasło musi się różnić od dotychczasowego",
+      "setCompanyData": "Dane twojej firmy nie mogły zostać zapisane, proszę spróbować później"
+    }
   },
   "invoices": {
     "issueCorrective": "Issue corrective invoice",

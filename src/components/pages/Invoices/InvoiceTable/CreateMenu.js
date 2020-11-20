@@ -18,6 +18,7 @@ const CreateMenu = ({ anchor, closeMenu }) => {
 
   const handleCreate = id => () => {
     if (id !== 'receipt' && userData.nip === null) {
+      closeMenu();
       dispatch(setError('createInvoice'));
       return;
     }

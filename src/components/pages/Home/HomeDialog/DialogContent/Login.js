@@ -3,9 +3,9 @@ import { Link as BrowserLink, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@material-ui/core';
-import FormContent from './FormContent';
+import FormContent from '../../../../common/Dialog/FormContent';
 import Email from './common/Email';
-import Password from './common/Password';
+import Password from '../../../../common/Dialog/Password';
 import { login } from '../../../../../slices/userSlice';
 import useStyles from './styles';
 

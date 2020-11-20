@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import DialogTextField from './DialogTextField';
+import DialogTextField from '../../../../../common/Dialog/DialogTextField';
 
 const Email = props => {
   const { t } = useTranslation();

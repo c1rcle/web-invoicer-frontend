@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@material-ui/core';
-import SuccessAlert from './common/SuccessAlert';
-import FormContent from './FormContent';
-import DialogTextField from './common/DialogTextField';
+import SuccessAlert from '../../../../common/Dialog/SuccessAlert';
+import FormContent from '../../../../common/Dialog/FormContent';
+import DialogTextField from '../../../../common/Dialog/DialogTextField';
 import Email from './common/Email';
-import Password from './common/Password';
+import Password from '../../../../common/Dialog/Password';
 import { register } from '../../../../../slices/userSlice';
 import useResultSuccess from '../../../../../hooks/useResultSuccess';
 import useStyles from './styles';

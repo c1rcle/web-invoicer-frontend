@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { CircularProgress, DialogContent, Typography } from '@material-ui/core';
-import SuccessAlert from './common/SuccessAlert';
+import SuccessAlert from '../../../../common/Dialog/SuccessAlert';
 import { confirmEmail } from '../../../../../slices/userSlice';
 import useResultSuccess from '../../../../../hooks/useResultSuccess';
 import useStyles from './styles';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import SuccessAlert from './common/SuccessAlert';
-import FormContent from './FormContent';
+import SuccessAlert from '../../../../common/Dialog/SuccessAlert';
+import FormContent from '../../../../common/Dialog/FormContent';
 import Email from './common/Email';
 import { resetPassword } from '../../../../../slices/userSlice';
 import useResultSuccess from '../../../../../hooks/useResultSuccess';

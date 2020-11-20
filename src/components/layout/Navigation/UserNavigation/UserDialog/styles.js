@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  successAlert: {
+  dialogAlert: {
     margin: theme.spacing(3, 3, 0)
   }
 }));

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
 import ErrorDialog from '../../../common/ErrorDialog';
-import ValidatorForm from './ValidatorForm';
+import ValidatorForm from '../../../common/ValidatorForm';
 import LoadingBackdrop from './LoadingBackdrop';
 import Header from './Header';
 import Content from './Content';

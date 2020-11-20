@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import SuccessAlert from './common/SuccessAlert';
-import FormContent from './FormContent';
-import Password from './common/Password';
+import SuccessAlert from '../../../../common/Dialog/SuccessAlert';
+import FormContent from '../../../../common/Dialog/FormContent';
+import Password from '../../../../common/Dialog/Password';
 import { changeResetPassword } from '../../../../../slices/userSlice';
 import useResultSuccess from '../../../../../hooks/useResultSuccess';
 

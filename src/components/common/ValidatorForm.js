@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { ValidatorForm as Form } from 'react-material-ui-form-validator';
-import useValidation from '../../../../hooks/useValidation';
+import useValidation from '../../hooks/useValidation';
 
-const ValidatorForm = ({ children, ...props }) => {
+const ValidatorForm = ({ children, validatorRef, ...props }) => {
   const { validate } = useValidation();
 
   const booleanResult = result => (result === true ? true : false);
@@ -21,7 +21,11 @@ const ValidatorForm = ({ children, ...props }) => {
     // eslint-disable-next-line
   }, []);
 
-  return <Form {...props}>{children}</Form>;
+  return (
+    <Form {...props} ref={validatorRef}>
+      {children}
+    </Form>
+  );
 };
 
 export default ValidatorForm;
