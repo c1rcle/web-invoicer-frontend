@@ -9,7 +9,9 @@
   "signOut": "Sign out",
   "reset": "Reset",
   "changePassword": "Change",
-  "accountSettings": "Account settings",
+  "accountChangePassword": "Change password",
+  "accountSetCompanyData": "Set company data",
+  "save": "Save",
   "cancel": "Cancel",
   "drawer": {
     "language": "Language",
@@ -31,7 +33,9 @@
     "empty": "No data to display",
     "add": "Add",
     "delete": "Delete",
+    "export": "Export",
     "edit": "Edit",
+    "more": "More",
     "filter": "Filter",
     "deleteText": "Are you sure you want to delete this row?",
     "cancel": "Cancel",
@@ -109,25 +113,67 @@
     ],
     "footer": "Register your account and get started for free!"
   },
+  "user": {
+    "success": {
+      "changePassword": "Your password has been successfully changed",
+      "setCompanyData": "Your company data has been successfully set"
+    },
+    "error": {
+      "changePassword": "Incorrect password",
+      "passwordsEqual": "Passwords cannot be equal",
+      "setCompanyData": "Could not set your company data, please try again later"
+    }
+  },
   "invoices": {
+    "issueCorrective": "Issue corrective invoice",
     "options": [
       { "id": "vat", "label": "VAT invoice" },
       { "id": "proforma", "label": "Proforma invoice" },
-      { "id": "receipt", "label": "Receipt" },
-      { "id": "margin", "label": "VAT margin invoice" }
+      { "id": "receipt", "label": "Receipt" }
     ],
+    "header": {
+      "vat": "VAT invoice",
+      "proforma": "Proforma invoice",
+      "receipt": "Receipt",
+      "corrective": "Corrective invoice"
+    },
+    "editor": {
+      "details": "Details",
+      "counterparty": "Counterparty",
+      "products": "Products",
+      "payment": "Payment",
+      "netTotal": "Net total: {{sum}} zł",
+      "vatTotal": "VAT total: {{sum}} zł",
+      "grossTotal": "Amount due: {{sum}} zł"
+    },
+    "paymentTypes": ["Transfer", "Cash", "On delivery", "Card"],
     "title": "Invoices",
     "date": "Date of issue",
     "number": "Number",
     "counterparty": "Counterparty",
+    "netTotal": "Net total",
+    "grossTotal": "Gross total",
+    "issuer": "Issuer",
+    "paymentType": "Payment type",
+    "deadline": "Payment deadline",
+    "seller": "Seller",
+    "buyer": "Buyer",
     "netPrice": "Net price",
-    "grossPrice": "Gross price",
-    "issuer": "Issuer"
+    "netValue": "Net value",
+    "vatValue": "VAT value",
+    "grossValue": "Gross value",
+    "total": "Total",
+    "amountDue": "Amount due",
+    "issuerSignature": "Authorized issuer",
+    "recipientSignature": "Authorized recipient"
   },
   "products": {
+    "ordinal": "No.",
     "title": "Products",
     "name": "Article (service) name",
     "description": "Description",
+    "count": "Count",
+    "unit": "Unit",
     "netPrice": "Net price",
     "grossPrice": "Gross price",
     "vatRate": "VAT rate",
@@ -149,13 +195,28 @@
     "phoneNumber": "Phone number",
     "dateAdded": "Date added"
   },
-  "tableError": {
+  "errors": {
     "create": "Could not add the record",
     "get": "Could not retrieve the record list",
     "update": "Could not update the record",
     "delete": "Could not delete the record",
     "details": "Could not retrieve the counterparty details",
+    "getProducts": "Could not retrieve products information",
+    "getInvoiceItems": "Could not retrieve invoice items",
+    "invoice": "Could not save the invoice",
+    "invoices": "Could not retrieve invoices",
+    "export": "Could not export the invoice",
+    "createInvoice": "Could not add an invoice",
+    "employee": "Could not create the employee",
+    "employees": "Could not retrieve issuers",
+    "counterparty": "Could not create the counterparty",
+    "counterparties": "Could not retrieve counterparties",
+    "product": "Could not create the product",
+    "item": "Could not save an invoice item",
     "text": {
+      "createInvoice": "Creating an invoice is impossible without your company data. Click the icon in the upper right corner to set it up.",
+      "create": "Server might be down or added record violates the uniqueness rules.",
+      "delete": "Server might be down or deleted record has active dependencies.",
       "serverDown": "Server might be down, try again later.",
       "details": "Counterparty with this TIN does not exist."
     }
@@ -165,6 +226,7 @@
     "validNip": "Must be a valid TIN",
     "currency": "Must be a positive currency value",
     "phoneNumber": "Must be a valid phone number",
-    "postalCode": "Must be a valid postal code"
+    "postalCode": "Must be a valid postal code",
+    "positiveInt": "Must be a positive value"
   }
 }
