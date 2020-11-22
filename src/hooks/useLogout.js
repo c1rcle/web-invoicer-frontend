@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { logout } from '../slices/userSlice';
 
 const useLogout = () => {
   const dispatch = useDispatch();
@@ -7,7 +6,7 @@ const useLogout = () => {
   return () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
-    dispatch(logout());
+    dispatch({ type: 'user/logout' });
   };
 };
 

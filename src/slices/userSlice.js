@@ -111,10 +111,6 @@ const userSlice = createSlice({
     setUserData(state, action) {
       state.userData = action.payload;
       state.isLoggedIn = true;
-    },
-    logout(state) {
-      state.userData = null;
-      state.isLoggedIn = false;
     }
   },
   extraReducers: {
@@ -125,6 +121,6 @@ const userSlice = createSlice({
   }
 });
 
-export const { setActionPending, setError, setUserData, logout } = userSlice.actions;
+export const { setActionPending, setError, setUserData } = userSlice.actions;
 
 export default userSlice.reducer;
