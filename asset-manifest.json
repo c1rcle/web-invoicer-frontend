@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/web-invoicer-frontend/static/css/main.47bed4eb.chunk.css",
-    "main.js": "/web-invoicer-frontend/static/js/main.dad36aee.chunk.js",
-    "main.js.map": "/web-invoicer-frontend/static/js/main.dad36aee.chunk.js.map",
+    "main.js": "/web-invoicer-frontend/static/js/main.4d692bb9.chunk.js",
+    "main.js.map": "/web-invoicer-frontend/static/js/main.4d692bb9.chunk.js.map",
     "runtime-main.js": "/web-invoicer-frontend/static/js/runtime-main.7ed4cab8.js",
     "runtime-main.js.map": "/web-invoicer-frontend/static/js/runtime-main.7ed4cab8.js.map",
     "static/js/2.3e5df05d.chunk.js": "/web-invoicer-frontend/static/js/2.3e5df05d.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/5.bfa04b96.chunk.js": "/web-invoicer-frontend/static/js/5.bfa04b96.chunk.js",
     "static/js/5.bfa04b96.chunk.js.map": "/web-invoicer-frontend/static/js/5.bfa04b96.chunk.js.map",
     "index.html": "/web-invoicer-frontend/index.html",
-    "precache-manifest.3c89a8d9f861c5e964474e9e4546ec0e.js": "/web-invoicer-frontend/precache-manifest.3c89a8d9f861c5e964474e9e4546ec0e.js",
+    "precache-manifest.ddcbc198ecaa5521b863ca6fbf99797d.js": "/web-invoicer-frontend/precache-manifest.ddcbc198ecaa5521b863ca6fbf99797d.js",
     "service-worker.js": "/web-invoicer-frontend/service-worker.js",
     "static/css/main.47bed4eb.chunk.css.map": "/web-invoicer-frontend/static/css/main.47bed4eb.chunk.css.map",
     "static/js/2.3e5df05d.chunk.js.LICENSE.txt": "/web-invoicer-frontend/static/js/2.3e5df05d.chunk.js.LICENSE.txt",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.7ed4cab8.js",
     "static/js/2.3e5df05d.chunk.js",
     "static/css/main.47bed4eb.chunk.css",
-    "static/js/main.dad36aee.chunk.js"
+    "static/js/main.4d692bb9.chunk.js"
   ]
 }
