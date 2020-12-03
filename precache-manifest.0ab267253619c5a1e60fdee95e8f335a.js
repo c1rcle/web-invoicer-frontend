@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e0457dd05faa0c562eda69a084144338",
+    "revision": "0c5150af9c4df80c5935bd18cb1ddb53",
     "url": "/web-invoicer-frontend/index.html"
   },
   {
-    "revision": "d1adfa89de69ed7ee97c",
+    "revision": "31f271634b82d10124b6",
     "url": "/web-invoicer-frontend/static/css/main.47bed4eb.chunk.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/web-invoicer-frontend/static/js/5.cb52c834.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d1adfa89de69ed7ee97c",
-    "url": "/web-invoicer-frontend/static/js/main.e225221a.chunk.js"
+    "revision": "31f271634b82d10124b6",
+    "url": "/web-invoicer-frontend/static/js/main.6d01baba.chunk.js"
   },
   {
     "revision": "de4b387a53ec8e91372f",

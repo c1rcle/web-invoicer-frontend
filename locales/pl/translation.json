@@ -214,7 +214,7 @@
     "product": "Nie można stworzyć produktu",
     "item": "Nie można zapisać pozycji na fakturze",
     "text": {
-      "createInvoice": "Dodanie faktury jest niemożliwe bez danych twojej firmy. Kliknij ikonę w prawym górnym rogu, by je ustawić.",
+      "createInvoice": "Dodanie faktury/paragonu jest niemożliwe bez danych twojej firmy. Kliknij ikonę w prawym górnym rogu, by je ustawić.",
       "create": "Serwer może być nieosiągalny lub dodawany rekord narusza zasady unikalności.",
       "delete": "Serwer może być nieosiągalny lub usuwany rekord posiada aktywne zależności.",
       "details": "Kontrahent o podanym numerze NIP nie istnieje.",
