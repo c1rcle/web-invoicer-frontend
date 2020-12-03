@@ -214,7 +214,7 @@
     "product": "Could not create the product",
     "item": "Could not save an invoice item",
     "text": {
-      "createInvoice": "Creating an invoice is impossible without your company data. Click the icon in the upper right corner to set it up.",
+      "createInvoice": "Creating an invoice/receipt is impossible without your company data. Click the icon in the upper right corner to set it up.",
       "create": "Server might be down or added record violates the uniqueness rules.",
       "delete": "Server might be down or deleted record has active dependencies.",
       "serverDown": "Server might be down, try again later.",

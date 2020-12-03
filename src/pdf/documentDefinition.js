@@ -3,20 +3,14 @@ import getCounterpartiesElement from './counterpartiesElement';
 import getItemsElement from './itemsElement';
 import getSummaryElement from './summaryElement';
 import getFooterElement from './footerElement';
-import { getType } from '../utils/editorUtils';
 
 const getDocumentDefinition = (invoice, companyData, t) => {
   const { employee, counterparty, items, type } = invoice;
 
-  const counterpartiesElement = () => {
-    if (type !== getType('receipt'))
-      return getCounterpartiesElement(counterparty, companyData, t);
-  };
-
   return {
     content: [
       ...getHeaderElement(invoice, t),
-      counterpartiesElement(),
+      getCounterpartiesElement(counterparty, companyData, t),
       getItemsElement(items, type, t),
       ...getSummaryElement(invoice, t)
     ],

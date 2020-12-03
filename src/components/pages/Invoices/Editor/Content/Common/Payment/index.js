@@ -21,7 +21,7 @@ const Payment = () => {
             <Picker
               label={t('invoices.paymentType')}
               onChange={update('paymentType')}
-              value={editorData?.paymentType || 0}>
+              value={editorData.paymentType || 0}>
               {paymentTypes.map((value, index) => (
                 <MenuItem key={index} value={index}>
                   {value}
@@ -34,7 +34,7 @@ const Payment = () => {
               minDate={Boolean(editorData.id) && new Date(editorData.date)}
               label={t('invoices.deadline')}
               onChange={update('paymentDeadline')}
-              value={editorData?.paymentDeadline}
+              value={new Date(editorData.paymentDeadline)}
             />
           </Grid>
         </Grid>

@@ -1,5 +1,3 @@
-import { getType } from "../utils/editorUtils";
-
 const getItemsElement = (items, type, t) => {
   const vatRateStrings = [
     '23%',
@@ -18,7 +16,7 @@ const getItemsElement = (items, type, t) => {
         return rowIndex === 0 ? '#EEEEEE' : null;
       }
     },
-    margin: [0, type === getType('receipt') ? 0 : 40, 0, 0],
+    margin: [0, 40, 0, 0],
     table: {
       headerRows: 1,
       widths: ['auto', '*', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto', 'auto'],

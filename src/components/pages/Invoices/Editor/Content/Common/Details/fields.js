@@ -13,6 +13,8 @@ const useFields = ({ update, select, editorData }) => {
 
   const employee = editorData.employee;
 
+  const parsableDate = new Date(editorData.date);
+
   const getAutocomplete = (property, label) => (
     <Autocomplete
       disabled={Boolean(employee?.id)}
@@ -40,10 +42,10 @@ const useFields = ({ update, select, editorData }) => {
     ),
     Date: (
       <DatePicker
-        minDate={Boolean(editorData.id) && new Date(editorData.date)}
+        minDate={Boolean(editorData.id) && parsableDate}
         label={t('invoices.date')}
         onChange={update('date')}
-        value={editorData.date}
+        value={parsableDate}
       />
     ),
     FullName: getAutocomplete('fullName', t('employees.fullName')),

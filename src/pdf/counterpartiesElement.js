@@ -25,7 +25,7 @@ const getCounterpartiesElement = (counterparty, companyData, t) => {
           ]
         }
       },
-      {
+      counterparty && {
         layout: layout,
         margin: [20, 0, 0, 0],
         table: {
